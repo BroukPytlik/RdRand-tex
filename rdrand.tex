@@ -31,6 +31,7 @@
 \usepackage{syntonly}
 %\syntaxonly
 
+
 % =======================================================================
 % balíèek "hyperref" vytváøí klikací odkazy v pdf, pokud tedy pou¾ijeme pdflatex
 % problém je, ¾e balíèek hyperref musí být uveden jako poslední, tak¾e nemù¾e
@@ -101,16 +102,42 @@
 %\acknowledgment{V této sekci je mo¾no uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc
 %(externí zadavatel, konzultant, apod.).}
 
+
+% my macro for function declaration
+\newcommand{\FunctionDeclareNE}[4]{%
+  \phantomsection
+  \label{fnt:#2}
+  {#1} {\tt {#2}  (} {#3} {\tt)} {#4}
+  \endgroup}
+% because underscore is a special character and has to be escaped
+% but escaped sequences must not be in \label
+\def\FunctionDeclare{\begingroup 
+\catcode`\_=12
+\FunctionDeclareNE}
+
+% my macro for linking to a function declaration
+\newcommand{\functionNE}[1]{%
+  \hyperref[fnt:#1]{\tt #1}
+  \endgroup}
+% because underscore is a special character and has to be escaped
+% but escaped sequences must not be in \label
+\def\function{\begingroup 
+\catcode`\_=12
+\functionNE}
+
+
+
 \begin{document}
+
 \pagenumbering{Alph}
   % Vysazeni titulnich stran
   % ----------------------------------------------
   \maketitle
   % Obsah
   % ----------------------------------------------
+\pagenumbering{arabic}
   \tableofcontents
   
-\pagenumbering{arabic}
   % Seznam obrazku a tabulek (pokud prace obsahuje velke mnozstvi obrazku, tak se to hodi)
   % \listoffigures
   % \listoftables 

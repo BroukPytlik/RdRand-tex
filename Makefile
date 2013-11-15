@@ -14,6 +14,7 @@ $(CO).ps: $(CO).dvi
 
 $(CO).pdf: clean
 	pdflatex $(CO)
+	pdflatex $(CO)
 	bibtex $(CO)
 	pdflatex $(CO)
 	pdflatex $(CO)

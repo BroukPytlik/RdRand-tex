@@ -2,7 +2,7 @@
 % (c) Michal Bidlo, Bohuslav Køena, 2008
 
 \chapter{Prologue}
-Generally about random numbers...
+Generally about random numbers... 
 
 \chapter{Random numbers and deterministic machines}
 How to generate them?
@@ -19,7 +19,21 @@ Informations about the instruction itself - from Intell's documentation, present
 What have I done?
 
 \section{The library}
-API
+\section{API} 
+The library, if installed into the system, can be included by using {\tt \#include <rdrand-VERSION/rdrand.h>}. In the time of this work, the library is using the following API.
+
+\subsection{Constants}
+\begin{description}
+  \item[RDRAND\_SUCCESS] Returned by function if a random number(s) was generated correctly.
+  \item[RDRAND\_FAILURE] Returned by function if a random number(s) was NOT generated correctly.
+  \item[RDRAND\_SUPPORTED] Returned by \function{rdrand_testSupport} function if the CPU support RdRand.
+  \item[RDRAND\_UNSUPPORTED] Returned by test-support function if the CPU doesn't know RdRand.
+\end{description}
+
+
+\subsection{Functions}
+\FunctionDeclare{int}{rdrand_testSupport}{void}{blah blah}
+
 
 \section{The generator}
 Usage, failure recovery, ...
