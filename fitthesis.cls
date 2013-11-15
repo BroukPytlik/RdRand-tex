@@ -8,7 +8,8 @@
 \ProvidesClass{fitthesis}[2007/04/13 Sablona pro BP/DP]
 
 %Vychozi hodnoty parametru
-\newif\ifczech \let\ifczech\iftrue
+%\newif\ifczech \let\ifczech\iftrue
+\newif\ifczech \let\ifczech\iffalse
 \newif\ifcover \let\ifcover\iffalse
 \newif\ifPrint \let\ifPrint\iffalse
 \newif\ifWis   \let\ifWis\iftrue

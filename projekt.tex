@@ -28,7 +28,8 @@
 \DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
 
 %zde muzeme vlozit vlastni balicky
-
+\usepackage{syntonly}
+%\syntaxonly
 
 % =======================================================================
 % balíèek "hyperref" vytváøí klikací odkazy v pdf, pokud tedy pou¾ijeme pdflatex
@@ -63,7 +64,7 @@
   %author.title.p=Bc., %titul pred jmenem (nepovinne)
   %author.title.a=PhD, %titul za jmenem (nepovinne)
   %Ustav
-  department=???, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
+  department=UPSY, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
   %Skolitel
   supervisor= Tomá¹ Ka¹párek, %jmeno prijmeni skolitele
   supervisor.title.p=Ing.,   %titul pred jmenem (nepovinne)
@@ -101,6 +102,7 @@
 %(externí zadavatel, konzultant, apod.).}
 
 \begin{document}
+\pagenumbering{Alph}
   % Vysazeni titulnich stran
   % ----------------------------------------------
   \maketitle
@@ -108,6 +110,7 @@
   % ----------------------------------------------
   \tableofcontents
   
+\pagenumbering{arabic}
   % Seznam obrazku a tabulek (pokud prace obsahuje velke mnozstvi obrazku, tak se to hodi)
   % \listoffigures
   % \listoftables 
