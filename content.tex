@@ -1,52 +1,16 @@
 %=========================================================================
-% (c) Michal Bidlo, Bohuslav Køena, 2008
+% (c) Jan Tulak (2013)
 
-\chapter{Prologue}
-Generally about random numbers... 
+\input{c_prologue}
 
-\chapter{Random numbers and deterministic machines}
-How to generate them?
-\section{Pseudorandom numbers}
-How pseudorandom numbers can be generated.
+\input{c_rdrand_instruction}
 
-\section{Real random numbers}
-We need some entropy source - user input, network communication... and pass it as a seed to pseudorandom generator.
+\input{c_my_work}
 
-\chapter{The Intell's RdRand instruction}
-Informations about the instruction itself - from Intell's documentation, presentations...
+\input{c_performance}
 
-\chapter{My work}
-What have I done?
+\input{c_statistical}
 
-\section{The library}
-\section{API} 
-The library, if installed into the system, can be included by using {\tt \#include <rdrand-VERSION/rdrand.h>}. In the time of this work, the library is using the following API.
+\input{c_conclusion}
 
-\subsection{Constants}
-\begin{description}
-  \item[RDRAND\_SUCCESS] Returned by function if a random number(s) was generated correctly.
-  \item[RDRAND\_FAILURE] Returned by function if a random number(s) was NOT generated correctly.
-  \item[RDRAND\_SUPPORTED] Returned by \function{rdrand_testSupport} function if the CPU support RdRand.
-  \item[RDRAND\_UNSUPPORTED] Returned by test-support function if the CPU doesn't know RdRand.
-\end{description}
-
-
-\subsection{Functions}
-\FunctionDeclare{int}{rdrand_testSupport}{void}{blah blah}
-
-
-\section{The generator}
-Usage, failure recovery, ...
-
-\section{Tests}
-Usage, principes...
-
-\chapter{Performance testing}
-Data
-
-\chapter{Statistical testing}
-Data
-
-\chapter{Conclusion}
-The End
 %=========================================================================

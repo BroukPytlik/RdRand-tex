@@ -1,0 +1,110 @@
+%=========================================================================
+
+\chapter{My work} \label{sec:my-work}
+According the needs of RedHat I created a library providing basic interface over the RdRand instruction as well as a simple application using this library.
+
+\TODO{fedora package} % TODO Fedora Package
+
+\section{The library}  \label{sec:library}
+
+
+\section{The library - API} \label{sec:library-api}
+The library, if installed into the system, can be included by using {\tt \#include <rdrand-VERSION/rdrand.h>}. In the time of this work, the library is using the following API.
+
+\subsection{Constants}
+\begin{description}
+  \item[RDRAND\_SUCCESS] Returned by function if a random number(s) was generated correctly.
+  \item[RDRAND\_FAILURE] Returned by function if a random number(s) was NOT generated correctly.
+  \item[RDRAND\_SUPPORTED] Returned by \function{rdrand_testSupport} function if the CPU support RdRand.
+  \item[RDRAND\_UNSUPPORTED] Returned by \function{rdrand_testSupport} function if the CPU doesn't know RdRand.
+  
+\end{description}
+
+
+\subsection{Functions}
+
+\subsubsection{Non-generating functions}
+
+These functions are not generating any random numbers.\\
+
+\FunctionDeclare{int}{rdrand_testSupport}{void}{Detect if the CPU support RdRand instruction. Returns {\tt RDRAND_SUPPORTED}  or {\tt RDRAND_UNSUPPORTED}.}\\
+
+\subsubsection{Simple wrappers}
+These methods are simply wrappers of an ASM code which generates only one n-bits number. Although these functions are provided, I expect that they will be used only infrequently. Returns {\tt RDRAND\_SUCCESS} or {\tt RDRAND\_FAILURE}.\\
+
+\FunctionDeclare{int}{rdrand16_step}{uint16\_t *x}{Generates 16 bits of entropy through RdRand.}\\
+
+\FunctionDeclare{int}{rdrand32_step}{uint32\_t *x}{Generates 32 bits of entropy through RdRand.}\\
+
+\FunctionDeclare{int}{rdrand64_step}{uint64\_t *x}{Generates 64 bits of entropy through RdRand.}\\
+
+\subsubsection{Generating single value}
+More complex functions than the previous -- in case of RdRand failure, these functions will try it again for the specified amount of times. Negative {\tt retry\_limit} implies default value with which the library is compiled. Returns {\tt RDRAND\_SUCCESS} or {\tt RDRAND\_FAILURE}.\\
+
+
+\FunctionDeclare{int}{rdrand_get_uint16_retry}{uint16\_t *x, int retry\_limit}{Generates 16 bits of entropy through RdRand.}\\
+
+\FunctionDeclare{int}{rdrand_get_uint32_retry}{uint32\_t *x, int retry\_limit}{Generates 32 bits of entropy through RdRand.}\\
+
+\FunctionDeclare{int}{rdrand_get_uint64_retry}{uint64\_t *x, int retry\_limit}{Generates 64 bits of entropy through RdRand.}\\
+
+\subsubsection{Generating longer values}
+As a single random value is usually not enough, the library provides also functions for generating multiple bytes of random values. For higher speed, all these functions are generating values in 64bit blocks when it is possible.
+These functions also accept {\tt retry\_limit} as the previous ones. Returns bytes of sucessfully generated values.\\
+
+
+\FunctionDeclare{size\_t}{rdrand_get_bytes_retry}{void *dest, const size\_t size, int retry\_limit}{Generate {\tt size} bytes of random data.}\\
+
+
+\FunctionDeclare{size\_t}{rdrand_get_uint64_array_retry}{void *dest, const unsigned int count, int retry\_limit}{Generate {\tt count} of 64bit blocks of random data.}\\
+
+\FunctionDeclare{size\_t}{rdrand_get_uint32_array_retry}{void *dest, const unsigned int count, int retry\_limit}{Generate {\tt count} of 32bit blocks of random data.}\\
+
+\FunctionDeclare{size\_t}{rdrand_get_uint16_array_retry}{void *dest, const unsigned int count, int retry\_limit}{Generate {\tt count} of 16bit blocks of random data.}\\
+
+\FunctionDeclare{size\_t}{rdrand_get_uint8_array_retry}{void *dest, const unsigned int count, int retry\_limit}{Generate {\tt count} of 8bit blocks of random data.}\\
+
+\FunctionDeclare{size\_t}{rdrand_fwrite}{FILE *f, const size\_t count, int retry\_limit}{Generate {\tt count} bytes of random values and write it to the {\tt f} stream}\\
+
+\subsubsection{Secure generating}
+As is documented in the chapter~\nameref{sec:rdrand-instruction}, the CPU is using an~pseudorandom generator in~connection with an~entropy source. If the~user want to avoid of the~risk of~lower entropy for some reason, it is possible to use these functions, that~guarantee by~reseeding the internal entropy pool, that each~64bit generated value is independent on the~previous or the~next one. For the~principle, also see \nameref{sec:rdrand-instruction} chapter.\\
+
+
+
+\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_delay}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by waiting few microseconds before each generating.}\\
+
+
+\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_skip}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by generating and throwing away 1024 values per one saved.}\\
+
+
+\section{The generator} \label{sec:generator}
+\TODO{give the app a name} % TODO give the app a name
+
+Because the library is only for C~language, using it for example with shell scripts would be difficult. For this reason I have created also a~simple executable application, which is installed with the~library, and which can be used for generating random values without the~need of using C~language.
+
+The generator has four optional command-line parameters to~modify its behavior. Firstly, {\tt --amount} can be used to generate specific amount of~bytes of~randomness. Suffixes K, M, G and T are accepted for easier use and when this option is not used, then the~application is generating indefinitely until it is stopped, for example by KILL signal.
+
+The second parameter is {\tt --method}, which allows user to change the default method \function{rdrand_get_bytes_retry} for the~two reseeding functions. The~names of the~methods are made shorter for the~interaction with the~user. Third parameter {\tt --output} is used for specifying the output file -- without it, the random values are printed on {\tt stdout}. 
+
+The {\tt --threads} can specify, how many threads the~generator will run in parallel for better performance. By default it is set to 4, because according of Intel~\cite{IntelArk}, in Ivy Bridge generation of CPUs, in which the~instruction was added, only Celeron and Pentium families has less than 4 processing units.
+
+\TODO{What families RdRand has? All?} % TODO What families RdRand has? All?
+
+\subsection{Underflow recovery}
+As stated in the~chapter \nameref{sec:rdrand-instruction}, it should not be possible to suck random data from the~internal generator faster, than it is able to generate it, but because on one of the~tested machines the~CPU wasn't able to handle more than four threads at once (so the instruction frequently returned failure instead of a random value), the~need for some recovery from such situation was obvious.\footnote{Unfortunately, I cannot provide a statistic probability of such situation -- only one machine from all I have tried had this problem. This one case just showed that it is possible.} 
+
+\TODO{describe the used method once it will be final.} % TODO Describe the used method once it will be final.
+
+\section{Tests} \label{sec:tests}
+For the need of performance testing I wrote another application, as well as small set of scripts for automating of tests. And after getting the code on decent performance, I also used some statistical tests batteries.
+
+\subsection{Throughput test}
+During 
+
+\subsection{Scripts}
+The set of Bash and Python scripts is there for automatic run of the throughput test with different count of threads, parsing the values and then creating a graph. You can see the outputs in chapter \nameref{sec:performance}.
+
+\subsection{Statistical test}
+
+
+%=========================================================================

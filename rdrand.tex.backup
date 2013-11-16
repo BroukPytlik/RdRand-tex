@@ -80,7 +80,7 @@
   abstract.cs={Cílem této bakaláøské práce bylo vytvoøení linuxové knihovny pro usnadnìní práce s instrukcí RdRand na procesorech Intel v aplikacích tøetích stran, podle po¾adavkù spoleènosti Red Hat. V práci jsou rovnì¾ poskynuty a vyhodnoceny výsledky z výkonnostních a statistických testù.}, % abstrakt v ceskem jazyce
   abstract.en={This thesis aimed to creation of a Linux library for easier usage of RdRand instruction on Intel CPUs in third-party applications according requirements of Red Hat. Also, results of performance and statistical tests are included. }, % abstrakt v anglickem jazyce
   %Prohlaseni
-  declaration={Hereby I declare that I wrote this work on my own and all used sources are stated and correctly noted as citations.},
+  declaration={Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana ...},
   %Podekovani (nepovinne)
   acknowledgment={Zde je mo¾né uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc.} % nepovinne
 }
@@ -126,7 +126,7 @@
 \catcode`\_=12
 \functionNE}
 
-% pretty obvious :-)
+
 \newcommand{\TODO}[1]{\noindent\textbf{TODO: #1}}
 
 \begin{document}
