@@ -102,6 +102,7 @@
 %\acknowledgment{V této sekci je mo¾no uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc
 %(externí zadavatel, konzultant, apod.).}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % my macro for function declaration
 \newcommand{\FunctionDeclareNE}[4]{%
@@ -126,8 +127,35 @@
 \catcode`\_=12
 \functionNE}
 
+%%%%%%%%%%%%%%%%%%%%%
+% my macro for function declaration
+\newcommand{\MachineDeclareNE}[3]{%
+  \noindent
+  \phantomsection
+  \label{machines:#1}
+  \textbf{#1}\\CPU: {\it #2}\\Notes: {\it #3}\\
+  \endgroup}
+% because underscore is a special character and has to be escaped
+% but escaped sequences must not be in \label
+\def\machineDeclare{\begingroup 
+\catcode`\_=12
+\MachineDeclareNE}
+
+\newcommand{\machineNE}[1]{%
+  \hyperref[machines:#1]{\it #1}
+  \endgroup}
+% because underscore is a special character and has to be escaped
+% but escaped sequences must not be in \label
+\def\machine{\begingroup 
+\catcode`\_=12
+\machineNE}
+
+%%%%%%%%%%%%%%%%%%%%%
+
 % pretty obvious :-)
 \newcommand{\TODO}[1]{\noindent\textbf{TODO: #1}}
+
+%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
