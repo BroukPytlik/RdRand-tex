@@ -1,13 +1,15 @@
 %=========================================================================
 \chapter{The library}  \label{chap:library}
 According the needs of RedHat I created a library providing basic interface over the RdRand instruction as well as a simple application using this library.
+This chapter describes content of files {\tt src/librdrand.c} and {\tt src/librdrand.h}.
 
 
 \TODO{fedora package} % TODO Fedora Package
+\TODO{Longer introduction: Why such solution, who did it... Pinpoint to the summary in chap. 2}% TODO longer introduction
 
 
 \section{API} \label{sec:library-api}
-The library, if installed into the system, can be included by using {\tt \#include <rdrand-VERSION/rdrand.h>}. In the time of this work, the library is using the following API.
+The library, if installed into the system, can be included by using {\tt \#include <librdrand.h>}. In the time of this work, the library is using the following API.
 
 \subsection{Constants}
 \begin{description}
@@ -65,7 +67,7 @@ These functions also accept {\tt retry\_limit} as the previous ones. Returns byt
 \FunctionDeclare{size\_t}{rdrand_fwrite}{FILE *f, const size\_t count, int retry\_limit}{Generate {\tt count} bytes of random values and write it to the {\tt f} stream}\\
 
 \subsubsection{Secure generating}
-As is documented in the chapter~\nameref{sec:rdrand-instruction}, the CPU is using an~pseudorandom generator in~connection with an~entropy source. If the~user want to avoid of the~risk of~lower entropy for some reason, it is possible to use these functions, that~guarantee by~reseeding the internal entropy pool, that each~64bit generated value is independent on the~previous or the~next one. For the~principle, also see \nameref{sec:rdrand-instruction} chapter.\\
+As is documented in the \fullref{chap:rdrand-instruction}, the CPU is using an~pseudorandom generator in~connection with an~entropy source. If the~user want to avoid of the~risk of~lower entropy for some reason, it is possible to use these functions, that~guarantee by~reseeding the internal entropy pool, that each~64bit generated value is independent on the~previous or the~next one. For the~principle, also see \nameref{chap:rdrand-instruction} chapter.\\
 
 
 
@@ -73,5 +75,28 @@ As is documented in the chapter~\nameref{sec:rdrand-instruction}, the CPU is usi
 
 
 \FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_skip}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by generating and throwing away 1024 values per one saved.}\\
+
+
+\section{RdRand calling}
+The RdRand instruction is called in three functions: \function{rdrand16_step}, \function{rdrand32_step} and \function{rdrand64_step}. In case that the compiler compiling this library knows RdRand instruction and {\tt x86intrin.h} header file is included, the three named functions are just a renaming of {\tt \_rdrandXX\_step} functions. But if the compiler do not know the instruction (for example when the version is too old), or the header file is not installed on the system, then the functions directly call a byte code.
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=C, numbers=left, numberstyle=\tiny\color{black},caption= {Byte code called in {\tt rdrand64\_step}.}]
+ asm volatile (".byte 0x48; .byte 0x0f; .byte 0xc7; .byte 0xf0; setc %1"
+                      : "=a" (*x), "=qm" (err));
+\end{lstlisting}
+
+Byte code instead of instruction in the assembly language is used to support compilers who do not know about RdRand instruction. A specific example of such can be {\em RedHat Enterprise Linux 5}, whose GCC compiler is from year 2008\footnote{According information provided by GCC itself on any machine with RHEL 5.}. 
+
+If the library is compiled for a 32-bit system, then the \function{rdrand64_step} function contain two calls of the RdRand instruction to fill lower and higher half of a 64-bit number, as it is not possible to use 64-bits registers on a 32-bit system. 
+
+\section{Intelligent generating}
+Most of the functions of the library that generates an array fill the array values one by one, as it was passed to the function, just using larger data type if possible, having as little operations as possible. The \function{rdrand_get_bytes_retry} is the only one that is applying a simple heuristic for achieving the best possible speed even when passed memory area is not aligned to 64-bit blocks.
+
+The function computes offset of the first 64-bit aligned block within the given memory space and then, if the offset is different than 0, it fills the few unaligned bytes at the beginning individually. After that, the generating continues like in other methods by filling 64-bit blocks until the end, potentially ending again by less than 8 bytes that needs to be filled individually (not in 64-bit chunk). Because of this approach, this function has a performance impact, that can be notable on small memory areas\footnote{See \fullref{chap:performance} for details.}, but on large aligned areas the performance difference is almost undetectable. If the memory area is not aligned, then the performance of this function is the best of all in this library.
+
+
+\section{Support testing}
+Because the RdRand instruction is not on all machines, it is necessary to provide an easy tool to check it. This is done by function \function{rdrand_testSupport}. This functions gets information about a CPU through {\tt cpuid} assembly language instruction and test a vendor string of the CPU. If the string is ``GenuineIntel'', the CPU vendor is Intel\footnote{Currently the only vendor providing this instruction. See \fullref{chap:rdrand-instruction}} and it is possible to test feature bits of the CPU for RdRand flag. Without the vendor check, it would be possible that some other vendor has another feature flag on the same bit as Intel has RdRand.
+
+
 
 %=========================================================================

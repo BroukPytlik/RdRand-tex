@@ -10,7 +10,7 @@ The second parameter is {\tt --method}, which allows user to change the default 
 
 The {\tt --threads} can specify, how many threads the~generator will run in parallel for better performance. By default it is set to 2, because according of Intel~\cite{IntelArk}, in Ivy Bridge generation of CPUs, in which the~instruction was added, there are still CPUs with just two processing units (i.e. the Celeron serie).
 
-\TODO{What families RdRand has? All?} % TODO What families RdRand has? All?
+\TODO{What families RdRand has? Really all? Dig deeper.} % TODO What families RdRand has? All?
 
 \section{Underflow recovery}
 Although is stated in Intel's Software Developer Manual~\cite{IntelSWManualVol1}, chapter 7.3.17, that an exceeding of the speed of the internal generator is unlikely, and according of {\bf unverified} information, for example on StackOverflow~\cite{StackoverflowRDRANDCharacteristics} it should not be possible in current generations (specifically on Ivy Bridge) of Intel's CPU to achieve it, we decided that the application should be working with good performance even in case of slower internal generator. The importance of this decision become even more obvious after finding that on \machine{dell-pr1700-02.lab.bos.redhat.com} the CPU wasn't able to handle more than four parallel threads reading from RdRand\footnote{Unfortunately, I cannot provide a statistic probability of such situation -- only one machine from all I have tried had this problem.}.

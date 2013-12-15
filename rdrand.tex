@@ -3,13 +3,13 @@
 % (c) 2008 Michal Bidlo
 % E-mail: bidlom AT fit vutbr cz
 %============================================================================
-% kodovaní: iso-8859-2 (zmena prikazem iconv, recode nebo cstocs)
+% kodovanÃ­: iso-8859-2 (zmena prikazem iconv, recode nebo cstocs)
 %----------------------------------------------------------------------------
-% zpracování: make, make pdf, make desky, make clean
-% pøipomínky posílejte na e-mail: bidlom AT fit.vutbr.cz
+% zpracovÃ¡nÃ­: make, make pdf, make desky, make clean
+% pÅ™ipomÃ­nky posÃ­lejte na e-mail: bidlom AT fit.vutbr.cz
 % vim: set syntax=tex encoding=latin2:
 %============================================================================
-\documentclass[english,cover]{fitthesis} % odevzdani do wisu - odkazy, na ktere se da klikat
+\documentclass[english]{jtulak} % odevzdani do wisu - odkazy, na ktere se da klikat
 %\documentclass[cover,print]{fitthesis} % pro tisk - na odkazy se neda klikat
 %\documentclass[english,print]{fitthesis} % pro tisk - na odkazy se neda klikat
 %      \documentclass[english]{fitthesis}
@@ -22,37 +22,36 @@
 % zde zvolime kodovani, ve kterem je napsan text prace
 % "latin2" pro iso8859-2 nebo "cp1250" pro windows-1250, "utf8" pro "utf-8"
 %\usepackage{ucs}
-\usepackage[latin2]{inputenc}
+\usepackage[utf8]{inputenc}
 %\usepackage[T1, IL2]{fontenc}
 \usepackage{url}
 \DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
 
 %zde muzeme vlozit vlastni balicky
 
-\usepackage{parskip}
-\setlength{\parindent}{0cm} % Default is 15pt.
+\usepackage{sidecap}
 \usepackage{listings}
-
 \usepackage{syntonly}
 %\syntaxonly
 
 
 % =======================================================================
-% balíèek "hyperref" vytváøí klikací odkazy v pdf, pokud tedy pou¾ijeme pdflatex
-% problém je, ¾e balíèek hyperref musí bıt uveden jako poslední, tak¾e nemù¾e
-% bıt v ¹ablonì
-\ifWis
+% balÃ­Äek "hyperref" vytvÃ¡Å™Ã­ klikacÃ­ odkazy v pdf, pokud tedy pouÅ¾ijeme pdflatex
+% problÃ©m je, Å¾e balÃ­Äek hyperref musÃ­ bÃ½t uveden jako poslednÃ­, takÅ¾e nemÅ¯Å¾e
+% bÃ½t v Å¡ablonÄ›
+
 \ifx\pdfoutput\undefined % nejedeme pod pdflatexem
 \else
-  \usepackage{color}
-  \usepackage[unicode,colorlinks,hyperindex,plainpages=false,pdftex]{hyperref}
-  \definecolor{links}{rgb}{0.4,0.5,0}
-  \definecolor{anchors}{rgb}{1,0,0}
-  \def\AnchorColor{anchors}
-  \def\LinkColor{links}
-  \def\pdfBorderAttrs{/Border [0 0 0] }  % bez okrajù kolem odkazù
-  \pdfcompresslevel=9
-\fi
+  \ifNotPrint
+    \usepackage{color}
+    \usepackage[unicode,colorlinks,hyperindex,plainpages=false,pdftex]{hyperref}
+    \definecolor{links}{rgb}{0.4,0.5,0}
+    \definecolor{anchors}{rgb}{1,0,0}
+    \def\AnchorColor{anchors}
+    \def\LinkColor{links}
+    \def\pdfBorderAttrs{/Border [0 0 0] }  % bez okrajÅ¯ kolem odkazÅ¯
+    \pdfcompresslevel=9
+  \fi
 \fi
 
 %Informace o praci/projektu
@@ -63,49 +62,49 @@
   year=2014,             %rok
   date=\today,           %datum odevzdani
   %Nazev prace
-  title.cs={RdRand: IA-64 a IA-32 instrukce pro generování náhodnıch èísel},  %nazev prace v cestine
+  title.cs={RdRand: IA-64 a IA-32 instrukce pro generovÃ¡nÃ­ nÃ¡hodnÃ½ch ÄÃ­sel},  %nazev prace v cestine
   title.en={RdRand: IA-64 and IA-32 Instruction for Random Number Generation}, %nazev prace v anglictine
   %Autor
-  author={Jan «ulák},   %jmeno prijmeni autora
+  author={Jan Å¤ulÃ¡k},   %jmeno prijmeni autora
   %author.title.p=Bc., %titul pred jmenem (nepovinne)
   %author.title.a=PhD, %titul za jmenem (nepovinne)
   %Ustav
   department=UPSY, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
   %Skolitel
-  supervisor= Tomá¹ Ka¹párek, %jmeno prijmeni skolitele
+  supervisor= TomÃ¡Å¡ KaÅ¡pÃ¡rek, %jmeno prijmeni skolitele
   supervisor.title.p=Ing.,   %titul pred jmenem (nepovinne)
   supervisor.title.a={},    %titul za jmenem (nepovinne)
   %Klicova slova, abstrakty, prohlaseni a podekovani je mozne definovat 
   %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
   %===========================================================================
   %Klicova slova
-  keywords.cs={RdRand, Intel, náhodná èísla, knihovna, generátor}, %klicova slova v ceskem jazyce
+  keywords.cs={RdRand, Intel, nÃ¡hodnÃ¡ ÄÃ­sla, knihovna, generÃ¡tor}, %klicova slova v ceskem jazyce
   keywords.en={RdRand, Intel, random numbers, library, generator}, %klicova slova v anglickem jazyce
   %Abstract
-  abstract.cs={Cílem této bakaláøské práce bylo vytvoøení linuxové knihovny pro usnadnìní práce s instrukcí RdRand na procesorech Intel v aplikacích tøetích stran, podle po¾adavkù spoleènosti Red Hat. V práci jsou rovnì¾ poskynuty a vyhodnoceny vısledky z vıkonnostních a statistickıch testù.}, % abstrakt v ceskem jazyce
+  abstract.cs={CÃ­lem tÃ©to bakalÃ¡Å™skÃ© prÃ¡ce bylo vytvoÅ™enÃ­ linuxovÃ© knihovny pro usnadnÄ›nÃ­ prÃ¡ce s instrukcÃ­ RdRand na procesorech Intel v aplikacÃ­ch tÅ™etÃ­ch stran, podle poÅ¾adavkÅ¯ spoleÄnosti Red Hat. V prÃ¡ci jsou rovnÄ›Å¾ poskynuty a vyhodnoceny vÃ½sledky z vÃ½konnostnÃ­ch a statistickÃ½ch testÅ¯.}, % abstrakt v ceskem jazyce
   abstract.en={This thesis aimed to creation of a Linux library for easier usage of RdRand instruction on Intel CPUs in third-party applications according requirements of Red Hat. Also, results of performance and statistical tests are included. }, % abstrakt v anglickem jazyce
   %Prohlaseni
   declaration={Hereby I declare that I wrote this work on my own and all used sources are stated and correctly noted as citations.},
   %Podekovani (nepovinne)
-  acknowledgment={Zde je mo¾né uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc.} % nepovinne
+  acknowledgment={Zde je moÅ¾nÃ© uvÃ©st podÄ›kovÃ¡nÃ­ vedoucÃ­mu prÃ¡ce a tÄ›m, kteÅ™Ã­ poskytli odbornou pomoc.} % nepovinne
 }
 
 %Abstrakt (cesky, anglicky)
-%\abstract[cs]{Do tohoto odstavce bude zapsán vıtah (abstrakt) práce v èeském jazyce.}
-%\abstract[en]{Do tohoto odstavce bude zapsán vıtah (abstrakt) práce v anglickém jazyce.}
+%\abstract[cs]{Do tohoto odstavce bude zapsÃ¡n vÃ½tah (abstrakt) prÃ¡ce v ÄeskÃ©m jazyce.}
+%\abstract[en]{Do tohoto odstavce bude zapsÃ¡n vÃ½tah (abstrakt) prÃ¡ce v anglickÃ©m jazyce.}
 
 %Klicova slova (cesky, anglicky)
-%\keywords[cs]{Sem budou zapsána jednotlivá klíèová slova v èeském jazyce, oddìlená èárkami.}
-%\keywords[en]{Sem budou zapsána jednotlivá klíèová slova v anglickém jazyce, oddìlená èárkami.}
+%\keywords[cs]{Sem budou zapsÃ¡na jednotlivÃ¡ klÃ­ÄovÃ¡ slova v ÄeskÃ©m jazyce, oddÄ›lenÃ¡ ÄÃ¡rkami.}
+%\keywords[en]{Sem budou zapsÃ¡na jednotlivÃ¡ klÃ­ÄovÃ¡ slova v anglickÃ©m jazyce, oddÄ›lenÃ¡ ÄÃ¡rkami.}
 
 %Prohlaseni
-%\declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana X...
-%Dal¹í informace mi poskytli...
-%Uvedl jsem v¹echny literární prameny a publikace, ze kterıch jsem èerpal.}
+%\declaration{ProhlaÅ¡uji, Å¾e jsem tuto bakalÃ¡Å™skou prÃ¡ci vypracoval samostatnÄ› pod vedenÃ­m pana X...
+%DalÅ¡Ã­ informace mi poskytli...
+%Uvedl jsem vÅ¡echny literÃ¡rnÃ­ prameny a publikace, ze kterÃ½ch jsem Äerpal.}
 
 %Podekovani (nepovinne)
-%\acknowledgment{V této sekci je mo¾no uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc
-%(externí zadavatel, konzultant, apod.).}
+%\acknowledgment{V tÃ©to sekci je moÅ¾no uvÃ©st podÄ›kovÃ¡nÃ­ vedoucÃ­mu prÃ¡ce a tÄ›m, kteÅ™Ã­ poskytli odbornou pomoc
+%(externÃ­ zadavatel, konzultant, apod.).}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -155,10 +154,6 @@
 \catcode`\_=12
 \machineNE}
 
-%%%%%%%%%%%%%%%%%%%%%
-
-% pretty obvious :-)
-\newcommand{\TODO}[1]{\noindent\textbf{TODO: #1}}
 
 %%%%%%%%%%%%%%%%%%%%%
 
