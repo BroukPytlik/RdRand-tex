@@ -19,12 +19,12 @@ Long answer: we use rdrand as \_one\_ of~many inputs into the~random pool, and w
 
 % --------------------------------------------------------
 \section{Intel Secure Key}\label{sec:intel-secure-key}
-The Intel Secure Key (ISK) uses cascade construction, combining a~HW RNG with CSPRNG into one sealed block on CPU, which is compliant with many security standards, including NIST SP800-90, FIPS-140-2, and ANSI X9.82\cite{IntelDRNGGuide}. Although it is impossible to audit it, there was found no evidence of~low entropy or anything that would deny the~security standards compliance - neither with tests in \fullref{sec:statistical-testing}, nor any other tests anyone else did\footnote{I assume that such revelation would become quickly known and broadly discussed.}.
+The Intel Secure Key (ISK) uses cascade construction, combining a~HW RNG with CSPRNG into one sealed block on CPU, which is compliant with many security standards, including NIST SP800-90, FIPS-140-2, and ANSI X9.82\cite{IntelDRNGGuide}. Although it is impossible to audit it, there was found no evidence of~low entropy or anything that would deny the~security standards compliance - neither with tests in \fullref{sec:testing:statistical-testing}, nor any other tests anyone else did\footnote{I assume that such revelation would become quickly known and broadly discussed.}.
 
 % --------------------------------------------------------
 \section{Physical implementation}\label{sec:ISK-physical}
 One important thing about ISK, that has big impact on performance, but also price of~that solution is, that there is only one unit on a~die and the~unit should be the~same on all CPUs.\TODO{quote it} % TODO quote it
-Because all processing units (PUs)\footnote{Two physical cores with hyper-threading counts as four PUs.} on one die share the~RNG, one thread reading random numbers from it can never be faster than $Total speed  \frac{1}{PUs}$. The effect of~this is that the~performance is almost perfectly scalable (see \fullref{sec:performance-testing}), and price of~the~CPU is less affected.
+Because all processing units (PUs)\footnote{Two physical cores with hyper-threading counts as four PUs.} on one die share the~RNG, one thread reading random numbers from it can never be faster than $Total speed  \frac{1}{PUs}$. The effect of~this is that the~performance is almost perfectly scalable (see \fullref{sec:testing:performance-testing}), and price of~the~CPU is less affected.
 
 Each ISK unit consists three basic parts: A hardware entropy source, a~conditioner and a~{\em deterministic random bit generator} (DRBG)\cite{IntelDRNGGuide}. The frequency of~the~RNG is independent on the~rest of~the~CPU and is set to 800 MHz. 
 \begin{figure}[h!]

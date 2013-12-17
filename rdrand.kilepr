@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.3
-lastDocument=rdrand.tex
+lastDocument=content/1_introduction.tex
 masterDocument=
 name=RdRand
 pkg_extIsRegExp=false
@@ -66,7 +66,7 @@ Indentation Mode=normal
 Mode=LaTeX
 
 [document-settings,item:content/6_tests.tex]
-Bookmarks=27,29
+Bookmarks=122,28,30,84
 Encoding=UTF-8
 Highlighting=LaTeX
 Indentation Mode=normal
@@ -136,12 +136,12 @@ order=2
 
 [item:content/1_introduction.tex]
 archive=true
-column=171
+column=619
 encoding=UTF-8
 highlight=LaTeX
-line=11
+line=16
 mode=LaTeX
-open=false
+open=true
 order=2
 
 [item:content/2_random_numbers.tex]
@@ -156,27 +156,27 @@ order=0
 
 [item:content/3_rdrand_instruction.tex]
 archive=true
-column=40
+column=249
 encoding=UTF-8
 highlight=LaTeX
-line=24
+line=73
 mode=LaTeX
 open=false
 order=4
 
 [item:content/4_library.tex]
 archive=true
-column=40
+column=46
 encoding=UTF-8
 highlight=LaTeX
 line=76
 mode=LaTeX
-open=false
-order=1
+open=true
+order=3
 
 [item:content/5_rdrand-gen.tex]
 archive=true
-column=189
+column=320
 encoding=UTF-8
 highlight=LaTeX
 line=15
@@ -186,12 +186,12 @@ order=6
 
 [item:content/6_tests.tex]
 archive=true
-column=0
+column=37
 encoding=UTF-8
 highlight=LaTeX
-line=109
+line=8
 mode=LaTeX
-open=false
+open=true
 order=1
 
 [item:content/7_conclusion.tex]
@@ -256,10 +256,10 @@ order=-1
 
 [item:rdrand.tex]
 archive=true
-column=37
+column=40
 encoding=UTF-8
 highlight=LaTeX
-line=48
+line=42
 mode=LaTeX
 open=true
 order=0
@@ -280,10 +280,10 @@ ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:content/1_introduction.tex]
-CursorColumn=171
-CursorLine=11
+CursorColumn=619
+CursorLine=16
 JumpList=
-ViMarks=.,16,619,[,16,619,],16,641
+ViMarks=.,16,630,[,16,623,],16,630
 ViRegisterContents=,
 ViRegisterFlags=0,0
 ViRegisterNames=-,^
@@ -298,16 +298,16 @@ ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:content/3_rdrand_instruction.tex]
-CursorColumn=40
-CursorLine=24
+CursorColumn=249
+CursorLine=73
 JumpList=
-ViMarks=.,73,987,[,73,982,],73,987
+ViMarks=.,21,426,[,21,419,],21,426
 ViRegisterContents=,
 ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:content/4_library.tex]
-CursorColumn=40
+CursorColumn=46
 CursorLine=76
 JumpList=
 ViMarks=.,79,378,[,79,378,],79,378
@@ -316,7 +316,7 @@ ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:content/5_rdrand-gen.tex]
-CursorColumn=189
+CursorColumn=320
 CursorLine=15
 JumpList=
 ViMarks=.,15,188,[,15,187,],15,188
@@ -325,10 +325,10 @@ ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:content/6_tests.tex]
-CursorColumn=0
-CursorLine=109
+CursorColumn=37
+CursorLine=8
 JumpList=
-ViMarks=.,121,51,<,27,9,>,27,9,[,121,46,],121,51,^,29,15,a,27,0,b,83,11
+ViMarks=.,13,3,<,28,9,>,28,9,[,13,0,],13,39,^,30,15,a,28,0,b,84,11,c,122,0
 ViRegisterContents=,
 ViRegisterFlags=0,0
 ViRegisterNames=-,^
@@ -376,8 +376,8 @@ ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:rdrand.tex]
-CursorColumn=37
-CursorLine=48
+CursorColumn=40
+CursorLine=42
 JumpList=
 ViMarks=.,52,6,<,0,0,>,0,0,[,52,6,],52,6
 ViRegisterContents=\s,\\\\documentclass[11pt]
