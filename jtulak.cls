@@ -51,6 +51,8 @@
 \usepackage{nameref}
 \usepackage[usenames,dvipsnames]{color}
 
+\usepackage[hmarginratio=1:1]{geometry}
+
 \usepackage{parskip} % paragraph indentation
 \ifczech
   \usepackage[czech]{babel}
@@ -156,9 +158,9 @@
 \newcommand*{\ChapterTextSize}{\@setfontsize\ChapterTextSize{20pt}{6pt}}
 \iftrue
 \renewcommand{\@makechapterhead}[1]{%
-    \vspace*{60\p@}%
+    %\vspace*{30\p@}%
     {\parindent \z@ \normalfont
-    \vspace{20pt}%
+   % \vspace{10pt}%
     \ifnum \c@secnumdepth >\m@ne
         \color{gray75}\ChapterNumberSize\thechapter\textbar\hspace{1pt}
     \fi
@@ -169,11 +171,11 @@
     \vskip 30\p@
 }}
 \renewcommand{\@makeschapterhead}[1]{%
-    \vspace*{50\p@}%
+    %\vspace*{30\p@}%
     {\parindent \z@ 
     \normalfont
     %\hrule
-    \vspace{12pt}%
+    %\vspace{10pt}%
     \interlinepenalty\@M
     \ChapterTextSize\bfseries #1\par
     \vspace{5pt}%
