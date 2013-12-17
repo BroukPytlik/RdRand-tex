@@ -192,7 +192,7 @@
   \pagebreak[1]%
   \refstepcounter{section}%
       \addcontentsline{toc}{section}{%
-        {\protect\makebox[0.3in][r]{\thesection.} \hspace*{3pt}#1}}%
+        {\protect\makebox{\thesection.} \hspace*{3pt}#1}}%
       \vspace{20pt}%
       {\Large\textbf{ {\color{gray75}\thesection \textbar}\space\space{#1}. }}%
       \par
@@ -206,7 +206,7 @@
   \pagebreak[2]%
   \refstepcounter{subsection}%
       \addcontentsline{toc}{subsection}{%
-        {\protect\makebox[0.3in][r]{\thesubsection.} \hspace*{3pt}#1}}%
+        {\protect\makebox{\thesubsection.} \hspace*{3pt}#1}}%
       \vspace{5pt}%
       {\large\textbf{ {\color{gray75}\thesubsection \textbar}\space\space{#1}. }}%
       \par
@@ -221,7 +221,7 @@
   \refstepcounter{subsubsection}%
     %\everypar={%
       \addcontentsline{toc}{subsubsection}{%
-        {\protect\makebox[0.3in][r]{\thesubsubsection.} \hspace*{3pt}#1}}%
+        {\protect\makebox{\thesubsubsection.} \hspace*{3pt}#1}}%
       \vspace{5pt}%
       \textbf{ {\color{gray75}\thesubsubsection \textbar}\space\space{#1}. }%
       
