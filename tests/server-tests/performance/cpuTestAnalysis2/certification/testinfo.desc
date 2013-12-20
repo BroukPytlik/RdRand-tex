@@ -1,0 +1,21 @@
+Owner:        Kamil Kolakowski <kkolakow@redhat.com>
+Name:         /performance/cpuTestAnalysis2/certification
+Path:         /mnt/tests/performance/cpuTestAnalysis2/certification
+TestVersion:  1.1
+Description:  linpack and stream test with semaphores
+TestTime:     100h
+Requires:     sysstat
+Requires:     numactl
+Requires:     hwloc
+Requires:     hwloc-devel
+Requires:     nfs-utils
+Requires:     perf
+Requires:     cpupowerutils
+Requires:     rpmdevtools
+Releases:      -RHEL5
+Architectures: x86_64
+Confidential:  no
+Priority:      Normal
+Type:          Certification
+RunFor:        none
+License:       NDA

@@ -1,0 +1,602 @@
+<root>
+<test threads='1'>
+rdrand_get_bytes_retry 86.370 MiB/s 100.00 %
+</test>
+<test threads='2'>
+rdrand_get_bytes_retry 169.681 MiB/s 100.00 %
+</test>
+<test threads='3'>
+rdrand_get_bytes_retry 246.064 MiB/s 100.00 %
+</test>
+<test threads='4'>
+rdrand_get_bytes_retry 334.423 MiB/s 100.00 %
+</test>
+<test threads='5'>
+rdrand_get_bytes_retry 411.400 MiB/s 100.00 %
+</test>
+<test threads='6'>
+rdrand_get_bytes_retry 482.893 MiB/s 100.00 %
+</test>
+<test threads='7'>
+rdrand_get_bytes_retry 553.746 MiB/s 100.00 %
+</test>
+<test threads='8'>
+rdrand_get_bytes_retry 632.339 MiB/s 100.00 %
+</test>
+<test threads='9'>
+rdrand_get_bytes_retry 705.239 MiB/s 100.00 %
+</test>
+<test threads='10'>
+rdrand_get_bytes_retry 778.918 MiB/s 100.00 %
+</test>
+<test threads='11'>
+rdrand_get_bytes_retry 850.907 MiB/s 100.00 %
+</test>
+<test threads='12'>
+rdrand_get_bytes_retry 919.237 MiB/s 100.00 %
+</test>
+<test threads='13'>
+rdrand_get_bytes_retry 999.715 MiB/s 100.00 %
+</test>
+<test threads='14'>
+rdrand_get_bytes_retry 1064.376 MiB/s 100.00 %
+</test>
+<test threads='15'>
+rdrand_get_bytes_retry 1130.671 MiB/s 100.00 %
+</test>
+<test threads='16'>
+rdrand_get_bytes_retry 1207.079 MiB/s 100.00 %
+</test>
+<test threads='17'>
+rdrand_get_bytes_retry 1166.811 MiB/s 100.00 %
+</test>
+<test threads='18'>
+rdrand_get_bytes_retry 1232.979 MiB/s 100.00 %
+</test>
+<test threads='19'>
+rdrand_get_bytes_retry 1302.666 MiB/s 100.00 %
+</test>
+<test threads='20'>
+rdrand_get_bytes_retry 1355.137 MiB/s 100.00 %
+</test>
+<test threads='21'>
+rdrand_get_bytes_retry 1209.804 MiB/s 100.00 %
+</test>
+<test threads='22'>
+rdrand_get_bytes_retry 1250.190 MiB/s 100.00 %
+</test>
+<test threads='23'>
+rdrand_get_bytes_retry 1296.833 MiB/s 100.00 %
+</test>
+<test threads='24'>
+rdrand_get_bytes_retry 1336.093 MiB/s 100.00 %
+</test>
+<test threads='25'>
+rdrand_get_bytes_retry 1221.944 MiB/s 100.00 %
+</test>
+<test threads='26'>
+rdrand_get_bytes_retry 1264.636 MiB/s 100.00 %
+</test>
+<test threads='27'>
+rdrand_get_bytes_retry 1301.389 MiB/s 100.00 %
+</test>
+<test threads='28'>
+rdrand_get_bytes_retry 1337.333 MiB/s 100.00 %
+</test>
+<test threads='29'>
+rdrand_get_bytes_retry 1237.069 MiB/s 100.00 %
+</test>
+<test threads='30'>
+rdrand_get_bytes_retry 1268.043 MiB/s 100.00 %
+</test>
+<test threads='31'>
+rdrand_get_bytes_retry 1295.770 MiB/s 100.00 %
+</test>
+<test threads='32'>
+rdrand_get_bytes_retry 1331.970 MiB/s 100.00 %
+</test>
+<test threads='33'>
+rdrand_get_bytes_retry 1243.440 MiB/s 100.00 %
+</test>
+<test threads='34'>
+rdrand_get_bytes_retry 1265.010 MiB/s 100.00 %
+</test>
+<test threads='35'>
+rdrand_get_bytes_retry 1302.812 MiB/s 100.00 %
+</test>
+<test threads='36'>
+rdrand_get_bytes_retry 1326.097 MiB/s 100.00 %
+</test>
+<test threads='37'>
+rdrand_get_bytes_retry 1242.088 MiB/s 100.00 %
+</test>
+<test threads='38'>
+rdrand_get_bytes_retry 1246.512 MiB/s 100.00 %
+</test>
+<test threads='39'>
+rdrand_get_bytes_retry 1246.362 MiB/s 100.00 %
+</test>
+<test threads='40'>
+rdrand_get_bytes_retry 1277.289 MiB/s 100.00 %
+</test>
+<test threads='41'>
+rdrand_get_bytes_retry 1238.445 MiB/s 100.00 %
+</test>
+<test threads='42'>
+rdrand_get_bytes_retry 1264.068 MiB/s 100.00 %
+</test>
+<test threads='43'>
+rdrand_get_bytes_retry 1237.549 MiB/s 100.00 %
+</test>
+<test threads='44'>
+rdrand_get_bytes_retry 1270.883 MiB/s 100.00 %
+</test>
+<test threads='45'>
+rdrand_get_bytes_retry 1237.532 MiB/s 100.00 %
+</test>
+<test threads='46'>
+rdrand_get_bytes_retry 1246.319 MiB/s 100.00 %
+</test>
+<test threads='47'>
+rdrand_get_bytes_retry 1237.956 MiB/s 100.00 %
+</test>
+<test threads='48'>
+rdrand_get_bytes_retry 1266.299 MiB/s 100.00 %
+</test>
+<test threads='49'>
+rdrand_get_bytes_retry 1233.332 MiB/s 100.00 %
+</test>
+<test threads='50'>
+rdrand_get_bytes_retry 1234.543 MiB/s 100.00 %
+</test>
+<test threads='51'>
+rdrand_get_bytes_retry 1228.805 MiB/s 100.00 %
+</test>
+<test threads='52'>
+rdrand_get_bytes_retry 1261.692 MiB/s 100.00 %
+</test>
+<test threads='53'>
+rdrand_get_bytes_retry 1232.370 MiB/s 100.00 %
+</test>
+<test threads='54'>
+rdrand_get_bytes_retry 1230.376 MiB/s 100.00 %
+</test>
+<test threads='55'>
+rdrand_get_bytes_retry 1236.053 MiB/s 100.00 %
+</test>
+<test threads='56'>
+rdrand_get_bytes_retry 1252.043 MiB/s 100.00 %
+</test>
+<test threads='57'>
+rdrand_get_bytes_retry 1224.875 MiB/s 100.00 %
+</test>
+<test threads='58'>
+rdrand_get_bytes_retry 1236.805 MiB/s 100.00 %
+</test>
+<test threads='59'>
+rdrand_get_bytes_retry 1241.492 MiB/s 100.00 %
+</test>
+<test threads='60'>
+rdrand_get_bytes_retry 1244.228 MiB/s 100.00 %
+</test>
+<test threads='61'>
+rdrand_get_bytes_retry 1047.469 MiB/s 100.00 %
+</test>
+<test threads='62'>
+rdrand_get_bytes_retry 1062.540 MiB/s 100.00 %
+</test>
+<test threads='63'>
+rdrand_get_bytes_retry 1070.784 MiB/s 100.00 %
+</test>
+<test threads='64'>
+rdrand_get_bytes_retry 1071.485 MiB/s 100.00 %
+</test>
+<test threads='65'>
+rdrand_get_bytes_retry 1096.824 MiB/s 100.00 %
+</test>
+<test threads='66'>
+rdrand_get_bytes_retry 1110.475 MiB/s 100.00 %
+</test>
+<test threads='67'>
+rdrand_get_bytes_retry 1122.939 MiB/s 100.00 %
+</test>
+<test threads='68'>
+rdrand_get_bytes_retry 1122.559 MiB/s 100.00 %
+</test>
+<test threads='69'>
+rdrand_get_bytes_retry 1139.474 MiB/s 100.00 %
+</test>
+<test threads='70'>
+rdrand_get_bytes_retry 1163.882 MiB/s 100.00 %
+</test>
+<test threads='71'>
+rdrand_get_bytes_retry 1172.845 MiB/s 100.00 %
+</test>
+<test threads='72'>
+rdrand_get_bytes_retry 1178.034 MiB/s 100.00 %
+</test>
+<test threads='73'>
+rdrand_get_bytes_retry 1166.912 MiB/s 100.00 %
+</test>
+<test threads='74'>
+rdrand_get_bytes_retry 1209.838 MiB/s 100.00 %
+</test>
+<test threads='75'>
+rdrand_get_bytes_retry 1208.253 MiB/s 100.00 %
+</test>
+<test threads='76'>
+rdrand_get_bytes_retry 1209.240 MiB/s 100.00 %
+</test>
+<test threads='77'>
+rdrand_get_bytes_retry 1180.186 MiB/s 100.00 %
+</test>
+<test threads='78'>
+rdrand_get_bytes_retry 1195.792 MiB/s 100.00 %
+</test>
+<test threads='79'>
+rdrand_get_bytes_retry 1209.698 MiB/s 100.00 %
+</test>
+<test threads='80'>
+rdrand_get_bytes_retry 1228.227 MiB/s 100.00 %
+</test>
+<test threads='81'>
+rdrand_get_bytes_retry 1241.284 MiB/s 100.00 %
+</test>
+<test threads='82'>
+rdrand_get_bytes_retry 1232.911 MiB/s 100.00 %
+</test>
+<test threads='83'>
+rdrand_get_bytes_retry 1258.825 MiB/s 100.00 %
+</test>
+<test threads='84'>
+rdrand_get_bytes_retry 1251.792 MiB/s 100.00 %
+</test>
+<test threads='85'>
+rdrand_get_bytes_retry 1200.158 MiB/s 100.00 %
+</test>
+<test threads='86'>
+rdrand_get_bytes_retry 1208.016 MiB/s 100.00 %
+</test>
+<test threads='87'>
+rdrand_get_bytes_retry 1201.056 MiB/s 100.00 %
+</test>
+<test threads='88'>
+rdrand_get_bytes_retry 1207.331 MiB/s 100.00 %
+</test>
+<test threads='89'>
+rdrand_get_bytes_retry 1180.095 MiB/s 100.00 %
+</test>
+<test threads='90'>
+rdrand_get_bytes_retry 1184.638 MiB/s 100.00 %
+</test>
+<test threads='91'>
+rdrand_get_bytes_retry 1196.787 MiB/s 100.00 %
+</test>
+<test threads='92'>
+rdrand_get_bytes_retry 1201.082 MiB/s 100.00 %
+</test>
+<test threads='93'>
+rdrand_get_bytes_retry 1165.245 MiB/s 100.00 %
+</test>
+<test threads='94'>
+rdrand_get_bytes_retry 1170.848 MiB/s 100.00 %
+</test>
+<test threads='95'>
+rdrand_get_bytes_retry 1180.458 MiB/s 100.00 %
+</test>
+<test threads='96'>
+rdrand_get_bytes_retry 1191.035 MiB/s 100.00 %
+</test>
+<test threads='97'>
+rdrand_get_bytes_retry 1144.492 MiB/s 100.00 %
+</test>
+<test threads='98'>
+rdrand_get_bytes_retry 1158.842 MiB/s 100.00 %
+</test>
+<test threads='99'>
+rdrand_get_bytes_retry 1165.109 MiB/s 100.00 %
+</test>
+<test threads='100'>
+rdrand_get_bytes_retry 1166.753 MiB/s 100.00 %
+</test>
+<test threads='101'>
+rdrand_get_bytes_retry 1133.543 MiB/s 100.00 %
+</test>
+<test threads='102'>
+rdrand_get_bytes_retry 1135.604 MiB/s 100.00 %
+</test>
+<test threads='103'>
+rdrand_get_bytes_retry 1143.179 MiB/s 100.00 %
+</test>
+<test threads='104'>
+rdrand_get_bytes_retry 1155.039 MiB/s 100.00 %
+</test>
+<test threads='105'>
+rdrand_get_bytes_retry 1118.467 MiB/s 100.00 %
+</test>
+<test threads='106'>
+rdrand_get_bytes_retry 1130.013 MiB/s 100.00 %
+</test>
+<test threads='107'>
+rdrand_get_bytes_retry 1133.580 MiB/s 100.00 %
+</test>
+<test threads='108'>
+rdrand_get_bytes_retry 1120.157 MiB/s 100.00 %
+</test>
+<test threads='109'>
+rdrand_get_bytes_retry 1093.176 MiB/s 100.00 %
+</test>
+<test threads='110'>
+rdrand_get_bytes_retry 1113.151 MiB/s 100.00 %
+</test>
+<test threads='111'>
+rdrand_get_bytes_retry 1098.167 MiB/s 100.00 %
+</test>
+<test threads='112'>
+rdrand_get_bytes_retry 1106.716 MiB/s 100.00 %
+</test>
+<test threads='113'>
+rdrand_get_bytes_retry 1086.597 MiB/s 100.00 %
+</test>
+<test threads='114'>
+rdrand_get_bytes_retry 1098.587 MiB/s 100.00 %
+</test>
+<test threads='115'>
+rdrand_get_bytes_retry 1084.369 MiB/s 100.00 %
+</test>
+<test threads='116'>
+rdrand_get_bytes_retry 1091.193 MiB/s 100.00 %
+</test>
+<test threads='117'>
+rdrand_get_bytes_retry 1064.669 MiB/s 100.00 %
+</test>
+<test threads='118'>
+rdrand_get_bytes_retry 1085.893 MiB/s 100.00 %
+</test>
+<test threads='119'>
+rdrand_get_bytes_retry 1086.733 MiB/s 100.00 %
+</test>
+<test threads='120'>
+rdrand_get_bytes_retry 1102.363 MiB/s 100.00 %
+</test>
+<test threads='121'>
+rdrand_get_bytes_retry 850.685 MiB/s 100.00 %
+</test>
+<test threads='122'>
+rdrand_get_bytes_retry 846.376 MiB/s 100.00 %
+</test>
+<test threads='123'>
+rdrand_get_bytes_retry 846.514 MiB/s 100.00 %
+</test>
+<test threads='124'>
+rdrand_get_bytes_retry 844.196 MiB/s 100.00 %
+</test>
+<test threads='125'>
+rdrand_get_bytes_retry 845.325 MiB/s 100.00 %
+</test>
+<test threads='126'>
+rdrand_get_bytes_retry 846.087 MiB/s 100.00 %
+</test>
+<test threads='127'>
+rdrand_get_bytes_retry 843.550 MiB/s 100.00 %
+</test>
+<test threads='128'>
+rdrand_get_bytes_retry 847.091 MiB/s 100.00 %
+</test>
+<test threads='129'>
+rdrand_get_bytes_retry 867.665 MiB/s 100.00 %
+</test>
+<test threads='130'>
+rdrand_get_bytes_retry 866.226 MiB/s 100.00 %
+</test>
+<test threads='131'>
+rdrand_get_bytes_retry 848.583 MiB/s 100.00 %
+</test>
+<test threads='132'>
+rdrand_get_bytes_retry 848.374 MiB/s 100.00 %
+</test>
+<test threads='133'>
+rdrand_get_bytes_retry 849.589 MiB/s 100.00 %
+</test>
+<test threads='134'>
+rdrand_get_bytes_retry 850.525 MiB/s 100.00 %
+</test>
+<test threads='135'>
+rdrand_get_bytes_retry 853.134 MiB/s 100.00 %
+</test>
+<test threads='136'>
+rdrand_get_bytes_retry 853.990 MiB/s 100.00 %
+</test>
+<test threads='137'>
+rdrand_get_bytes_retry 855.144 MiB/s 100.00 %
+</test>
+<test threads='138'>
+rdrand_get_bytes_retry 860.945 MiB/s 100.00 %
+</test>
+<test threads='139'>
+rdrand_get_bytes_retry 856.554 MiB/s 100.00 %
+</test>
+<test threads='140'>
+rdrand_get_bytes_retry 858.713 MiB/s 100.00 %
+</test>
+<test threads='141'>
+rdrand_get_bytes_retry 861.774 MiB/s 100.00 %
+</test>
+<test threads='142'>
+rdrand_get_bytes_retry 859.366 MiB/s 100.00 %
+</test>
+<test threads='143'>
+rdrand_get_bytes_retry 856.527 MiB/s 100.00 %
+</test>
+<test threads='144'>
+rdrand_get_bytes_retry 859.956 MiB/s 100.00 %
+</test>
+<test threads='145'>
+rdrand_get_bytes_retry 862.139 MiB/s 100.00 %
+</test>
+<test threads='146'>
+rdrand_get_bytes_retry 864.919 MiB/s 100.00 %
+</test>
+<test threads='147'>
+rdrand_get_bytes_retry 868.247 MiB/s 100.00 %
+</test>
+<test threads='148'>
+rdrand_get_bytes_retry 861.168 MiB/s 100.00 %
+</test>
+<test threads='149'>
+rdrand_get_bytes_retry 866.911 MiB/s 100.00 %
+</test>
+<test threads='150'>
+rdrand_get_bytes_retry 870.478 MiB/s 100.00 %
+</test>
+<test threads='151'>
+rdrand_get_bytes_retry 866.774 MiB/s 100.00 %
+</test>
+<test threads='152'>
+rdrand_get_bytes_retry 864.891 MiB/s 100.00 %
+</test>
+<test threads='153'>
+rdrand_get_bytes_retry 864.876 MiB/s 100.00 %
+</test>
+<test threads='154'>
+rdrand_get_bytes_retry 893.177 MiB/s 100.00 %
+</test>
+<test threads='155'>
+rdrand_get_bytes_retry 896.057 MiB/s 100.00 %
+</test>
+<test threads='156'>
+rdrand_get_bytes_retry 867.962 MiB/s 100.00 %
+</test>
+<test threads='157'>
+rdrand_get_bytes_retry 869.320 MiB/s 100.00 %
+</test>
+<test threads='158'>
+rdrand_get_bytes_retry 866.211 MiB/s 100.00 %
+</test>
+<test threads='159'>
+rdrand_get_bytes_retry 866.247 MiB/s 100.00 %
+</test>
+<test threads='160'>
+rdrand_get_bytes_retry 867.444 MiB/s 100.00 %
+</test>
+<test threads='161'>
+rdrand_get_bytes_retry 870.081 MiB/s 100.00 %
+</test>
+<test threads='162'>
+rdrand_get_bytes_retry 866.819 MiB/s 100.00 %
+</test>
+<test threads='163'>
+rdrand_get_bytes_retry 895.670 MiB/s 100.00 %
+</test>
+<test threads='164'>
+rdrand_get_bytes_retry 866.351 MiB/s 100.00 %
+</test>
+<test threads='165'>
+rdrand_get_bytes_retry 864.287 MiB/s 100.00 %
+</test>
+<test threads='166'>
+rdrand_get_bytes_retry 864.539 MiB/s 100.00 %
+</test>
+<test threads='167'>
+rdrand_get_bytes_retry 901.753 MiB/s 100.00 %
+</test>
+<test threads='168'>
+rdrand_get_bytes_retry 898.335 MiB/s 100.00 %
+</test>
+<test threads='169'>
+rdrand_get_bytes_retry 877.882 MiB/s 100.00 %
+</test>
+<test threads='170'>
+rdrand_get_bytes_retry 897.274 MiB/s 100.00 %
+</test>
+<test threads='171'>
+rdrand_get_bytes_retry 887.443 MiB/s 100.00 %
+</test>
+<test threads='172'>
+rdrand_get_bytes_retry 897.758 MiB/s 100.00 %
+</test>
+<test threads='173'>
+rdrand_get_bytes_retry 896.174 MiB/s 100.00 %
+</test>
+<test threads='174'>
+rdrand_get_bytes_retry 901.763 MiB/s 100.00 %
+</test>
+<test threads='175'>
+rdrand_get_bytes_retry 904.017 MiB/s 100.00 %
+</test>
+<test threads='176'>
+rdrand_get_bytes_retry 903.459 MiB/s 100.00 %
+</test>
+<test threads='177'>
+rdrand_get_bytes_retry 898.612 MiB/s 100.00 %
+</test>
+<test threads='178'>
+rdrand_get_bytes_retry 900.910 MiB/s 100.00 %
+</test>
+<test threads='179'>
+rdrand_get_bytes_retry 897.662 MiB/s 100.00 %
+</test>
+<test threads='180'>
+rdrand_get_bytes_retry 895.376 MiB/s 100.00 %
+</test>
+<test threads='181'>
+rdrand_get_bytes_retry 897.196 MiB/s 100.00 %
+</test>
+<test threads='182'>
+rdrand_get_bytes_retry 892.734 MiB/s 100.00 %
+</test>
+<test threads='183'>
+rdrand_get_bytes_retry 896.095 MiB/s 100.00 %
+</test>
+<test threads='184'>
+rdrand_get_bytes_retry 895.627 MiB/s 100.00 %
+</test>
+<test threads='185'>
+rdrand_get_bytes_retry 890.430 MiB/s 100.00 %
+</test>
+<test threads='186'>
+rdrand_get_bytes_retry 892.984 MiB/s 100.00 %
+</test>
+<test threads='187'>
+rdrand_get_bytes_retry 891.277 MiB/s 100.00 %
+</test>
+<test threads='188'>
+rdrand_get_bytes_retry 893.163 MiB/s 100.00 %
+</test>
+<test threads='189'>
+rdrand_get_bytes_retry 894.936 MiB/s 100.00 %
+</test>
+<test threads='190'>
+rdrand_get_bytes_retry 920.613 MiB/s 100.00 %
+</test>
+<test threads='191'>
+rdrand_get_bytes_retry 893.617 MiB/s 100.00 %
+</test>
+<test threads='192'>
+rdrand_get_bytes_retry 900.164 MiB/s 100.00 %
+</test>
+<test threads='193'>
+rdrand_get_bytes_retry 900.297 MiB/s 100.00 %
+</test>
+<test threads='194'>
+rdrand_get_bytes_retry 898.212 MiB/s 100.00 %
+</test>
+<test threads='195'>
+rdrand_get_bytes_retry 922.842 MiB/s 100.00 %
+</test>
+<test threads='196'>
+rdrand_get_bytes_retry 901.813 MiB/s 100.00 %
+</test>
+<test threads='197'>
+rdrand_get_bytes_retry 895.673 MiB/s 100.00 %
+</test>
+<test threads='198'>
+rdrand_get_bytes_retry 906.240 MiB/s 100.00 %
+</test>
+<test threads='199'>
+rdrand_get_bytes_retry 900.883 MiB/s 100.00 %
+</test>
+<test threads='200'>
+rdrand_get_bytes_retry 900.277 MiB/s 100.00 %
+</test>
+</root>

@@ -94,9 +94,17 @@
 
 \ifNotPrint
   \newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}}
+  \newcommand*{\figref}[1]{\hyperref[{#1}]{figure~\ref*{#1}}}
+  \newcommand*{\tableref}[1]{\hyperref[{#1}]{table~\ref*{#1}}}
+  \newcommand*{\lstref}[1]{\hyperref[{#1}]{listing~\ref*{#1}}}
 \else
   \newcommand{\fullref}[1]{\ref{#1} \nameref{#1}}
+  \newcommand{\figref}[1]{figure~\ref{#1}}
+  \newcommand{\tableref}[1]{table~\ref{#1}}
+  \newcommand{\lstref}[1]{listing~\ref{#1}}
 \fi
+
+
 
  % One single link
 

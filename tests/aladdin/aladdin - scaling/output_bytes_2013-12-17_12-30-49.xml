@@ -1,0 +1,50 @@
+<root>
+<test threads='1'>
+rdrand_get_bytes_retry 212.806 MiB/s 100.00 %
+</test>
+<test threads='2'>
+rdrand_get_bytes_retry 353.659 MiB/s 100.00 %
+</test>
+<test threads='3'>
+rdrand_get_bytes_retry 513.833 MiB/s 100.00 %
+</test>
+<test threads='4'>
+rdrand_get_bytes_retry 674.065 MiB/s 100.00 %
+</test>
+<test threads='5'>
+rdrand_get_bytes_retry 734.870 MiB/s 100.00 %
+</test>
+<test threads='6'>
+rdrand_get_bytes_retry 731.223 MiB/s 100.00 %
+</test>
+<test threads='7'>
+rdrand_get_bytes_retry 736.401 MiB/s 100.00 %
+</test>
+<test threads='8'>
+rdrand_get_bytes_retry 738.570 MiB/s 100.00 %
+</test>
+<test threads='9'>
+rdrand_get_bytes_retry 528.743 MiB/s 100.00 %
+</test>
+<test threads='10'>
+rdrand_get_bytes_retry 581.163 MiB/s 100.00 %
+</test>
+<test threads='11'>
+rdrand_get_bytes_retry 634.822 MiB/s 100.00 %
+</test>
+<test threads='12'>
+rdrand_get_bytes_retry 686.921 MiB/s 100.00 %
+</test>
+<test threads='13'>
+rdrand_get_bytes_retry 700.546 MiB/s 100.00 %
+</test>
+<test threads='14'>
+rdrand_get_bytes_retry 699.264 MiB/s 100.00 %
+</test>
+<test threads='15'>
+rdrand_get_bytes_retry 696.618 MiB/s 100.00 %
+</test>
+<test threads='16'>
+rdrand_get_bytes_retry 686.349 MiB/s 100.00 %
+</test>
+</root>

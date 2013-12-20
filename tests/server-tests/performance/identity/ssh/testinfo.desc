@@ -1,0 +1,15 @@
+Owner:        Jiri Hladky <jhladky@redhat.com>
+Name:         /performance/identity/ssh
+Path:         /mnt/tests/performance/identity/ssh
+TestVersion:  1.0
+Description:  Test
+TestTime:     4h
+RunFor:       identity
+Requires:     identity
+Releases:      -RHEL2.1
+Architectures: i386 x86_64 ia64 ppc ppc64
+Confidential:  no
+Priority:      Normal
+Type:          Certification
+RunFor:        none
+License:       NDA

@@ -129,8 +129,8 @@
 
 % my macro for linking to a function declaration
 \newcommand{\functionNE}[1]{%
-  \hyperref[fnt:#1]{\tt #1}
-  \endgroup}
+  \hyperref[fnt:#1]{\tt #1}%
+\endgroup}
 % because underscore is a special character and has to be escaped
 % but escaped sequences must not be in \label
 \def\function{\begingroup 
@@ -152,8 +152,8 @@
 \MachineDeclareNE}
 
 \newcommand{\machineNE}[1]{%
-  \hyperref[machines:#1]{\it #1}
-  \endgroup}
+  \hyperref[machines:#1]{\it #1}%
+\endgroup}
 % because underscore is a special character and has to be escaped
 % but escaped sequences must not be in \label
 \def\machine{\begingroup 

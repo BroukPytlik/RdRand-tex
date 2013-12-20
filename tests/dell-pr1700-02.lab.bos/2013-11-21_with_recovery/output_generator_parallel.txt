@@ -1,0 +1,435 @@
+$ for i in $(seq 16); do echo "$i =========================="; seq $i |parallel  "echo proc {}; rdrand-gen -n100m -t 1 | pv -fc >/dev/null;"; 2>&1 1>output; done
+1 ==========================
+proc 1
+95.4MiB 0:00:01 [85.3MiB/s] [ <=>                                              ]
+2 ==========================
+proc 1
+95.4MiB 0:00:01 [83.5MiB/s] [ <=>                                              ]
+proc 2
+95.4MiB 0:00:01 [83.5MiB/s] [ <=>                                              ]
+3 ==========================
+proc 1
+95.4MiB 0:00:01 [88.9MiB/s] [ <=>                                              ]
+proc 2
+95.4MiB 0:00:01 [88.9MiB/s] [ <=>                                              ]
+proc 3
+95.4MiB 0:00:01 [  89MiB/s] [ <=>                                              ]
+4 ==========================
+proc 1
+95.4MiB 0:00:01 [87.8MiB/s] [ <=>                                              ]
+proc 2
+95.4MiB 0:00:01 [87.8MiB/s] [ <=>                                              ]
+proc 3
+95.4MiB 0:00:01 [87.8MiB/s] [ <=>                                              ]
+proc 4
+95.4MiB 0:00:01 [87.9MiB/s] [ <=>                                              ]
+5 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:04 [21.4MiB/s] [    <=>                                           ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:04 [21.6MiB/s] [    <=>                                           ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:04 [21.5MiB/s] [    <=>                                           ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:04 [21.5MiB/s] [    <=>                                           ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:04 [21.5MiB/s] [    <=>                                           ]
+6 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 4232, bytes expected 8448                               ]
+95.4MiB 0:00:02 [42.6MiB/s] [  <=>                                             ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [42.5MiB/s] [  <=>                                             ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [42.5MiB/s] [  <=>                                             ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [42.3MiB/s] [  <=>                                             ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [42.3MiB/s] [  <=>                                             ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [42.9MiB/s] [  <=>                                             ]
+7 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.4MiB/s] [  <=>                                             ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.3MiB/s] [  <=>                                             ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.2MiB/s] [  <=>                                             ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.5MiB/s] [  <=>                                             ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.3MiB/s] [  <=>                                             ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [  41MiB/s] [  <=>                                             ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [  41MiB/s] [  <=>                                             ]
+8 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1112, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.4MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.6MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.8MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 232, bytes expected 8448                                ]
+95.4MiB 0:00:01 [54.2MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.6MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.5MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+9 ==========================
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1704, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.7MiB/s] [ <=>                                              ]
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 120, bytes expected 8448                                ]
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.8MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 2320, bytes expected 8448                               ]
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.8MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.9MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 672, bytes expected 8448                                ]
+95.4MiB 0:00:01 [54.3MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.7MiB/s] [ <=>                                              ]
+proc 9
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [86.7MiB/s] [ <=>                                              ]
+10 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.6MiB/s] [ <=>                                              ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1024, bytes expected 8448                               ]
+95.4MiB 0:00:01 [53.9MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 3640, bytes expected 8448                               ]
+95.4MiB 0:00:01 [53.8MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1120, bytes expected 8448                               ]
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.9MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.7MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.7MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 9
+95.4MiB 0:00:01 [83.8MiB/s] [ <=>                                              ]
+proc 10
+95.4MiB 0:00:01 [  84MiB/s] [ <=>                                              ]
+11 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1672, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.4MiB/s] [ <=>                                              ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1720, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.6MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.9MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 2760, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.6MiB/s] [ <=>                                              ]
+proc 9
+95.4MiB 0:00:01 [88.8MiB/s] [ <=>                                              ]
+proc 10
+95.4MiB 0:00:01 [89.1MiB/s] [ <=>                                              ]
+proc 11
+95.4MiB 0:00:01 [  89MiB/s] [ <=>                                              ]
+12 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 2104, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.2MiB/s] [ <=>                                              ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 224, bytes expected 8448                                ]
+95.4MiB 0:00:01 [54.6MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.3MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 9
+95.4MiB 0:00:01 [87.2MiB/s] [ <=>                                              ]
+proc 10
+95.4MiB 0:00:01 [87.6MiB/s] [ <=>                                              ]
+proc 11
+95.4MiB 0:00:01 [87.7MiB/s] [ <=>                                              ]
+proc 12
+95.4MiB 0:00:01 [87.8MiB/s] [ <=>                                              ]
+13 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 496, bytes expected 8448                                ]
+95.4MiB 0:00:01 [54.3MiB/s] [ <=>                                              ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1256, bytes expected 8448                               ]
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.8MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.9MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.9MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.9MiB/s] [ <=>                                              ]
+proc 9
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:03 [24.9MiB/s] [   <=>                                            ]
+proc 10
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:03 [  25MiB/s] [   <=>                                            ]
+proc 11
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:03 [  25MiB/s] [   <=>                                            ]
+proc 12
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:03 [24.9MiB/s] [   <=>                                            ]
+proc 13
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:03 [  25MiB/s] [   <=>                                            ]
+14 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1408, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.3MiB/s] [ <=>                                              ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1432, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.4MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.4MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.2MiB/s] [ <=>                                              ]
+proc 9
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.6MiB/s] [  <=>                                             ]
+proc 10
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.4MiB/s] [  <=>                                             ]
+proc 11
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.4MiB/s] [  <=>                                             ]
+proc 12
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.5MiB/s] [  <=>                                             ]
+proc 13
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 2592, bytes expected 8448                               ]
+95.4MiB 0:00:02 [42.4MiB/s] [  <=>                                             ]
+proc 14
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [41.7MiB/s] [  <=>                                             ]
+15 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 80, bytes expected 8448                                 ]
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 440, bytes expected 8448                                ]
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 2104, bytes expected 8448                               ]
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.7MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.7MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.7MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.8MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [53.6MiB/s] [ <=>                                              ]
+proc 9
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [45.4MiB/s] [  <=>                                             ]
+proc 10
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [44.9MiB/s] [  <=>                                             ]
+proc 11
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 0, bytes expected 8448                                  ]
+95.4MiB 0:00:02 [45.2MiB/s] [  <=>                                             ]
+proc 12
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [44.6MiB/s] [  <=>                                             ]
+proc 13
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [45.3MiB/s] [  <=>                                             ]
+proc 14
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [45.1MiB/s] [  <=>                                             ]
+proc 15
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:02 [45.2MiB/s] [  <=>                                             ]
+16 ==========================
+proc 1
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 8048, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.2MiB/s] [ <=>                                              ]
+proc 2
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 3
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 1056, bytes expected 8448                               ]
+95.4MiB 0:00:01 [54.4MiB/s] [ <=>                                              ]
+proc 4
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.1MiB/s] [ <=>                                              ]
+proc 5
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.3MiB/s] [ <=>                                              ]
+proc 6
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [  54MiB/s] [ <=>                                              ]
+proc 7
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.3MiB/s] [ <=>                                              ]
+proc 8
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.2MiB/s] [ <=>                                              ]
+proc 9
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 664, bytes expected 8448                                ]
+95.4MiB 0:00:01 [54.6MiB/s] [ <=>                                              ]
+proc 10
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.4MiB/s] [ <=>                                              ]
+proc 11
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.6MiB/s] [ <=>                                              ]
+proc 12
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.5MiB/s] [ <=>                                              ]
+proc 13
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 696, bytes expected 8448                                ]
+95.4MiB 0:00:01 [54.9MiB/s] [ <=>                                              ]
+proc 14
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.7MiB/s] [ <=>                                              ]
+proc 15
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+95.4MiB 0:00:01 [54.8MiB/s] [ <=>                                              ]
+proc 16
+Warning: Less than expected amount of bytes was generated. Trying to get randomness with slower speed.
+ERROR: bytes generated 656, bytes expected 8448                                ]
+95.4MiB 0:00:01 [55.1MiB/s] [ <=>                                              ]

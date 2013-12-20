@@ -1,0 +1,1024 @@
+<root>
+<test threads='1'>
+rdrand_get_bytes_retry 86.959 MiB/s 100.00 %
+</test>
+<test threads='2'>
+rdrand_get_bytes_retry 172.231 MiB/s 100.00 %
+</test>
+<test threads='3'>
+rdrand_get_bytes_retry 269.316 MiB/s 100.00 %
+</test>
+<test threads='4'>
+rdrand_get_bytes_retry 353.833 MiB/s 100.00 %
+</test>
+<test threads='5'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6562 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5735 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 358.299 MiB/s 100.00 %
+</test>
+<test threads='6'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 10156 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6746 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5009 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 4906 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 352.848 MiB/s 100.00 %
+</test>
+<test threads='7'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 12851 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 12198 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5086 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13751 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 9045 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 7592 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 356.826 MiB/s 100.00 %
+</test>
+<test threads='8'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11912 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13433 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 4365 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 4146 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 15692 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 10871 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 4382 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 1322 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 355.023 MiB/s 100.00 %
+</test>
+<test threads='9'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13510 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11613 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 9870 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 17218 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13766 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5775 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8116 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6536 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 215.003 MiB/s 100.00 %
+</test>
+<test threads='10'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 20395 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 14666 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 10316 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 2767 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8777 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6366 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 20313 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 14649 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 12612 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11892 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 10712 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6701 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 302.153 MiB/s 100.00 %
+</test>
+<test threads='11'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 10871 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8359 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 15687 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5301 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 4760 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8445 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 7458 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 21794 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 20158 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13181 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 15748 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11118 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 1389 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6535 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 316.236 MiB/s 100.00 %
+</test>
+<test threads='12'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 18815 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 7293 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 18449 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 17029 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11960 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8587 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 9109 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6242 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 19724 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 7054 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 19771 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 17269 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 16181 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13938 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6336 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5783 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 325.404 MiB/s 100.00 %
+</test>
+<test threads='13'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 24091 bytes generated, but 26624 bytes expected. Probably slow internal generator - decreaseing threads count by one to 12 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 21173 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+Warning: 22160 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 16298 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 4945 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 15553 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11754 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 2641 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 7833 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 23124 bytes generated, but 26624 bytes expected. Probably slow internal generator - decreaseing threads count by one to 12 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 17957 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 20370 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 16827 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 16043 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 12669 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11473 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 2061 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6601 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 316.435 MiB/s 100.00 %
+</test>
+<test threads='14'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 25243 bytes generated, but 28672 bytes expected. Probably slow internal generator - decreaseing threads count by one to 13 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 22969 bytes generated, but 26624 bytes expected. Probably slow internal generator - decreaseing threads count by one to 12 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 21100 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 14726 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 19697 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 9827 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8389 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8993 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 1123 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6189 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 23724 bytes generated, but 28672 bytes expected. Probably slow internal generator - decreaseing threads count by one to 13 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 21681 bytes generated, but 26624 bytes expected. Probably slow internal generator - decreaseing threads count by one to 12 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 20229 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 9508 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 19731 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11901 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 16278 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 12196 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6246 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6683 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 311.851 MiB/s 100.00 %
+</test>
+<test threads='15'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 27321 bytes generated, but 30720 bytes expected. Probably slow internal generator - decreaseing threads count by one to 14 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 24221 bytes generated, but 28672 bytes expected. Probably slow internal generator - decreaseing threads count by one to 13 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 25765 bytes generated, but 26624 bytes expected. Probably slow internal generator - decreaseing threads count by one to 12 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 21825 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+Warning: 21549 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 18022 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 7981 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 15172 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11025 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 10193 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8380 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 29793 bytes generated, but 30720 bytes expected. Probably slow internal generator - decreaseing threads count by one to 14 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 27152 bytes generated, but 28672 bytes expected. Probably slow internal generator - decreaseing threads count by one to 13 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 23665 bytes generated, but 26624 bytes expected. Probably slow internal generator - decreaseing threads count by one to 12 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 19611 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 21636 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 16087 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13776 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 8999 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 9643 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 4537 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5354 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 311.025 MiB/s 100.00 %
+</test>
+<test threads='16'>
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 30436 bytes generated, but 32768 bytes expected. Probably slow internal generator - decreaseing threads count by one to 15 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 20412 bytes generated, but 30720 bytes expected. Probably slow internal generator - decreaseing threads count by one to 14 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 24768 bytes generated, but 28672 bytes expected. Probably slow internal generator - decreaseing threads count by one to 13 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 24026 bytes generated, but 26624 bytes expected. Probably slow internal generator - decreaseing threads count by one to 12 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 22882 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 11326 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 18544 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 7890 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 9646 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13834 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5670 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 7630 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 31335 bytes generated, but 32768 bytes expected. Probably slow internal generator - decreaseing threads count by one to 15 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 26847 bytes generated, but 30720 bytes expected. Probably slow internal generator - decreaseing threads count by one to 14 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 21720 bytes generated, but 28672 bytes expected. Probably slow internal generator - decreaseing threads count by one to 13 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 22970 bytes generated, but 26624 bytes expected. Probably slow internal generator - decreaseing threads count by one to 12 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 9361 bytes generated, but 24576 bytes expected. Probably slow internal generator - decreaseing threads count by one to 11 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 20743 bytes generated, but 22528 bytes expected. Probably slow internal generator - decreaseing threads count by one to 10 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 16179 bytes generated, but 20480 bytes expected. Probably slow internal generator - decreaseing threads count by one to 9 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 13446 bytes generated, but 18432 bytes expected. Probably slow internal generator - decreaseing threads count by one to 8 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 14106 bytes generated, but 16384 bytes expected. Probably slow internal generator - decreaseing threads count by one to 7 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 10798 bytes generated, but 14336 bytes expected. Probably slow internal generator - decreaseing threads count by one to 6 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 5150 bytes generated, but 12288 bytes expected. Probably slow internal generator - decreaseing threads count by one to 5 to avoid problems.
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+ERROR: UNDERFLOW on line 426!!!
+Warning: 6713 bytes generated, but 10240 bytes expected. Probably slow internal generator - decreaseing threads count by one to 4 to avoid problems.
+rdrand_get_bytes_retry 308.718 MiB/s 100.00 %
+</test>
+</root>

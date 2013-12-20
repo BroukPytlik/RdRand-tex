@@ -1,9 +1,9 @@
 %!PS-Adobe-2.0 EPSF-2.0
-%%Title: 32-64bit.eps
+%%Title: bytes_array_speed_hi.eps
 %%Creator: gnuplot 4.6 patchlevel 1
-%%CreationDate: Thu Dec 12 17:42:53 2013
+%%CreationDate: Fri Dec 20 12:41:26 2013
 %%DocumentFonts: (atend)
-%%BoundingBox: 50 50 390 305
+%%BoundingBox: 50 50 390 220
 %%EndComments
 %%BeginProlog
 /gnudict 256 dict def
@@ -42,7 +42,7 @@ gnudict begin
 /vpt vpt_ def
 /doclip {
   ClipToBoundingBox {
-    newpath 50 50 moveto 390 50 lineto 390 305 lineto 50 305 lineto closepath
+    newpath 50 50 moveto 390 50 lineto 390 220 lineto 50 220 lineto closepath
     clip
   } if
 } def
@@ -427,13 +427,13 @@ systemdict /pdfmark known not {
   userdict /pdfmark systemdict /cleartomark get put
 } if
 SDict begin [
-  /Title (32-64bit.eps)
+  /Title (bytes_array_speed_hi.eps)
   /Subject (gnuplot plot)
   /Creator (gnuplot 4.6 patchlevel 1)
   /Author (jtulak)
 %  /Producer (gnuplot)
 %  /Keywords ()
-  /CreationDate (Thu Dec 12 17:42:53 2013)
+  /CreationDate (Fri Dec 20 12:41:26 2013)
   /DOCINFO pdfmark
 end
 } ifelse
@@ -448,7 +448,7 @@ doclip
 0 setgray
 newpath
 (Helvetica) findfont 210 scalefont setfont
-BackgroundColor 0 lt 3 1 roll 0 lt exch 0 lt or or not {BackgroundColor C 1.000 0 0 6802.00 5102.00 BoxColFill} if
+BackgroundColor 0 lt 3 1 roll 0 lt exch 0 lt or or not {BackgroundColor C 1.000 0 0 6802.00 3400.00 BoxColFill} if
 /Helvetica findfont 210 scalefont setfont
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
@@ -458,18 +458,42 @@ LTb
 5331 0 R
 -63 0 V
 903 672 M
-( 0) Rshow
+( 100) Rshow
 1.000 UL
 LTb
-1029 1194 M
+1029 963 M
+63 0 V
+5331 0 R
+-63 0 V
+903 963 M
+( 120) Rshow
+1.000 UL
+LTb
+1029 1254 M
 63 0 V
 5331 0 R
 -63 0 V
 -5457 0 R
-( 100) Rshow
+( 140) Rshow
 1.000 UL
 LTb
-1029 1716 M
+1029 1546 M
+63 0 V
+5331 0 R
+-63 0 V
+-5457 0 R
+( 160) Rshow
+1.000 UL
+LTb
+1029 1837 M
+63 0 V
+5331 0 R
+-63 0 V
+-5457 0 R
+( 180) Rshow
+1.000 UL
+LTb
+1029 2128 M
 63 0 V
 5331 0 R
 -63 0 V
@@ -477,231 +501,127 @@ LTb
 ( 200) Rshow
 1.000 UL
 LTb
-1029 2238 M
+1029 2419 M
 63 0 V
 5331 0 R
 -63 0 V
 -5457 0 R
-( 300) Rshow
+( 220) Rshow
 1.000 UL
 LTb
-1029 2761 M
+1029 2710 M
 63 0 V
 5331 0 R
 -63 0 V
 -5457 0 R
-( 400) Rshow
+( 240) Rshow
 1.000 UL
 LTb
-1029 3283 M
+1029 3001 M
 63 0 V
 5331 0 R
 -63 0 V
 -5457 0 R
-( 500) Rshow
+( 260) Rshow
 1.000 UL
 LTb
-1029 3805 M
-63 0 V
-5331 0 R
--63 0 V
--5457 0 R
-( 600) Rshow
-1.000 UL
-LTb
-1029 4327 M
-63 0 V
-5331 0 R
--63 0 V
--5457 0 R
-( 700) Rshow
-1.000 UL
-LTb
-1029 4849 M
-63 0 V
-5331 0 R
--63 0 V
--5457 0 R
-( 800) Rshow
-1.000 UL
-LTb
-1346 672 M
+1628 672 M
 0 63 V
-0 4114 R
+0 2412 R
 0 -63 V
 /Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(1) Cshow
+0 -2622 R
+(64) Cshow
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
-1664 672 M
+2228 672 M
 0 63 V
-0 4114 R
+0 2412 R
 0 -63 V
 /Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(2) Cshow
+0 -2622 R
+(128) Cshow
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
-1981 672 M
+2827 672 M
 0 63 V
-0 4114 R
+0 2412 R
 0 -63 V
 /Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(3) Cshow
+0 -2622 R
+(256) Cshow
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
-2298 672 M
+3426 672 M
 0 63 V
-0 4114 R
+0 2412 R
 0 -63 V
 /Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(4) Cshow
+0 -2622 R
+(512) Cshow
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
-2615 672 M
+4026 672 M
 0 63 V
-0 4114 R
+0 2412 R
 0 -63 V
 /Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(5) Cshow
+0 -2622 R
+(1024) Cshow
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
-2933 672 M
+4625 672 M
 0 63 V
-0 4114 R
+0 2412 R
 0 -63 V
 /Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(6) Cshow
+0 -2622 R
+(2048) Cshow
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
-3250 672 M
+5224 672 M
 0 63 V
-0 4114 R
+0 2412 R
 0 -63 V
 /Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(7) Cshow
+0 -2622 R
+(4096) Cshow
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
-3567 672 M
+5824 672 M
 0 63 V
-0 4114 R
+0 2412 R
 0 -63 V
 /Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(8) Cshow
-/Helvetica findfont 210 scalefont setfont
-1.000 UL
-LTb
-3885 672 M
-0 63 V
-0 4114 R
-0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(9) Cshow
-/Helvetica findfont 210 scalefont setfont
-1.000 UL
-LTb
-4202 672 M
-0 63 V
-0 4114 R
-0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(10) Cshow
-/Helvetica findfont 210 scalefont setfont
-1.000 UL
-LTb
-4519 672 M
-0 63 V
-0 4114 R
-0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(11) Cshow
-/Helvetica findfont 210 scalefont setfont
-1.000 UL
-LTb
-4837 672 M
-0 63 V
-0 4114 R
-0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(12) Cshow
-/Helvetica findfont 210 scalefont setfont
-1.000 UL
-LTb
-5154 672 M
-0 63 V
-0 4114 R
-0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(13) Cshow
-/Helvetica findfont 210 scalefont setfont
-1.000 UL
-LTb
-5471 672 M
-0 63 V
-0 4114 R
-0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(14) Cshow
-/Helvetica findfont 210 scalefont setfont
-1.000 UL
-LTb
-5788 672 M
-0 63 V
-0 4114 R
-0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(15) Cshow
-/Helvetica findfont 210 scalefont setfont
-1.000 UL
-LTb
-6106 672 M
-0 63 V
-0 4114 R
-0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(16) Cshow
+0 -2622 R
+(8192) Cshow
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
 1.000 UL
 LTb
-1029 4849 N
-0 -4177 V
+1029 3147 N
+0 -2475 V
 5394 0 V
-0 4177 V
+0 2475 V
 -5394 0 V
 Z stroke
 LCb setrgbcolor
-168 2760 M
+168 1909 M
 currentpoint gsave translate -270 rotate 0 0 M
 (MiB/s) Cshow
 grestore
 LTb
 LCb setrgbcolor
 3726 147 M
-(Threads) Cshow
+(Chunk size \(quadwords\)) Cshow
 LTb
 1.000 UP
 1.000 UL
@@ -711,160 +631,88 @@ LTb
 LT0
 /Helvetica findfont 210 scalefont setfont
 LCb setrgbcolor
-5478 4681 M
-(32-bi) Rshow
+5478 2979 M
+(rdrand_get_bytes_retry) Rshow
 LT0
-5604 4629 567 105 80 -45 1 PatternFill
+5604 2927 567 105 80 -45 1 PatternFill
 LCb setrgbcolor
-5604 4629 N
+5604 2927 N
 567 0 V
 0 104 V
 -567 0 V
 0 -104 V
 Z stroke
 LT0
-1246 672 96 531 80 -45 1 PatternFill
+1439 672 180 195 80 -45 1 PatternFill
 LCb setrgbcolor
-1246 672 N
-0 530 V
-95 0 V
-0 -530 V
--95 0 V
+1439 672 N
+0 194 V
+179 0 V
+0 -194 V
+-179 0 V
 Z stroke
 LT0
-1563 672 96 1051 80 -45 1 PatternFill
+2038 672 181 732 80 -45 1 PatternFill
 LCb setrgbcolor
-1563 672 N
-0 1050 V
-95 0 V
-0 -1050 V
--95 0 V
+2038 672 N
+0 731 V
+180 0 V
+0 -731 V
+-180 0 V
 Z stroke
 LT0
-1880 672 97 1585 80 -45 1 PatternFill
+2637 672 181 1157 80 -45 1 PatternFill
 LCb setrgbcolor
-1880 672 N
-0 1584 V
-96 0 V
-0 -1584 V
--96 0 V
+2637 672 N
+0 1156 V
+180 0 V
+0 -1156 V
+-180 0 V
 Z stroke
 LT0
-2198 672 96 1933 80 -45 1 PatternFill
+3237 672 180 1435 80 -45 1 PatternFill
 LCb setrgbcolor
-2198 672 N
-0 1932 V
-95 0 V
-0 -1932 V
--95 0 V
+3237 672 N
+0 1434 V
+179 0 V
+0 -1434 V
+-179 0 V
 Z stroke
 LT0
-2515 672 96 1932 80 -45 1 PatternFill
+3836 672 181 1596 80 -45 1 PatternFill
 LCb setrgbcolor
-2515 672 N
-0 1931 V
-95 0 V
-0 -1931 V
--95 0 V
+3836 672 N
+0 1595 V
+180 0 V
+0 -1595 V
+-180 0 V
 Z stroke
 LT0
-2832 672 96 1942 80 -45 1 PatternFill
+4435 672 181 1795 80 -45 1 PatternFill
 LCb setrgbcolor
-2832 672 N
-0 1941 V
-95 0 V
-0 -1941 V
--95 0 V
+4435 672 N
+0 1794 V
+180 0 V
+0 -1794 V
+-180 0 V
 Z stroke
 LT0
-3150 672 96 1942 80 -45 1 PatternFill
+5035 672 180 1705 80 -45 1 PatternFill
 LCb setrgbcolor
-3150 672 N
-0 1941 V
-95 0 V
-0 -1941 V
--95 0 V
+5035 672 N
+0 1704 V
+179 0 V
+0 -1704 V
+-179 0 V
 Z stroke
 LT0
-3467 672 96 1942 80 -45 1 PatternFill
+5634 672 181 1760 80 -45 1 PatternFill
 LCb setrgbcolor
-3467 672 N
-0 1941 V
-95 0 V
-0 -1941 V
--95 0 V
-Z stroke
-LT0
-3784 672 96 1477 80 -45 1 PatternFill
-LCb setrgbcolor
-3784 672 N
-0 1476 V
-95 0 V
-0 -1476 V
--95 0 V
-Z stroke
-LT0
-4101 672 97 1659 80 -45 1 PatternFill
-LCb setrgbcolor
-4101 672 N
-0 1658 V
-96 0 V
-0 -1658 V
--96 0 V
-Z stroke
-LT0
-4419 672 96 1816 80 -45 1 PatternFill
-LCb setrgbcolor
-4419 672 N
-0 1815 V
-95 0 V
-0 -1815 V
--95 0 V
-Z stroke
-LT0
-4736 672 96 1924 80 -45 1 PatternFill
-LCb setrgbcolor
-4736 672 N
-0 1923 V
-95 0 V
-0 -1923 V
--95 0 V
-Z stroke
-LT0
-5053 672 97 1922 80 -45 1 PatternFill
-LCb setrgbcolor
-5053 672 N
-0 1921 V
-96 0 V
-0 -1921 V
--96 0 V
-Z stroke
-LT0
-5371 672 96 1871 80 -45 1 PatternFill
-LCb setrgbcolor
-5371 672 N
-0 1870 V
-95 0 V
-0 -1870 V
--95 0 V
-Z stroke
-LT0
-5688 672 96 1867 80 -45 1 PatternFill
-LCb setrgbcolor
-5688 672 N
-0 1866 V
-95 0 V
-0 -1866 V
--95 0 V
-Z stroke
-LT0
-6005 672 96 1881 80 -45 1 PatternFill
-LCb setrgbcolor
-6005 672 N
-0 1880 V
-95 0 V
-0 -1880 V
--95 0 V
+5634 672 N
+0 1759 V
+180 0 V
+0 -1759 V
+-180 0 V
 Z stroke
 LT0
 % End plot #1
@@ -873,169 +721,97 @@ LT0
 LT1
 /Helvetica findfont 210 scalefont setfont
 LCb setrgbcolor
-5478 4471 M
-(64-bit) Rshow
+5478 2769 M
+(rdrand_get_uint64_array_retry) Rshow
 LT1
-5604 4419 567 105 40 45 2 PatternFill
+5604 2717 567 105 40 45 2 PatternFill
 LCb setrgbcolor
-5604 4419 N
+5604 2717 N
 567 0 V
 0 104 V
 -567 0 V
 0 -104 V
 Z stroke
 LT1
-1352 672 96 1112 40 45 2 PatternFill
+1638 672 181 240 40 45 2 PatternFill
 LCb setrgbcolor
-1352 672 N
-0 1111 V
-95 0 V
-0 -1111 V
--95 0 V
+1638 672 N
+0 239 V
+180 0 V
+0 -239 V
+-180 0 V
 Z stroke
 LT1
-1669 672 96 2115 40 45 2 PatternFill
+2238 672 180 803 40 45 2 PatternFill
 LCb setrgbcolor
-1669 672 N
-0 2114 V
-95 0 V
-0 -2114 V
--95 0 V
+2238 672 N
+0 802 V
+179 0 V
+0 -802 V
+-179 0 V
 Z stroke
 LT1
-1986 672 96 3125 40 45 2 PatternFill
+2837 672 181 1252 40 45 2 PatternFill
 LCb setrgbcolor
-1986 672 N
-0 3124 V
-95 0 V
-0 -3124 V
--95 0 V
+2837 672 N
+0 1251 V
+180 0 V
+0 -1251 V
+-180 0 V
 Z stroke
 LT1
-2303 672 97 3794 40 45 2 PatternFill
+3436 672 181 1545 40 45 2 PatternFill
 LCb setrgbcolor
-2303 672 N
-0 3793 V
-96 0 V
-0 -3793 V
--96 0 V
+3436 672 N
+0 1544 V
+180 0 V
+0 -1544 V
+-180 0 V
 Z stroke
 LT1
-2621 672 96 3781 40 45 2 PatternFill
+4036 672 180 1695 40 45 2 PatternFill
 LCb setrgbcolor
-2621 672 N
-0 3780 V
-95 0 V
-0 -3780 V
--95 0 V
+4036 672 N
+0 1694 V
+179 0 V
+0 -1694 V
+-179 0 V
 Z stroke
 LT1
-2938 672 96 3811 40 45 2 PatternFill
+4635 672 181 1795 40 45 2 PatternFill
 LCb setrgbcolor
-2938 672 N
-0 3810 V
-95 0 V
-0 -3810 V
--95 0 V
+4635 672 N
+0 1794 V
+180 0 V
+0 -1794 V
+-180 0 V
 Z stroke
 LT1
-3255 672 97 3831 40 45 2 PatternFill
+5234 672 181 1682 40 45 2 PatternFill
 LCb setrgbcolor
-3255 672 N
-0 3830 V
-96 0 V
-0 -3830 V
--96 0 V
+5234 672 N
+0 1681 V
+180 0 V
+0 -1681 V
+-180 0 V
 Z stroke
 LT1
-3573 672 96 3760 40 45 2 PatternFill
+5834 672 180 1730 40 45 2 PatternFill
 LCb setrgbcolor
-3573 672 N
-0 3759 V
-95 0 V
-0 -3759 V
--95 0 V
-Z stroke
-LT1
-3890 672 96 2921 40 45 2 PatternFill
-LCb setrgbcolor
-3890 672 N
-0 2920 V
-95 0 V
-0 -2920 V
--95 0 V
-Z stroke
-LT1
-4207 672 96 3323 40 45 2 PatternFill
-LCb setrgbcolor
-4207 672 N
-0 3322 V
-95 0 V
-0 -3322 V
--95 0 V
-Z stroke
-LT1
-4525 672 96 3527 40 45 2 PatternFill
-LCb setrgbcolor
-4525 672 N
-0 3526 V
-95 0 V
-0 -3526 V
--95 0 V
-Z stroke
-LT1
-4842 672 96 3742 40 45 2 PatternFill
-LCb setrgbcolor
-4842 672 N
-0 3741 V
-95 0 V
-0 -3741 V
--95 0 V
-Z stroke
-LT1
-5159 672 96 3737 40 45 2 PatternFill
-LCb setrgbcolor
-5159 672 N
-0 3736 V
-95 0 V
-0 -3736 V
--95 0 V
-Z stroke
-LT1
-5476 672 97 3664 40 45 2 PatternFill
-LCb setrgbcolor
-5476 672 N
-0 3663 V
-96 0 V
-0 -3663 V
--96 0 V
-Z stroke
-LT1
-5794 672 96 3622 40 45 2 PatternFill
-LCb setrgbcolor
-5794 672 N
-0 3621 V
-95 0 V
-0 -3621 V
--95 0 V
-Z stroke
-LT1
-6111 672 96 3585 40 45 2 PatternFill
-LCb setrgbcolor
-6111 672 N
-0 3584 V
-95 0 V
-0 -3584 V
--95 0 V
+5834 672 N
+0 1729 V
+179 0 V
+0 -1729 V
+-179 0 V
 Z stroke
 LT1
 % End plot #2
 1.000 UL
 LTb
-1029 4849 N
-0 -4177 V
+1029 3147 N
+0 -2475 V
 5394 0 V
-0 4177 V
+0 2475 V
 -5394 0 V
 Z stroke
 1.000 UP
