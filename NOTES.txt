@@ -1,0 +1,62 @@
+
+
+
+Taky je dobre zminit utoky na PRNG i HW generatory:
+http://en.wikipedia.org/wiki/Random_number_generator_attack
+a
+jeste tohle
+http://samy.pl/phpwn/
+
+Mozna muzes zminit i to, ze se chysta nova instrukce|RDSEED|
+The |RDSEED| instruction was latterly added to Intel Secure Key for 
+seeding another pseudorandom number generator,^[10] 
+<http://en.wikipedia.org/wiki/RdRand#cite_note-11> to Broadwell 
+<http://en.wikipedia.org/wiki/Broadwell_%28microarchitecture%29> CPUs.
+
+
+3.2.3j DRBG.
+Zajimavy link:
+http://stackoverflow.com/questions/17616960/true-random-numbers-with-c11-and-rdrand/18004959#18004959
+
+A tohle bys mohl dat do referenci:
+http://csrc.nist.gov/publications/nistpubs/800-90A/SP800-90A.pdf
+
+DRBG requires reseeding after it produces 512 128-bit outputs (65536 
+bits total).
+However, under normal operations, the DRBG will reseed much more often.
+http://www.cryptography.com/public/pdf/Intel_TRNG_Report_20120312.pdf
+
+Ten reseed je potreba nejpozdeji po vyg. 512 bloku (aby to byl stale 
+CSPRNG)
+
+A RdRand dela reseed nejpozdeji po vyg. 511 bloku
+It deterministically generates up to 511 128-bit samples from one 256-bit
+
+V textu chybi, ze se generuje ruzny pocet bloku, maximalne ale 511. A 
+vysvetleni te 512 hranice.
+
+4.1.2.5j Secure generating.
+Generate count of 64bit values. Force reseed by generating and throwing away
+1024 values per one saved.
+
+Tady mi chybi 1024 64-bit values (tedy 512 128-bitovych)
+A mozna kratka poznamka, ze v zasade bychom pouzit 128-bitovy blok z 
+jednoho reseedu, ale protoze nevime, v jakem poradi se ukladaji data z 
+AES DRBG to output bufferu, bereme radeji jen jednu 64-bitovou hodnotu. 
+Podle dokumentace - generuje se max 511 128-bitovych hodnot - by melo 
+stacit skipnout 1021 64-bitovych hodnot (i kdyz si nejsem jisty, jestli 
+ta 511 je pravdivy udaj (nektere zdroje uvadeji 512 bloku) a tak 
+skipnout 1023 mi prijde bezpecnejsi). Je nejaky duvod, skipnout 1024 
+hodnot? Tedy prijde mi to OK, takhle se pouziva jednou spodnich 64 a 
+podruhe hornich 64 bitu ze 128 bitoveho vystupu, ale mozna by to chtelo 
+opet zduvodnit. tedy summary: 1024 bych nechal, ale vic bych to rozvedl, 
+proc zrovna 1024.
+
+ad rdrand_get_uint64_array_reseed_delay
+Mas nejake oduvodneni, proc zrovna  delay 10 us ? Na jeden reseed mame 
+512 128-bitovych bloku, tedy 8kB. Pokud budu uvazovat nejnizsi zjistenou 
+peak rychlost kolem 400MB/s, mame 50tis. reseedu za sekundu, tedy 20us 
+na reseed. Tech 10us mi prijde tedy trochu malo (je to frekvence reseedu 
+pri peak rychlosti 800MB/s). Hodnota mezi 20 az 50us mi prijde 
+bezpecnejsi, co ty na to?
+ 

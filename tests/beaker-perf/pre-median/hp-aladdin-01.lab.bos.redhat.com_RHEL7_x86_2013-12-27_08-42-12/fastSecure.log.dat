@@ -1,0 +1,4 @@
+method speed
+rdrand_get_bytes_retry 187.589
+rdrand_get_uint64_array_reseed_delay 0.091
+rdrand_get_uint64_array_reseed_skip 0.220

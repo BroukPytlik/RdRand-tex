@@ -24,8 +24,8 @@ Indentation Mode=normal
 Mode=LaTeX
 
 [document-settings,item:bibliography.bib]
-Bookmarks=51,87,106,25,46,14,66,83
-Encoding=ISO-8859-15
+Bookmarks=51,87,106,25,130,46,14,133,66,83
+Encoding=UTF-8
 Highlighting=BibTeX
 Indentation Mode=normal
 Mode=BibTeX
@@ -66,7 +66,7 @@ Indentation Mode=normal
 Mode=LaTeX
 
 [document-settings,item:content/6_tests.tex]
-Bookmarks=88,126,29,13,31
+Bookmarks=309,89,276,5,80,115,82
 Encoding=UTF-8
 Highlighting=LaTeX
 Indentation Mode=normal
@@ -116,20 +116,20 @@ Mode=LaTeX
 
 [item:attachments.tex]
 archive=true
-column=0
+column=17
 encoding=ISO-8859-15
 highlight=LaTeX
-line=0
+line=7
 mode=LaTeX
 open=false
 order=-1
 
 [item:bibliography.bib]
 archive=true
-column=28
-encoding=ISO-8859-15
+column=15
+encoding=UTF-8
 highlight=BibTeX
-line=10
+line=133
 mode=BibTeX
 open=false
 order=2
@@ -166,12 +166,12 @@ order=4
 
 [item:content/4_library.tex]
 archive=true
-column=46
+column=67
 encoding=UTF-8
 highlight=LaTeX
-line=76
+line=19
 mode=LaTeX
-open=true
+open=false
 order=3
 
 [item:content/5_rdrand-gen.tex]
@@ -186,10 +186,10 @@ order=6
 
 [item:content/6_tests.tex]
 archive=true
-column=128
+column=30
 encoding=UTF-8
 highlight=LaTeX
-line=38
+line=8
 mode=LaTeX
 open=true
 order=1
@@ -236,13 +236,13 @@ order=-1
 
 [item:jtulak.cls]
 archive=true
-column=25
+column=38
 encoding=UTF-8
 highlight=LaTeX
-line=223
+line=102
 mode=LaTeX
 open=false
-order=-1
+order=4
 
 [item:rdrand.kilepr]
 archive=true
@@ -256,25 +256,25 @@ order=-1
 
 [item:rdrand.tex]
 archive=true
-column=40
+column=2
 encoding=UTF-8
 highlight=LaTeX
-line=42
+line=131
 mode=LaTeX
 open=true
 order=0
 
 [view-settings,view=0,item:attachments.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=17
+CursorLine=7
 JumpList=
-ViMarks=
+ViMarks=.,8,0,[,8,0,],8,0
 
 [view-settings,view=0,item:bibliography.bib]
-CursorColumn=28
-CursorLine=10
+CursorColumn=15
+CursorLine=133
 JumpList=
-ViMarks=.,130,34,[,130,22,],130,34,a,51,0,b,87,0,c,66,0,d,83,0,e,25,0,f,46,0,g,106,0,h,14,0
+ViMarks=.,133,14,[,133,9,],133,14,a,51,0,b,87,0,c,106,0,d,25,0,e,130,0,f,46,0,g,14,0,h,66,0,i,83,0,j,133,0
 ViRegisterContents=,
 ViRegisterFlags=0,0
 ViRegisterNames=-,^
@@ -307,8 +307,8 @@ ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:content/4_library.tex]
-CursorColumn=46
-CursorLine=76
+CursorColumn=67
+CursorLine=19
 JumpList=
 ViMarks=.,79,378,[,79,378,],79,378
 ViRegisterContents=,
@@ -325,10 +325,10 @@ ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:content/6_tests.tex]
-CursorColumn=128
-CursorLine=38
+CursorColumn=30
+CursorLine=8
 JumpList=
-ViMarks=.,38,74,<,29,9,>,29,9,[,38,74,],38,127,^,31,15,a,29,0,b,88,11,c,126,0,d,13,0
+ViMarks=.,72,56,<,80,9,>,80,9,[,72,56,],72,56,^,82,15,a,80,0,b,276,11,c,309,0,d,5,54,e,89,0,f,115,0
 ViRegisterContents=,
 ViRegisterFlags=0,0
 ViRegisterNames=-,^
@@ -367,19 +367,19 @@ ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:jtulak.cls]
-CursorColumn=25
-CursorLine=223
+CursorColumn=38
+CursorLine=102
 JumpList=
-ViMarks=.,223,25,[,223,25,],223,25
+ViMarks=.,102,38,[,102,38,],102,38
 ViRegisterContents=\s,\\\\documentclass[11pt]
 ViRegisterFlags=0,0
 ViRegisterNames=-,^
 
 [view-settings,view=0,item:rdrand.tex]
-CursorColumn=40
-CursorLine=42
+CursorColumn=2
+CursorLine=131
 JumpList=
-ViMarks=.,52,6,<,0,0,>,0,0,[,52,6,],52,6
+ViMarks=.,131,2,<,0,0,>,0,0,[,131,2,],131,2
 ViRegisterContents=\s,\\\\documentclass[11pt]
 ViRegisterFlags=0,0
 ViRegisterNames=-,^

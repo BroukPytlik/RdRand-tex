@@ -81,15 +81,15 @@ These methods should be used only in a single thread. If more threads or process
 
 
 
-\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_delay}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by waiting few microseconds before each generating.}\\
+\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_delay}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by waiting few microseconds before each generating. The delay duration was selected according a delay in Intel's reference implementation.}\\
 
 
-\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_skip}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by generating and throwing away 1024 values per one saved.}\\
+\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_skip}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by generating and throwing away 1024\footnote{Theoreticaly 1023 should be enough, but 1024 is better to remember.} 64-bit values per one saved. }\\
 
 
 \section{RdRand calling}
 The RdRand instruction is called in three functions: \function{rdrand16_step}, \function{rdrand32_step} and \function{rdrand64_step}. In case that the compiler compiling this library knows RdRand instruction and {\tt x86intrin.h} header file is included, the three named functions are just a renaming of {\tt \_rdrandXX\_step} functions. But if the compiler do not know the instruction (for example when the version is too old), or the header file is not installed on the system, then the functions directly call a byte code.
-\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=C, numbers=left, numberstyle=\tiny\color{black},caption= {Byte code called in {\tt rdrand64\_step}.}]
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=C, numbers=none, numberstyle=\tiny\color{black},caption= {Byte code called in {\tt rdrand64\_step}.}]
  asm volatile (".byte 0x48; .byte 0x0f; .byte 0xc7; .byte 0xf0; setc %1"
                       : "=a" (*x), "=qm" (err));
 \end{lstlisting}
@@ -101,7 +101,7 @@ If the library is compiled for a 32-bit system, then the \function{rdrand64_step
 \section{Intelligent generating}
 Most of the functions of the library that generates an array fill the array values one by one, as it was passed to the function, just using larger data type if possible, having as little operations as possible. The \function{rdrand_get_bytes_retry} is the only one that is applying a simple heuristic for achieving the best possible speed even when passed memory area is not aligned to 64-bit blocks.
 
-The function computes offset of the first 64-bit aligned block within the given memory space and then, if the offset is different than 0, it fills the few unaligned bytes at the beginning individually. After that, the generating continues like in other methods by filling 64-bit blocks until the end, potentially ending again by less than 8 bytes that needs to be filled individually (not in 64-bit chunk). Because of this approach, this function has a performance impact, that can be notable on small memory areas\footnote{See \fullref{sec:performance-testing} for details.}, but on large aligned areas the performance difference is almost undetectable. If the memory area is not aligned, then the performance of this function is the best of all in this library.
+The function computes offset of the first 64-bit aligned block within the given memory space and then, if the offset is different than 0, it fills the few unaligned bytes at the beginning individually. After that, the generating continues like in other methods by filling 64-bit blocks until the end, potentially ending again by less than 8 bytes that needs to be filled individually (not in 64-bit chunk). Because of this approach, this function has a performance impact, that can be notable on small memory areas\footnote{See \fullref{sec:testing:performance-testing} for details.}, but on large aligned areas the performance difference is almost undetectable. If the memory area is not aligned, then the performance of this function is the best of all in this library.
 
 
 \section{Support testing}

@@ -1,7 +1,7 @@
 %=========================================================================
 \chapter{Testing} \label{chap:testing}
 
-During the development, we measured speed of the library and after getting the code on decent performance and finishing the main development work, we also used some statistical tests batteries. More information about them can be find in \fullref{sec:testing:statistical-testing}.
+During the development, we measured speed of the library and after getting the code on decent performance and finishing the main development work, we also used some statistical tests batteries. More information about them can be find in \fullref{sec:testing:stat-testing}.
 
 For these tests, multiple operating systems were used.
 \begin{table}[h!]
@@ -11,12 +11,16 @@ For these tests, multiple operating systems were used.
       OS & Arch. & Kernel version & GCC version\\
       \hline
       \hline
-      RHEL 5 & i686 & 2.6.18-348.el5PAE & Red Hat 4.1.2-54\\
+      RHEL 5.10 & i686 & 2.6.18-348.el5PAE & Red Hat 4.1.2-54\\
       \hline
-      RHEL 5 & x86\_64 & 2.6.18-348.el5 & Red Hat 4.1.2-54\\
+      RHEL 5.10 & x86\_64 & 2.6.18-348.el5 & Red Hat 4.1.2-54\\
+      % RHEL5-Server-U10 x86_64
       \hline
-      RHEL 7 & x86\_64 & 3.10.0-54.el7 & Red Hat 4.8.2-3\\
-      % RHEL-7.0-20131123.0 Everything x86_64
+      RHEL 6.4 & x86\_64 & 2.6.32-358.el6 & Red Hat 4.4.7-3\\
+      % RHEL6.4-20130130.0 Workstation x86_64
+      \hline
+      RHEL 7.0 & x86\_64 & 3.10.0-54.0.1.el7 & Red Hat 4.8.2-3\\
+      %  RHEL-7.0-20131127.1 Everything x86_64
       \hline
     \end{tabular}
     \caption{Used systems versions.}
@@ -24,17 +28,54 @@ For these tests, multiple operating systems were used.
   \end{center}
 \end{table}
 
-Most of the tests were done on 64-bit RHEL 7. The only exceptions are in \fullref{subsec:testing:differences}. The operating system was installed on every machine just for these tests. No additional than default services were run and no other work was done with the machine during the tests.
+Most of the tests were done on 64-bit RHEL 7. The only exceptions are in \fullref{subsec:testing:differences}. The operating system was installed clean on every machine for these tests. No additional than default services were run and no other work was done with the machine during the tests.
 
-
-\TODO{Expand this chapter} % TODO expand this chapter
 
 
 %------------------------------------------------------------------------------
-\section{Statistical Testing}\label{sec:testing:statistical-testing}
-Data
-\par \TODO{Put data} % TODO statistical - put data
-\par \TODO{TestU01 has some interesting paper on their page - read it} % TODO TestU01 has some interesting paper on their page - read it
+\section{Statistical Testing}\label{sec:testing:stat-testing}
+\begin{tabular}{|l|c|l|}
+ \hline
+ OS & Arch. & Machine \\
+ \hline
+  \hline
+ RHEL 7 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+ \hline
+\end{tabular}
+
+Because it is important to be sure that generated values are truly random, two test suites were used: PractRand and TestU01. From PractRand, test battery {\tt RNG\_test} was used and from TestU01, {\tt BigCrush} and {\tt Alphabit}. No deviation was found by these test suits at all.
+
+\subsection{PractRand}
+From PractRand suite, just the shipped {\tt RNG\_test} battery was used in the manner of \lstref{lst:testing:stat-testing:practrand}.
+
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {PractRand test battery usage}
+,label={lst:testing:stat-testing:practrand}]
+(time ( stdbuf -eL -oL rdrand-gen -t$SIMPLE_THREADS -o \
+>(stdbuf -oL RNG_test stdin32 -tlmax 16T  -tlfail) ) )
+\end{lstlisting}
+
+\subsection{TestU01}
+Test01 is, in opposite of PractRand, a C library, without any shipped binaries usable for testing. Thus a testing program {\tt TestU01\_raw\_stdin\_input\_with\_log} by Jiří Hladký\cite{CSPRNG} was used. This program can read values from standard input and pass it to the test batteries, which can be selected. The used commands are.
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {TestU01 BigCrush battery}
+,label={lst:testing:stat-testing:testu01-bigcrush}]
+(time ( stdbuf -eL -oL rdrand-gen  -t$SIMPLE_THREADS -o \
+>(stdbuf -oL $TESTU01 -b) ) )
+\end{lstlisting}
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {TestU01 Alphabit battery for all bits}
+,label={lst:testing:stat-testing:testu01-alphabit-full}]
+(time ( stdbuf -eL -oL rdrand-gen  -t$SIMPLE_THREADS -o \
+>(stdbuf -oL $TESTU01 --Alphabit=40:0:32) ) ) 
+\end{lstlisting}
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {TestU01 Alphabit battery for one bit}
+,label={lst:testing:stat-testing:testu01-alphabit-onebit}]
+(time ( stdbuf -eL -oL rdrand-gen  -t$SIMPLE_THREADS -o \
+>(stdbuf -oL $TESTU01 --Alphabit=35:0:1) ) ) 
+\end{lstlisting}
+
 
 % http://pracrand.sourceforge.net/tools.txt - RdRand | RNG_test stdin
 
@@ -50,14 +91,14 @@ Althought during the development we measured both, here the first option is test
 
 \par \TODO{Compare multiple operating systems on the same machine} % TODO Compare multiple operating systems on the same machine
 
-The set of Bash and Python scripts in the {\tt tests/} directory is there for automatic run of the throughput test with different count of threads and creating graphs of the measured speed. Within each test description, the used command is included. All other options that are not within such command, were left with these default values of the {\tt RdRand} executable\footnote{Only relevant options that has an impact on the performance are described.}:
+The Bash script {\tt perftest.sh} in the {\tt tests/} directory contain a battery of performance tests described later, in subsections. The battery runs specified set of tests ten times to get a median values and also directly creates figures with measured values. Within each test description, the used command is included. All other options that are not within such command were left with these default values of the {\tt RdRand} executable\footnote{Only relevant options that has an impact on the performance are described.}:
 
 \begin{itemize}
- \item {\tt --numbers, -n}: {\em wasn't set}
- \item {\tt --thread, -t}: {\em 2 threads}
- \item {\tt --duration, -d}: {\em 3 seconds}
- \item {\tt --repetition, -r}: {\em 2 times repeat the test, print the average value}
- \item {\tt --chunk-size, -c}: {\em size of the memory space filled in one call: 2048 of 64-bit values}
+ \item {\tt --numbers, -n}: {\em printing of generated values is not enabled}
+ \item {\tt --thread, -t}: {\em 2 threads used for generation}
+ \item {\tt --duration, -d}: {\em 3 seconds} -- empiricaly measured that 3 seconds are the minimum duration when the result is not influenced by initialization overhead.
+ \item {\tt --repetition, -r}: {\em 2 times repeat the test, print the average value} -- has reason only when testing all methods at once.
+ \item {\tt --chunk-size, -c}: {\em size of the memory space filled in one call: 2048 of 64-bit values} -- empiricaly selected the minimum size which is not slowing the speed by overhead, that means bigger value has no performance effect.
 \end{itemize}
 
 
@@ -70,35 +111,77 @@ The set of Bash and Python scripts in the {\tt tests/} directory is there for au
   \hline
  RHEL 7 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
  \hline
+ RHEL 5 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+ \hline
 \end{tabular}
 
-To be able to evaluate results of tests, it is necessary to know the spread of speeds in the same conditions during a time. The \figref{fig:testing:stability} shows the scattering of speed results from the script in the \lstref{lst:testing:scattering}. The script ran the testing application for 500 times and measured the speed of the generating.
+To be able to evaluate results of tests, it is necessary to know the spread of speeds in the same conditions during a time. The \lstref{lst:testing:scattering} shows command used in the test, which was started 1000 times (in each from 10 test set runs 100 values was measured).
 
+The distribution is rather discrete, with four values appearing frequently appearing in the RHEL~7~\figref{fig:testing:stability-r7}, while others are almost missing. In the \figref{fig:testing:stability-r5} for RHEL~5 there is just one peak value and the scattering of speeds is much lower, which is suggesting that that the big differences on RHEL~7 are caused by interrupts and context switching in the OS.
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Test script for scattering testing.}
+,label={lst:testing:scattering}]
+./RdRand -m rdrand_get_bytes_retry -r2 -d10 -t1 
+\end{lstlisting}
 
 \begin{figure}[h!]
   \centering
  \includegraphics[width=12cm]{fig/tests/scattering_test.eps} % Or .pdf
-\caption{Histogram of measured speeds.}
-\label{fig:testing:stability}
+\caption{Histogram of measured speeds on RHEL 7.}
+\label{fig:testing:stability-r7}
 \end{figure}
 
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|c|}
+  \hline
+  Minimum value& -\\
+  \hline
+  Maximum value& xx\\ 
+  \hline
+  A. mean & xx\\
+  \hline
+  Median & xx \\
+  \hline
+  Std. deviation & xx \\
+  \hline
+\end{tabular}
+\caption{Statistical properties on RHEL~7}
+\label{tab:testing:stability-stat-r7}
+\end{center}
+\end{table}
+%-----
+\begin{figure}[h!]
+  \centering
+ \includegraphics[width=12cm]{fig/tests/scattering_rhel5.eps} % Or .pdf
+\caption{Histogram of measured speeds on RHEL 5.}
+\label{fig:testing:stability-r5}
+\end{figure}
 
-The distribution is rather discrete, with four values appearing frequently, while others are almost missing. We guess this is caused by interrupts and context switching in the OS with the one low peak near 180 MiB/s caused by moving the thread to another CPU core.
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|c|}
+  \hline
+  Minimum value& 200.643 MiB/s\\
+  \hline
+  Maximum value& 214.242 MiB/s\\ 
+  \hline
+  Ar. mean & 212.418 MiB/s\\
+  \hline
+  Median & 213.205 MiB/s\\
+  \hline
+  Std. deviation & 2.424 MiB/s\\
+  \hline
+\end{tabular}
+\caption{Statistical properties on RHEL~5}
+\label{tab:testing:stability-stat-r5}
+\end{center}
+\end{table}
 
-\TODO{For Jirka: Is there any better explanation?} % TODO scattering - better explanation?
-
-
-\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=left, numberstyle=\tiny\color{black},caption= {Test script for scattering testing.}
-,label={lst:testing:scattering}]
-for i in $(seq 500); do 
-  echo "running $i from 500";
-  ./RdRand -m rdrand_get_bytes_retry -r1 -d4 -t1 2>&1 \
-  |grep -Eo "[0-9]{3}\.[0-9]{3}" \
-  >> scattering_test.dat; 
-done
-\end{lstlisting}
+Bacause the standard deviation on RHEL~5 is much lower than on RHEL~7 and the average speed is higher, RHEL~5 was selected as a platform for other tests. The worse results of RHEL~7 can be caused by being the system still in development.
 
 %..............................................................................
+\newpage
 \subsection{Scaling}
 \begin{tabular}{|l|c|l|}
  \hline
@@ -204,7 +287,7 @@ On the opposite side of the figures the performance difference dismiss as with b
  \hline
 \end{tabular}
 
-Because the secure methods, described in the section \ref{subsec:api:secure}~\nameref{subsec:api:secure} (both functions \function{rdrand_get_uint64_array_reseed_delay} and its {\tt \_skip} twin), should not be used in parallel threads\footnote{See \ref{subsec:api:secure}}, only a single thread comparison between them and the \function{rdrand_get_bytes_retry} as a fast method was made. \TODO{Data from another machine that has different delay/skip.}
+Because the secure methods, described in the section \ref{subsec:api:secure}~\nameref{subsec:api:secure} (both functions \function{rdrand_get_uint64_array_reseed_delay} and its {\tt \_skip} twin), should not be used in parallel threads\footnote{See \ref{subsec:api:secure}}, only a single thread comparison between them and the \function{rdrand_get_bytes_retry} as a fast method was made. \TODO{Data from another machine that has different delay/skip.} The values are average from few manual runs.
 
 \begin{table}[h!]
 \begin{center}
@@ -212,11 +295,11 @@ Because the secure methods, described in the section \ref{subsec:api:secure}~\na
   \hline
  Function / Machine & \machine{hp-aladdin-01.lab.bos.redhat.com} & xx\\
   \hline
-  Fast & 212.806 MB/s & xx\\ 
+  Fast & xxx MiB/s & xx MiB/s\\ 
   \hline
-  Delay & 0.116 MB/s & xx\\
+  Delay & xxx MiB/s & xx MiB/s\\
   \hline
-  Skip & 0.224 MB/s & xx \\
+  Skip & xxx MiB/s & xx MiB/s\\
   \hline
 \end{tabular}
 \caption{Comparison of speed of a fast method of generating ({\tt rdrand\_get\_bytes\_retry}) and two variants of secure generating.}
