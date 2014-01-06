@@ -77,14 +77,15 @@ These functions also accept {\tt retry\_limit} as the previous ones. Returns byt
 \subsubsection{Secure generating}\label{subsec:api:secure}
 As is documented in the \fullref{chap:rdrand-instruction}, the CPU is using an~pseudorandom generator in~connection with an~entropy source. If the~user want to avoid of the~risk of taking two numbers from the same pool, that were generated from the same seed by the PRNG for some reason, it is possible to use these functions, that~guarantee\footnote{Based on description of Intel Secure Key in \fullref{subsec:DRBG}. Verification of this claim is not possible due to sealed implementation in the CPU.} by~reseeding the internal entropy pool, that each~64-bit generated value is independent on the~previous or the~next one. 
 
-These methods should be used only in a single thread. If more threads or processes tries to generate random numbers with these two methods, the library has no possibility to enforce the reseeding of the PRNG and the numbers generated in two different threads can be from the same, non-regenerated pool. However, between numbers in one thread, the reseeding is always guarranted.\\
+These methods should be used only in a single thread. If more threads or processes tries to generate random numbers with these two methods, the library has no possibility to enforce the reseeding of the PRNG and the numbers generated in two different threads can be from the same, non-regenerated pool. However, between numbers in one thread, the reseeding is always guarranted with all reliability we can have without knowing the implementation details. \TODO{Better description, why 1024... how the reseeding works.}\\
 
 
 
-\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_delay}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by waiting few microseconds before each generating. The delay duration was selected according a delay in Intel's reference implementation.}\\
+
+\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_delay}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by waiting 20 microseconds before each generating. The delay duration was selected according a delay in Intel's reference implementation. It can happen that the reseeding speed can be slower than this delay (if the speed with non-secure methods is markedly -- more then half -- slower than the ideal 800 MiB/s) and in such situation this delay may not be enough.}\\
 
 
-\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_skip}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by generating and throwing away 1024\footnote{Theoreticaly 1023 should be enough, but 1024 is better to remember.} 64-bit values per one saved. }\\
+\FunctionDeclare{size\_t}{rdrand_get_uint64_array_reseed_skip}{uint64\_t *dest, const size\_t count, int retry\_limit}{Generate {\tt count} of 64bit values. Force reseed by generating and throwing away 1024\footnote{1023 should be enough, but 1024 is better to remember.} 64-bit values per one saved. }\\
 
 
 \section{RdRand calling}

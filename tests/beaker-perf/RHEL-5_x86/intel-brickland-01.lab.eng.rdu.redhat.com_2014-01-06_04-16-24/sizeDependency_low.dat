@@ -1,0 +1,7 @@
+quadwords rdrand_get_bytes_retry rdrand_get_uint64_array_retry
+1 2.070 1.848
+2 3.566 3.611
+4 6.863 6.842
+8 12.519 12.587
+16 21.469 21.655
+32 33.285 33.540

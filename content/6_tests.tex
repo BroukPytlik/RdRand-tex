@@ -12,9 +12,13 @@ For these tests, multiple operating systems were used.
       \hline
       \hline
       RHEL 5.10 & i686 & 2.6.18-348.el5PAE & Red Hat 4.1.2-54\\
+      % RHEL5-Server-U10 i386
       \hline
       RHEL 5.10 & x86\_64 & 2.6.18-348.el5 & Red Hat 4.1.2-54\\
       % RHEL5-Server-U10 x86_64
+      \hline
+      RHEL 6.4 & i686 & 2.6.32-358.el6.i686 & Red Hat 4.4.7-3\\
+      % RHEL6.4-20130130.0 Server i686
       \hline
       RHEL 6.4 & x86\_64 & 2.6.32-358.el6 & Red Hat 4.4.7-3\\
       % RHEL6.4-20130130.0 Workstation x86_64
@@ -28,7 +32,7 @@ For these tests, multiple operating systems were used.
   \end{center}
 \end{table}
 
-Most of the tests were done on 64-bit RHEL 7. The only exceptions are in \fullref{subsec:testing:differences}. The operating system was installed clean on every machine for these tests. No additional than default services were run and no other work was done with the machine during the tests.
+All tests were done on all listed systems\footnote{For raw data see \fullref{chap:attachments}}. The operating system was installed clean on every machine for these tests. No additional than default services were run and no other work was done with the machine during the tests.
 
 
 
@@ -38,15 +42,21 @@ Most of the tests were done on 64-bit RHEL 7. The only exceptions are in \fullre
  \hline
  OS & Arch. & Machine \\
  \hline
-  \hline
+ \hline
  RHEL 7 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+ \hline
+ RHEL 5 & x86\_64 & \machine{intel-brickland-02.lab.eng.rdu.redhat.com}\\
+ \hline
+ RHEL 7 & x86\_64 & \machine{intel-canoepass-01.lab.eng.rdu.redhat.com}\\
+ \hline
+ RHEL 5 & x86\_64 & \machine{intel-canoepass-02.lab.eng.rdu.redhat.com}\\
  \hline
 \end{tabular}
 
 Because it is important to be sure that generated values are truly random, two test suites were used: PractRand and TestU01. From PractRand, test battery {\tt RNG\_test} was used and from TestU01, {\tt BigCrush} and {\tt Alphabit}. No deviation was found by these test suits at all.
 
 \subsection{PractRand}
-From PractRand suite, just the shipped {\tt RNG\_test} battery was used in the manner of \lstref{lst:testing:stat-testing:practrand}.
+From PractRand suite, just the shipped {\tt RNG\_test} battery was used in the manner of \lstref{lst:testing:stat-testing:practrand}. About 32 TB of randomness was tested for a single run of PractRand battery.
 
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {PractRand test battery usage}
@@ -56,26 +66,28 @@ From PractRand suite, just the shipped {\tt RNG\_test} battery was used in the m
 \end{lstlisting}
 
 \subsection{TestU01}
-Test01 is, in opposite of PractRand, a C library, without any shipped binaries usable for testing. Thus a testing program {\tt TestU01\_raw\_stdin\_input\_with\_log} by Jiří Hladký\cite{CSPRNG} was used. This program can read values from standard input and pass it to the test batteries, which can be selected. The used commands are.
+Test01 is, in opposite of PractRand, a C library, without any shipped binaries usable for testing. Thus a testing program {\tt TestU01\_raw\_stdin\_input\_with\_log} by Jiří Hladký\cite{CSPRNG} was used. This program can read values from standard input and pass it to the test batteries, which can be selected. The used commands are in \lstref{lst:testing:stat-testing:testu01-bigcrush} to \lstref{lst:testing:stat-testing:testu01-alphabit-onebit}. On every machine, threads count for the generator was set to number of PUs -1, leaving one PU for system and the test itself.
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {TestU01 BigCrush battery}
 ,label={lst:testing:stat-testing:testu01-bigcrush}]
-(time ( stdbuf -eL -oL rdrand-gen  -t$SIMPLE_THREADS -o \
+(time ( stdbuf -eL -oL rdrand-gen  -t THREADS -o \
 >(stdbuf -oL $TESTU01 -b) ) )
 \end{lstlisting}
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {TestU01 Alphabit battery for all bits}
 ,label={lst:testing:stat-testing:testu01-alphabit-full}]
-(time ( stdbuf -eL -oL rdrand-gen  -t$SIMPLE_THREADS -o \
+(time ( stdbuf -eL -oL rdrand-gen  -t THREADS -o \
 >(stdbuf -oL $TESTU01 --Alphabit=40:0:32) ) ) 
 \end{lstlisting}
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {TestU01 Alphabit battery for one bit}
 ,label={lst:testing:stat-testing:testu01-alphabit-onebit}]
-(time ( stdbuf -eL -oL rdrand-gen  -t$SIMPLE_THREADS -o \
+(time ( stdbuf -eL -oL rdrand-gen  -t THREADS -o \
 >(stdbuf -oL $TESTU01 --Alphabit=35:0:1) ) ) 
 \end{lstlisting}
 
+
+The TestU01 batteries tested on each run about 20 terabytes of randomness at sum. 
 
 % http://pracrand.sourceforge.net/tools.txt - RdRand | RNG_test stdin
 
@@ -83,15 +95,13 @@ Test01 is, in opposite of PractRand, a C library, without any shipped binaries u
 \section{Performance Testing} \label{sec:testing:performance-testing}
 Because the performance of the RNG is important, we had to measure the performance. There are generaly two options of how the performance can be measured:
 \begin{itemize}
- \item Speed of the library
+ \item Speed of the library itself, minimising other influences
  \item Overal speed with writing the generated values
 \end{itemize}
-Althought during the development we measured both, here the first option is tested primary, because it provides better information about the Intel Secure Key, not so biased with routines of an operating system used for IO. 
+Althought during the development was measured both, here the first option is tested primary, because it provides better information about the Intel Secure Key, not so biased by output routines or by speed of a memory medium. 
 
 
-\par \TODO{Compare multiple operating systems on the same machine} % TODO Compare multiple operating systems on the same machine
-
-The Bash script {\tt perftest.sh} in the {\tt tests/} directory contain a battery of performance tests described later, in subsections. The battery runs specified set of tests ten times to get a median values and also directly creates figures with measured values. Within each test description, the used command is included. All other options that are not within such command were left with these default values of the {\tt RdRand} executable\footnote{Only relevant options that has an impact on the performance are described.}:
+A Bash script named {\tt perftest.sh} in the {\tt tests/} directory contains a battery of performance tests which are described later in subsections. The battery runs the specified set of tests ten times to get a median values, in cyclic way; between two runs of each test, all other tests were started. Within each test description, the used command called in the test is included. All other options that are not specified within such command were left with default values of the {\tt RdRand} executable\footnote{Only relevant options that has an impact on the performance are described.}:
 
 \begin{itemize}
  \item {\tt --numbers, -n}: {\em printing of generated values is not enabled}
@@ -100,6 +110,22 @@ The Bash script {\tt perftest.sh} in the {\tt tests/} directory contain a batter
  \item {\tt --repetition, -r}: {\em 2 times repeat the test, print the average value} -- has reason only when testing all methods at once.
  \item {\tt --chunk-size, -c}: {\em size of the memory space filled in one call: 2048 of 64-bit values} -- empiricaly selected the minimum size which is not slowing the speed by overhead, that means bigger value has no performance effect.
 \end{itemize}
+
+But usually, the duration was set to 5 seconds to be more sure that the measured speed is not influenced by startup overhead. Repetition was disabled (set to 1) as only one method is tested at a time and all the tests are started repeatedly. Amount of threads was depending on the specific test as well as the size of the chunk and generated values weren't printed at all.
+
+The \lstref{lst:testing:generator_speed} shows how the speed was measured on the generator application, as it doesn't have any built-in speed test like the test in \lstref{lst:testing:test_speed}.
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Measuring speed of the generator application.}
+,label={lst:testing:generator_speed}]
+./rdrand-gen -t THREADS -n AMOUNT | pv -c >/dev/null
+\end{lstlisting}
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Usage of the testing appliaction}
+,label={lst:testing:test_speed}]
+./RdRand -m METHOD -r1 -d5 [OTHER OPTIONS]
+\end{lstlisting}
+
+The test application creates a memory space of given size ({\tt chunk-size})and call the specified library function to fill it. The library function is then called repeatedly for the given time, so the measured speed is not biased by memory allocations or other overhead in the test application and is close to what is the ideal speed of the library, at least if the running time is long enough. 
 
 
 %..............................................................................
@@ -111,46 +137,32 @@ The Bash script {\tt perftest.sh} in the {\tt tests/} directory contain a batter
   \hline
  RHEL 7 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
  \hline
+ RHEL 6 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+ \hline
  RHEL 5 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
  \hline
 \end{tabular}
 
-To be able to evaluate results of tests, it is necessary to know the spread of speeds in the same conditions during a time. The \lstref{lst:testing:scattering} shows command used in the test, which was started 1000 times (in each from 10 test set runs 100 values was measured).
-
-The distribution is rather discrete, with four values appearing frequently appearing in the RHEL~7~\figref{fig:testing:stability-r7}, while others are almost missing. In the \figref{fig:testing:stability-r5} for RHEL~5 there is just one peak value and the scattering of speeds is much lower, which is suggesting that that the big differences on RHEL~7 are caused by interrupts and context switching in the OS.
+To be able to evaluate results of tests, it is necessary to know the spread of speeds in the same conditions during a time. The \lstref{lst:testing:scattering} shows command used in the test, which was started 1000 times overall (ten of one-hundred blocks) and measured the speed of a single thread.
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Test script for scattering testing.}
 ,label={lst:testing:scattering}]
-./RdRand -m rdrand_get_bytes_retry -r2 -d10 -t1 
+./RdRand -m rdrand_get_bytes_retry -r1 -d5 -t1 
 \end{lstlisting}
 
-\begin{figure}[h!]
-  \centering
- \includegraphics[width=12cm]{fig/tests/scattering_test.eps} % Or .pdf
-\caption{Histogram of measured speeds on RHEL 7.}
-\label{fig:testing:stability-r7}
-\end{figure}
 
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{|l|c|}
-  \hline
-  Minimum value& -\\
-  \hline
-  Maximum value& xx\\ 
-  \hline
-  A. mean & xx\\
-  \hline
-  Median & xx \\
-  \hline
-  Std. deviation & xx \\
-  \hline
-\end{tabular}
-\caption{Statistical properties on RHEL~7}
-\label{tab:testing:stability-stat-r7}
-\end{center}
-\end{table}
-%-----
+Each version of RHEL has a different histogram and statistical properties, caused primary by differences in used scheduler and compiler version. The differences weren't deeply investigated as important is the performance on an unmodified system, not on system optimalised for best speed of this library. 
+
+\TODO{Try to change scheduler... (Notes in LaTeX comments)} % TODO try to change scheduler
+
+% Porovnej
+% sysctl -a | grep sched
+% na RHEL5a RHEL7 a zkus zmenit hodnoty na RHEL7, 
+% aby byly stejne jako na RHEL5.
+% Dosahnes tak stejne performance?
+
+% --------------------
+% RHEL 5 statistics
 \begin{figure}[h!]
   \centering
  \includegraphics[width=12cm]{fig/tests/scattering_rhel5.eps} % Or .pdf
@@ -162,15 +174,15 @@ The distribution is rather discrete, with four values appearing frequently appea
 \begin{center}
 \begin{tabular}{|l|c|}
   \hline
-  Minimum value& 200.643 MiB/s\\
+  Minimum value& 198.194 MiB/s\\
   \hline
-  Maximum value& 214.242 MiB/s\\ 
+  Maximum value& 214.821 MiB/s\\ 
   \hline
-  Ar. mean & 212.418 MiB/s\\
+  Ar. mean & 211.700 MiB/s\\
   \hline
-  Median & 213.205 MiB/s\\
+  Median & 213.166 MiB/s\\
   \hline
-  Std. deviation & 2.424 MiB/s\\
+  Std. deviation & 3.711 MiB/s\\
   \hline
 \end{tabular}
 \caption{Statistical properties on RHEL~5}
@@ -178,38 +190,110 @@ The distribution is rather discrete, with four values appearing frequently appea
 \end{center}
 \end{table}
 
-Bacause the standard deviation on RHEL~5 is much lower than on RHEL~7 and the average speed is higher, RHEL~5 was selected as a platform for other tests. The worse results of RHEL~7 can be caused by being the system still in development.
+Results of RHEL 5 has the smallest standard deviation (about 1.7 \%), but also the lowest median of speed. As the histogram shows, most of runs had speed about 213 MiB/s or little less. Because the speed differences are small, this operating system was selected as the main, from which the results are usually showed in other tests.
 
+% --------------------
+% RHEL 6 statistics
+\begin{figure}[h!]
+  \centering
+ \includegraphics[width=12cm]{fig/tests/scattering_rhel6.eps} % Or .pdf
+\caption{Histogram of measured speeds on RHEL 6.}
+\label{fig:testing:stability-r6}
+\end{figure}
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|c|}
+  \hline
+  Minimum value& 200.201 MiB/s\\
+  \hline
+  Maximum value& 215.662 MiB/s\\ 
+  \hline
+  A. mean & 213.165 MiB/s\\
+  \hline
+  Median & 215.207 MiB/s\\
+  \hline
+  Std. deviation & 3.985 MiB/s \\
+  \hline
+\end{tabular}
+\caption{Statistical properties on RHEL~6}
+\label{tab:testing:stability-stat-r6}
+\end{center}
+\end{table}
+
+The measured speeds are mostly about 215 MiB/s, but quite large amount is gathered on 205 MiB/s mark. RHEL 6 the best performance results on a single thread, but as can be seen in \fullref{subsec:testing:differences}, the performance has absolutely different profile from other versions of RHEL once it runs in more threads than the machine has processing units.
+
+% --------------------
+% RHEL 7 statistics
+\begin{figure}[h!]
+  \centering
+ \includegraphics[width=12cm]{fig/tests/scattering_rhel7.eps} % Or .pdf
+\caption{Histogram of measured speeds on RHEL 7.}
+\label{fig:testing:stability-r7}
+\end{figure}
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|c|}
+  \hline
+  Minimum value& 174.253 MiB/s\\
+  \hline
+  Maximum value& 224.970 MiB/s\\ 
+  \hline
+  A. mean & 209.822 MiB/s\\
+  \hline
+  Median & 214.774 MiB/s\\
+  \hline
+  Std. deviation & 16.615 MiB/s \\
+  \hline
+\end{tabular}
+\caption{Statistical properties on RHEL~7}
+\label{tab:testing:stability-stat-r7}
+\end{center}
+\end{table}
+
+RHEL 7 has far the worst standard deviation and while on RHEL 5 and 6 there is one or two dominating speeds, in case of RHEL 7 there are three values, pretty far away (about 180, 214 and 224 MiB/s). On this version of RHEL, the measured speed was the highest, but also the lowest.
 %..............................................................................
-\newpage
+%\newpage
 \subsection{Scaling}
 \begin{tabular}{|l|c|l|}
  \hline
  OS & Arch. & Machine \\
  \hline
   \hline
- RHEL 7 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+ RHEL 5 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
  \hline
 \end{tabular}
 
-This test shows how the output speed changes in dependency of count of used threads for both the {\tt rdrand-gen} application shipped with the library and {\tt RdRand} performance testing application. The used commands are {\tt ./RdRand -m METHOD -tCOUNT} and {\tt rdrand-gen -tTHREADS -n\$((THREADS*400))M |pv -c >/dev/null}.
+This test shows how the output speed changes in dependency of count of used threads for both the {\tt rdrand-gen} application shipped with the library and {\tt RdRand} performance testing application. 
 
-On the \fullref{fig:testing:threadsScalability} can be seen that the average performance per one thread is about 170 MiB/s up to four threads. Then, on about 730 MiB/s for the test application is the performance peak, where it is not possible to get higher speed anymore by adding more threads, as this is the performance limit of the Intel Secure Key. 
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Test application command.}
+,label={lst:testing:scaling_test}]
+./RdRand -r1 -d5 -m rdrand_get_bytes_retry -t COUNT 
+\end{lstlisting}
 
-Because the machine has 8 processing units, the performance is constant from reaching the peak to 8 threads. After that, the operating system began to interrupt the threads to allow all threads to use the CPU and the performance drops to about 500 MiB/s. With more threads, the PUs are better utilized and the performance again rise, but will not achieve the previous value.
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Generator application command.}
+,label={lst:testing:scaling_gen}]
+./rdrand-gen -t THREADS -n\$((THREADS*400))M
+\end{lstlisting}
 
-Also, the difference between the test application and the shipped generator is visible on the peak. Measured values suggest that the throughput of system routines for data output is little lower than the output of ISK, as before the peak both applications has similar performance.
+On the \fullref{fig:testing:threadsScalability} can be seen that the average performance per one thread is about 170 MiB/s up to four threads. Then, on about 730 MiB/s is the performance peak, where it is not possible to get higher speed anymore by adding more threads. Because the performance gets stable now (do not drop), it cannot be caused by scheduler (this has effects later). Thus this is the performance limit of the Intel Secure Key. 
+
+Because the machine has 8 processing units, but the speed of ISK is reached on 4 threads, the performance is constant from reaching the peak to 8 threads. After that, the operating system began to interrupt the threads to allow all threads to use the CPU and the performance drops to about 500 MiB/s. With more threads, the PUs are better utilized and the performance again rise, but will not achieve the previous value.
+
+Also the difference between the test application and the shipped generator is visible on the peak. The difference is rising with the amount of generated data and on the peak it is about 14 \%.
+
 
 \begin{figure}[h!]
   \centering
- \includegraphics[width=15cm]{fig/tests/threads_scalability.eps} % Or .pdf
+ \includegraphics[width=15cm]{fig/tests/scaling.eps} % Or .pdf
 \caption{Amount of generated bytes in dependency of threads count.}
 \label{fig:testing:threadsScalability}
 \end{figure}
 
 For a single thread, the performance of the thread is above-average and it seems to be because the system is giving more computing time to the thread in comparison when another thread is started.
 
-The maximum speed of 730 MiB/s is equal to $\frac{730 \times 2^{10} \times 2^{10}}{10^6}=765$ Hz. This is similar to the ideal 800 Hz value given in the \fullref{sec:ISK-physical}.
+The maximum speed of about 730 MiB/s is equal to $\frac{730 \times 2^{10} \times 2^{10}}{10^6}=765$ Hz. This is similar to the ideal 800 Hz value given in the \fullref{sec:ISK-physical}.
 
 
 %..............................................................................
@@ -223,15 +307,16 @@ The maximum speed of 730 MiB/s is equal to $\frac{730 \times 2^{10} \times 2^{10
   \hline
  RHEL 5 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
   \hline
+ RHEL 6 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+  \hline
  RHEL 7 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
  \hline
 \end{tabular}
 
-At first a short comparison of performance between 32 and 64-bit RHEL 5 was made. As the \figref{fig:testing:difference} shows, the performance of 32-bit version is about half of 64-bit, which is exactly in expectations based on the~\fullref{sec:ISK-physical}.
+Performance was measured on 32 and 64 bits version of RHEL 5 and 6, but not 7 as RHEL 7 has just 64 bits version\cite{RHEL7Just64bits}. To make the figure \figref{fig:testing:difference} more readable, just RHEL 5 is included to demonstrate the difference between 32 and 64 bits of the same system. The 32 bits version is exactly according the expectation from the \fullref{sec:ISK-physical} almost exactly half.
 
-During the first stages of development we thought that the multiple variants of the RdRand instruction (16, 32 and 64-bits) were created primary because of performance, to avoid wasting of generated bits. But performance testing and finding of some more documents about Intel Secure Key showed that the these variants are there probably just for compatibility with non 64-bit operating systems and for programmer's comfort. As it is described in \fullref{subsec:DRBG}, 64 bits are always used internally.
+During the first stages of development we thought that the multiple variants of the RdRand instruction (16, 32 and 64-bits) were created primary because of performance, to avoid wasting of generated bits. But performance testing and later finding of some more documents about Intel Secure Key showed that the these variants are there probably just for compatibility with non 64-bit operating systems and for programmer's comfort. As it is described in the \fullref{subsec:DRBG}, 64 bits are always pulled out internally.
 
-The difference between 64-bit RHEL 5 and RHEL 7 is much smaller, yet the RHEL 7 has worse performance when not on a peak. Peak speed is the same, but is reached with one thread more, so it seems that on RHEL 7, the system is interrupting the threads more frequently. It can be also by worse optimalization, but this seems to be less probable, because for a single thread, the speed is the same for both versions.
 
 \begin{figure}[h!]
   \centering
@@ -241,39 +326,60 @@ The difference between 64-bit RHEL 5 and RHEL 7 is much smaller, yet the RHEL 7 
 \label{fig:testing:difference}
 \end{figure}
 
+The differences between 64-bit RHELs are much smaller, yet the RHEL 7 has worse performance when not on a peak. Furthermore, the peak speed is the same, but is reached with one thread more, so it seems that on RHEL 7, the system is interrupting the threads more frequently. It can be also by worse optimalization, but this seems to be less probable, because for a single thread, the speed is the same for all three versions.
+
+Another interesting point is what happens with RHEL 6 after amount of threads reaches the limit of PUs. At first is is still close to other 64 bits systems, but after 10 threads, the performance is decreasing to almost half of RHEL 5 and 7. The cause of this wasn't successfully found yet.
+
+\TODO{What the scheduler?}
+
 
 %..............................................................................
+%\newpage
 \subsection{Size dependency}
 \begin{tabular}{|l|c|l|}
  \hline
  OS & Arch. & Machine \\
  \hline
   \hline
- RHEL 7 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+ RHEL 5 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
  \hline
 \end{tabular}
 
-In this test, functions \function{rdrand_get_bytes_retry} and \function{rdrand_get_uint64_array_retry} were compared in different sizes of the memory area that was filled with random numbers. The used command is {\tt ./RdRand -m METHOD -t 1 -c SIZE} -- the test was done with a single thread. For a better visibility, the figure is splitted to two parts. The \figref{fig:testing:bytesArrayHi} shows the difference from 8192 down to 64 of 64-bit numbers (quadwords) and \figref{fig:testing:bytesArrayLow} shows the rest, from 32 to just 1 generated number.
+In this test, functions \function{rdrand_get_bytes_retry} and \function{rdrand_get_uint64_array_retry} were compared in different sizes of the memory area that was filled with random numbers. The goal of this test was to find if there is some difference between these two functions; if the additional logic in the first one has an measurable impact.
+
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Test command for chunk size dependency.}
+,label={lst:testing:size}]
+./RdRand -r1 -d5 -m METHOD -c SIZE 
+\end{lstlisting}
+
+
+
+For a better visibility, the figure with measured values is splitted to two parts. The \figref{fig:testing:bytesArrayLow} shows the difference from 1 to 32 of 64-bit numbers (quadwords) and \figref{fig:testing:bytesArrayHi} shows the rest, from 64 to 8192 generated number.
+
+
 
 \begin{figure}[h!]
   \centering
- \includegraphics[width=12cm]{fig/tests/bytes_array_speed_low.eps} % Or .pdf
+ \includegraphics[width=12cm]{fig/tests/sizeDependency_low.eps} % Or .pdf
 %\includegraphics[width=10cm,keepaspectratio]{fig/ISK-scheme}
-\caption{The difference of two functions on different sizes of filled memory area, from 32 to 1 quadword.}
+\caption{The difference of two functions on different sizes of filled memory area, from 1 to 32 quadwords.}
 \label{fig:testing:bytesArrayLow}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
- \includegraphics[width=12cm]{fig/tests/bytes_array_speed_hi.eps} % Or .pdf
+ \includegraphics[width=12cm]{fig/tests/sizeDependency_hi.eps} % Or .pdf
 %\includegraphics[width=10cm,keepaspectratio]{fig/ISK-scheme}
-\caption{The difference of two functions on different sizes of filled memory area, from 8192 to 64 quadwords.}
+\caption{The difference of two functions on different sizes of filled memory area, from 64 to 8192 quadwords.}
 \label{fig:testing:bytesArrayHi}
 \end{figure}
 
-On these figures it is apparent that there is a small difference between these two values in range from very few quadwords up to about one thousand of quadwords. The difference is caused by the little higher overhead in the memory align checks in \function{rdrand_get_bytes_retry}. On very small sizes, the overhead of the test itself is too big in comparison with the difference and thus these results are not reliable. However, with regard to the implementation it is probable that the difference there still is.
+On these figures it is not much apparent, but in numeric data can be found that there is a very small difference and the \function{rdrand_get_bytes_retry} is about 1 \%  slower in the \figref{fig:testing:bytesArrayLow}. Then the difference is getting smaller and at the size of 8192 quadwords it is just 0.06 \%. 
 
-On the opposite side of the figures the performance difference dismiss as with big memory areas, the overhead in the logic of the function is fractional in comparison with time spend on the RdRand instruction itself.
+The difference is more apparent on small sizes, but as it is not bigger than the standard deviation, the \function{rdrand_get_bytes_retry} can be safely used in most times.
+
+
 
 %..............................................................................
 %\pagebreak
@@ -283,23 +389,27 @@ On the opposite side of the figures the performance difference dismiss as with b
  OS & Arch. & Machine \\
  \hline
   \hline
- RHEL 7 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+ RHEL 5 & x86\_64 & \machine{hp-aladdin-01.lab.bos.redhat.com}\\
+  \hline
+ RHEL 5 & x86\_64 & \machine{intel-brickland-01.lab.eng.rdu.redhat.com}\\
  \hline
 \end{tabular}
 
-Because the secure methods, described in the section \ref{subsec:api:secure}~\nameref{subsec:api:secure} (both functions \function{rdrand_get_uint64_array_reseed_delay} and its {\tt \_skip} twin), should not be used in parallel threads\footnote{See \ref{subsec:api:secure}}, only a single thread comparison between them and the \function{rdrand_get_bytes_retry} as a fast method was made. \TODO{Data from another machine that has different delay/skip.} The values are average from few manual runs.
+Because the secure methods, described in the section \ref{subsec:api:secure}~\nameref{subsec:api:secure} (both functions \function{rdrand_get_uint64_array_reseed_delay} and its {\tt \_skip} twin), should not be used in parallel threads\footnote{See \ref{subsec:api:secure}}, only a single thread comparison between them and the \function{rdrand_get_bytes_retry} as a fast method was made. The speed was measured on two different machines with different type of CPUs (Intel Core i7 and Intel Xeon).
+
+In the \tableref{tab:testing:fastAndSecure} is shown that the delay method is the most slow; the skipping method is about ten times faster. The common, fast method is about one thousand times faster than the skipping method; this is again according all expectations. When the speed is limited just by the RdRand instruction, and the ratio between skipped and used values is about one thousand times, same as the measured difference in speed.
 
 \begin{table}[h!]
 \begin{center}
 \begin{tabular}{|l|c|c|}
   \hline
- Function / Machine & \machine{hp-aladdin-01.lab.bos.redhat.com} & xx\\
+   & hp-aladdin-01 & intel-brickland-01\\
   \hline
-  Fast & xxx MiB/s & xx MiB/s\\ 
+  Fast & 213.223 MiB/s & 73.846 MiB/s\\ 
   \hline
-  Delay & xxx MiB/s & xx MiB/s\\
+  Delay &  0.008 MiB/s & 0.008 MiB/s\\
   \hline
-  Skip & xxx MiB/s & xx MiB/s\\
+  Skip & 0.215 MiB/s & 0.074 MiB/s\\
   \hline
 \end{tabular}
 \caption{Comparison of speed of a fast method of generating ({\tt rdrand\_get\_bytes\_retry}) and two variants of secure generating.}
@@ -307,24 +417,47 @@ Because the secure methods, described in the section \ref{subsec:api:secure}~\na
 \end{center}
 \end{table}
 
+The speed of the given by \function{rdrand_get_uint64_array_reseed_skip} should be possible to enhance by using more threads for the skipping, but implementing of this functionality directly in the library would add unwanted dependency for OpenMP (used in the test and generator application for multithreading) and implementing outside would be problematic. Because of this, I decided to do not implement it and just note it here that if someone would need higher speed, he or she will probably need to implement its own variant of the reseeding function.
 
+Also note, that while the skipping speed on the Brickland machine is more-or-less half of the Aladdin (see \fullref{subsec:testing:halfPerf} for more about this difference), the delay is roughly the same. This is because the skipping method speed depends on speed of RdRand, while the delay method do not.
+
+
+%..............................................................................
 %\pagebreak
 \subsection{Performance on an unaligned memory space}
-\subsection{Half performance on some machines}
+\TODO{Find a nice way how to measure it...}
 
+
+%..............................................................................
+%\pagebreak
+\subsection{Half performance on some machines}\label{subsec:testing:halfPerf}
+All tested machines with an Intel Xeon CPU had just half performance of expected values (and in comparison with desktop/laptop processors).
+
+\TODO{Add some figures...}
+
+%..............................................................................
+%\pagebreak
 \subsection{Underflow}
 The only machine on which I was able to achieve underflow of the HW RNG is \machine{dell-pr1700-02.lab.bos.redhat.com}.
 
+
+\TODO{Borrow the machine again and do more tests...}
 
 %------------------------------------------------------------------------------
 \section{Specifications of referenced machines}
 \TODO{More HW description} % TODO More HW description.
 
-\machineDeclare{dell-pr1700-02.lab.bos.redhat.com}{Intel(R) Xeon(R) CPU E3-1285 v3 @ 3.60GHz}{Dell Precision T1700, 4 GB RAM. The internal RNG was not able to handle more than four parallel threads at November 2013.}
+\machineDeclare{dell-pr1700-02.lab.bos.redhat.com}{Intel(R) Xeon(R) CPU E3-1285 v3 @ 3.60GHz}{4 GB}{Dell Precision T1700, 4 GB RAM. The internal RNG was not able to handle more than four parallel threads at November 2013.}
 
 
-\machineDeclare{hp-aladdin-01.lab.bos.redhat.com}{Intel(R) Core (TM) i7-3920XM CPU @ 2.90GHz}{HP elitebook 8770w, 4 GB RAM}
+\machineDeclare{hp-aladdin-01.lab.bos.redhat.com}{Intel(R) Core (TM) i7-3920XM CPU @ 2.90GHz (1 NUMA node, 8 cores, HT\footnote{Hyper-Threading})}{4 GB}{HP elitebook 8770w, used for performance and statistical tests.}
 
+\machineDeclare{intel-brickland-01.lab.eng.rdu.redhat.com}{ Intel(R) Xeon(R) CPU E7-4890 v2 @ 2.80GHz (4 NUMA nodes, 60 cores, HT)}{128 GB}{Used for performance tests.}
 
+\machineDeclare{intel-brickland-02.lab.eng.rdu.redhat.com}{ Intel(R) Xeon(R) CPU E7-4890 v2 @ 2.80GHz (4 NUMA nodes, 60 cores, HT)}{128 GB}{Used only for statistical tests.}
+
+\machineDeclare{intel-canoepass-01.lab.eng.rdu.redhat.com}{ Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz (2 NUMA nodes, 24 cores, HT)}{32 GB}{Used only for statistical tests.}
+
+\machineDeclare{intel-canoepass-02.lab.eng.rdu.redhat.com}{ Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz (2 NUMA nodes, 24 cores, HT)}{32 GB}{Used only for statistical tests.}
 
 %=========================================================================
