@@ -417,6 +417,8 @@ In the \tableref{tab:testing:fastAndSecure} is shown that the delay method is th
 \end{center}
 \end{table}
 
+\TODO{RHEL 5 has on delay just 0.008 MiB/s, but RHEL 6 and 7 are on value equal to half of the skip value... why?}
+
 The speed of the given by \function{rdrand_get_uint64_array_reseed_skip} should be possible to enhance by using more threads for the skipping, but implementing of this functionality directly in the library would add unwanted dependency for OpenMP (used in the test and generator application for multithreading) and implementing outside would be problematic. Because of this, I decided to do not implement it and just note it here that if someone would need higher speed, he or she will probably need to implement its own variant of the reseeding function.
 
 Also note, that while the skipping speed on the Brickland machine is more-or-less half of the Aladdin (see \fullref{subsec:testing:halfPerf} for more about this difference), the delay is roughly the same. This is because the skipping method speed depends on speed of RdRand, while the delay method do not.
