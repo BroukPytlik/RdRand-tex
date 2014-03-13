@@ -5,7 +5,7 @@ According to known information\cite{TheodoreTsoNSA}, Intel tried to have {\tt /d
 
 We weren't able to find any relevant data about usage of~RdRand in Windows kernel, probably because all such negotiations happened behind closed doors. In user space, there is no difference between Linux and Windows; when it is possible to call the~instruction, user space applications can use it. 
 
-After disclosure of~extends of~NSA spying activities by Edward Snowden in summer of~2013\cite{GuardianNSA}\cite{DailymailNSA}, a~petition for removing RdRand from Linux entropy sources was created\cite{PetitionRdRand}. Although supported by just 8 signatures, it got wide attention on information-technology aimed news pages and magazines, like Slashdot.org\cite{PetitionRdRandSlashdot}. The petition was closed after Linus Torvalds responds with scorn:
+After disclosure of~extends of~NSA spying activities by Edward Snowden in summer of~2013\cite{GuardianNSA,DailymailNSA}, a~petition for removing RdRand from Linux entropy sources was created\cite{PetitionRdRand}. Although supported by just 8 signatures, it got wide attention on information-technology aimed news pages and magazines, like Slashdot.org\cite{PetitionRdRandSlashdot}. The petition was closed after Linus Torvalds responds with scorn:
 
 \begin{quote} ...
 
@@ -24,7 +24,7 @@ The Intel Secure Key (ISK) uses cascade construction, combining a~HW RNG with CS
 
 % --------------------------------------------------------
 \section{Physical implementation}\label{sec:ISK-physical}
-One important thing about ISK, that has big impact on performance, but also price of~that solution is, that there is only one unit on a~die and the~unit should be the~same on all CPUs.\TODO{quote it} % TODO quote it
+One important thing about ISK, that has big impact on performance but also price of~that solution is, that there is only one unit on a~die and the~unit should be the~same on all CPUs.\TODO{quote it} % TODO quote it
 Because all processing units (PUs)\footnote{Two physical cores with hyper-threading counts as four PUs.} on one die share the~RNG, one thread reading random numbers from it can never be faster than $Total speed  \frac{1}{PUs}$. The effect of~this is that the~performance is scalable until until amount of PUs and the maximum output speed are exceeded (see \fullref{sec:testing:performance-testing}), and price of~the~CPU is less affected.
 
 Each ISK unit consists three basic parts: A hardware entropy source, a~conditioner and a~{\em deterministic random bit generator} (DRBG)\cite{IntelDRNGGuide}. The frequency of~the~RNG is independent on the~rest of~the~CPU and is set to 800 MHz. 
@@ -68,11 +68,24 @@ from the~rest of~the~RNG, about 3~GHz.
 
 % ....................................................
 \subsection{Conditioner}
-The entropy source provides random bits with some entropy, but due to implementation and the~feedback, it can be unbalanced and produce values in something close to oscillating patterns. For this reason, there is the~conditioner that adds them to a~256 bit pool, make a~set of~XOR and AES operations over lower and upper half of~the~pool and test health of~the~pool\footnote{The health check is done by counting six different bit patterns in the~256 bit pool and comparing the~counts with empirically chosen values. The pool is healthy only if the~numbers are in the~specified ranges.}\cite{AnalysisOfDRNG}\cite{UnderstandingRdRandElectronic}. If the~pool is not healthy, the~set of~operations is repeated. 
+The entropy source provides random bits with some entropy, but due to implementation and the~feedback, it can be unbalanced and produce values in something close to oscillating patterns. For this reason, there is the~conditioner that adds them to a~256 bit pool, make a~set of~XOR and AES operations over lower and upper half of~the~pool and test health of~the~pool\footnote{The health check is done by counting six different bit patterns in the~256 bit pool and comparing the~counts with empirically chosen values. The pool is healthy only if the~numbers are in the~specified ranges.}\cite{AnalysisOfDRNG,UnderstandingRdRandElectronic}. If the~pool is not healthy, the~set of~operations is repeated. 
 
 % ....................................................
 \subsection{DRBG}\label{subsec:DRBG}
-Because the~output speed of~the~conditioner is too slow (just 256 bits per few microseconds), a~deterministic random bit generator is connected to the~256 bit pool and every few microseconds (if the~pool is healthy) takes it as a~new seed. This pseudo random generator then compute 65.536 bits values using an 128-bit AES and put them to a~output buffer. From there, they can be taken by the~RdRand instruction after 64-bit blocks\footnote{64 bits are always taken out, no matter what size is the~target register of~the~instruction. Thus, it is not possible to achieve the full speed of the DRBG on 32-bit system, as there is no difference for the Intel Secure Key usage, just some bits are later thrown away. See \fullref{subsec:32vs64} for a performance test.}\cite{AnalysisOfDRNG}\cite{UnderstandingRdRandElectronic}. Reseeding of~the~DRBG is required after all 1024 blocks are used, but usually it will reseed more frequently, about each 10 microseconds.\TODO{which source from Intel it was... :(}
+Because the~output speed of~the~conditioner is too slow (just 256 bits per few microseconds), 
+a~deterministic random bit generator is connected to the~256 bit pool 
+and every few microseconds (if the~pool is healthy) takes it as a~new seed. 
+This pseudo random generator then compute 65.536 bits values using an 128-bit AES 
+and put them to a~output buffer. 
+From there, they can be taken by the~RdRand instruction after 64-bit blocks\footnote{64 bits 
+	are always taken out, no matter what size is the~target register of~the~instruction. 
+	Thus, it is not possible to achieve the full speed of the DRBG on 32-bit system, 
+	as there is no difference for the Intel Secure Key usage, 
+	just some bits are later thrown away. See \fullref{subsec:32vs64} 
+	for a performance test.}\cite{AnalysisOfDRNG,UnderstandingRdRandElectronic}. 
+Reseeding of~the~DRBG is required after all 1024 blocks are used, 
+but usually it will reseed more frequently, 
+about each 10 microseconds~\cite[Chapter~4.4]{IntelDRNGGuide}.
 
 % ....................................................
 \subsection{Built-in self-tests (BIST)}
