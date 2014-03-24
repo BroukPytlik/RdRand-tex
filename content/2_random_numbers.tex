@@ -1,5 +1,5 @@
 %========================================================================= 
-\chapter{Random Numbers And Deterministic Machines}\label{chap:randomNumbers}
+\chapter{Random Numbers and Deterministic Machines}\label{chap:randomNumbers}
 
 The term {\em Entropy} is usually used  as the {\em measure of disorder and uncertainty of a system}.\cite{Entrophy}. Claude E. Shannon defined it for information theory as the average of uncertainty (unpredictability) of an information source~\cite[p.~396]{AMathematicalTheoryOfCommunication}. The important properties of an information source with high entropy are~\cite[p.~150]{CryptographyAndNetworkSecurity}: 
 \begin{description}
@@ -41,7 +41,7 @@ An examples of what can be used for generating true random numbers are radioacti
 However, real using of such devices is problematic. The sources of entropy are frequently somehow biased and cyclic, so it is necessary to have an online testing and filtering, which is usually significantly slowing the output speed. Also, the price can be a problem too\footnote{From hundreds to thousands of Euro. For a brief overlook, see a comparison on Wikipedia~\cite{HWRNGComparison}. \TODO{Is is usage of wiki all right?}}.
 
 
-\section{Random Numbers In Linux}\label{sec:randomNumbers:linux}
+\section{Random Numbers in Linux}\label{sec:randomNumbers:linux}
 The {\em Linux random number generator} (LRNG) is gathering its entropy from events that are very hard to predict: mouse movements, key-presses, interrupt sources of the system, jitter of access times to disks. These events are saved with a timestamp into an entropy pool~\cite{AnalysisOfLinuxRNG}.
 
 LRNG is offering an API for its use. Except of C function {\tt get\_random\_bytes}, it also provides two device drivers, {\tt /dev/random} and {\tt /dev/urandom}. The difference between these two devices is in way, how they handle user requests, providing two different levels of security. The {\tt /dev/random} is producing more secure randomness and if there is not enough entropy in the entropy pool, then it can block the reader, until enough entropy is gathered. {\tt /dev/urandom} then never blocks its output and produce less secure values, but is faster\footnote{Just for illustration, the speed of {\tt /dev/random} on my machine is about 300-400 kiB/s, while {\tt /dev/urandom} is about 16 MiB/s}~\cite[chapter~1]{AnalysisOfLinuxRNG}. 

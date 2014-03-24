@@ -1,8 +1,9 @@
-#!/usr/bin/gnuplot
+#!/usr/bin/env gnuplot
 
 set boxwidth 0.9 absolute
 #set style fill solid 1.00 border lt -1
-set style fill pattern 1 border lt -1
+set style fill pattern 4 border lt -1 
+#set style fill solid 1 border lt -1 
 set key inside right top vertical Right noreverse noenhanced autotitles nobox
 set style histogram clustered gap 1 title  offset character 0, 0, 0
 set datafile missing '-'
@@ -14,15 +15,25 @@ set yrange [ 0 : ] noreverse nowriteback
 set xlabel "Threads";
 set ylabel "MiB/s";
 
+# draw it two times, at first to get the maximum value
 set terminal pngcairo  enhanced font "arial,10" fontscale 1.0 size 800,400
 set output 'DELETE_ME.png'
 plot 'difference.dat' using 2:xtic(1) ti col, '' u 3 ti col, '' u 4 ti col, '' u 5 ti col
-# to get max
-set offsets 0,0,GPVAL_DATA_Y_MAX/4.8,0
+# compute the offsets - smaller number -> lower columns
+set offsets 0,0,GPVAL_DATA_Y_MAX/4.6,0
+# draw it again, this time to save it
 set output 'difference.png'
-plot 'difference.dat' using 2:xtic(1) ti col, '' u 3 ti col, '' u 4 ti col, '' u 5 ti col
+#plot 'difference.dat' using 2:xtic(1) ti col, '' u 3 ti col, '' u 4 ti col, '' u 5 ti col
+plot 'difference.dat' using 2:xtic(1) ti col fs pattern 1 bo -1,\
+	'' u 3 ti col fs pattern 2,\
+	'' u 4 ti col fs pattern 4,\
+	'' u 5 ti col fs pattern 5
 
 
-set terminal postscript eps fontscale 1.5 colour size 15cm,9cm
+set terminal postscript eps enhanced solid fontscale 1.5 colour size 15cm,9cm
 set output 'difference.eps'
-plot 'difference.dat' using 2:xtic(1) ti col, '' u 3 ti col, '' u 4 ti col, '' u 5 ti col
+plot 'difference.dat' using 2:xtic(1) ti col fs pattern 1 bo -1,\
+	'' u 3 ti col fs pattern 2,\
+	'' u 4 ti col fs pattern 4,\
+	'' u 5 ti col fs pattern 5
+

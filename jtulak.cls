@@ -255,11 +255,15 @@
 \def\@abstract@EN{Abstract}
 \def\@keywords@CS{Klíčová slova}
 \def\@keywords@EN{Keywords}
-\def\@cite@CS{Citace}
-\def\@copyright@CS{Tato práce vznikla jako školní dílo na Vysokém učení technickém v Brně, Fakultě informačních technologií. 
-Práce je chráněna autorským zákonem a její užití bez udělení oprávnění autorem je nezákonné, s výjimkou zákonem definovaných případů.}
-\def\@tdecl@CS{Prohlášení}
-\def\@tackn@CS{Poděkování}
+\def\@cite@CS{Citation}
+% \def\@copyright@CS{Tato práce vznikla jako školní dílo na Vysokém učení technickém v Brně, Fakultě informačních technologií. 
+% Práce je chráněna autorským zákonem a její užití bez udělení oprávnění autorem je nezákonné, s výjimkou zákonem definovaných případů.}
+\def\@copyright@CS{This thesis was created as a school publication on Brno University of Technology, Faculty of Information Technology.
+This publication is protected by copyright and its usage without permission of its author is prohibited, except situations defined in law.}
+%\def\@tdecl@CS{Prohlášení}
+\def\@tdecl@CS{Declaration}
+%\def\@tackn@CS{Poděkování}
+\def\@tackn@CS{Acknowledgement}
 
 \newif\ifnasel
 \def\ifEqString#1#2#3#4{\def\testa{#1}\def\testb{#2}%
@@ -269,7 +273,7 @@ Práce je chráněna autorským zákonem a její užití bez udělení oprávně
 %Vyber typu projektu
 \newcommand{\set@project}[1]{%
  \naselfalse
- \ifEqString{#1}{BP}{Bakalářská práce}{\@projecttype@CS}%
+ \ifEqString{#1}{BP}{Bachelor's thesis}{\@projecttype@CS}%
  \ifEqString{#1}{BP}{Bachelor's thesis}{\@projecttype@EN}%
  \ifEqString{#1}{SP}{Semestrální projekt}{\@projecttype@CS}%
  \ifEqString{#1}{SP}{Term project}{\@projecttype@EN}%

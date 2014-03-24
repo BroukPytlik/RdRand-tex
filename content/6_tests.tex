@@ -297,7 +297,7 @@ The maximum speed of about 730 MiB/s is equal to $\frac{730 \times 2^{10} \times
 
 
 %..............................................................................
-\subsection{Differences between OS versions}\label{subsec:testing:differences}
+\subsection{Differences Between OS Versions}\label{subsec:testing:differences}
 \begin{tabular}{|l|c|l|}
  \hline
  OS & Arch. & Machine \\
@@ -335,7 +335,7 @@ Another interesting point is what happens with RHEL 6 after amount of threads re
 
 %..............................................................................
 %\newpage
-\subsection{Size dependency}
+\subsection{Size Dependency}
 \begin{tabular}{|l|c|l|}
  \hline
  OS & Arch. & Machine \\
@@ -383,7 +383,7 @@ The difference is more apparent on small sizes, but as it is not bigger than the
 
 %..............................................................................
 %\pagebreak
-\subsection{Fast and secure generating}\label{subsec:testing:fastVsSecure}
+\subsection{Fast and Secure Generating}\label{subsec:testing:fastVsSecure}
 \begin{tabular}{|l|c|l|}
  \hline
  OS & Arch. & Machine \\
@@ -423,13 +423,6 @@ The speed of the given by \function{rdrand_get_uint64_array_reseed_skip} should 
 
 Also note, that while the skipping speed on the Brickland machine is more-or-less half of the Aladdin (see \fullref{subsec:testing:halfPerf} for more about this difference), the delay is roughly the same. This is because the skipping method speed depends on speed of RdRand, while the delay method do not.
 
-
-%..............................................................................
-%\pagebreak
-\subsection{Performance on an unaligned memory space}
-\TODO{Find a nice way how to measure it...}
-
-
 %..............................................................................
 %\pagebreak
 \subsection{Half performance on some machines}\label{subsec:testing:halfPerf}
@@ -446,8 +439,7 @@ The only machine on which I was able to achieve underflow of the HW RNG is \mach
 \TODO{Borrow the machine again and do more tests...}
 
 %------------------------------------------------------------------------------
-\section{Specifications of referenced machines}
-\TODO{More HW description} % TODO More HW description.
+\section{Specifications of Referenced Machines}
 
 \machineDeclare{dell-pr1700-02.lab.bos.redhat.com}{Intel(R) Xeon(R) CPU E3-1285 v3 @ 3.60GHz}{4 GB}{Dell Precision T1700, 4 GB RAM. The internal RNG was not able to handle more than four parallel threads at November 2013.}
 

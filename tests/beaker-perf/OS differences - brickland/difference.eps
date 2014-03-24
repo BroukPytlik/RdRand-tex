@@ -1,7 +1,7 @@
 %!PS-Adobe-2.0 EPSF-2.0
 %%Title: difference.eps
-%%Creator: gnuplot 4.6 patchlevel 1
-%%CreationDate: Mon Jan  6 12:55:37 2014
+%%Creator: gnuplot 4.6 patchlevel 5
+%%CreationDate: Mon Mar 24 18:48:02 2014
 %%DocumentFonts: (atend)
 %%BoundingBox: 50 50 475 305
 %%EndComments
@@ -14,7 +14,7 @@ gnudict begin
 %
 /Color true def
 /Blacktext false def
-/Solid false def
+/Solid true def
 /Dashlength 1 def
 /Landscape false def
 /Level1 false def
@@ -420,6 +420,34 @@ Level1 {Level1PatternFill} {Level2PatternFill} ifelse
 /Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
 dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
 currentdict end definefont pop
+/MFshow {
+   { dup 5 get 3 ge
+     { 5 get 3 eq {gsave} {grestore} ifelse }
+     {dup dup 0 get findfont exch 1 get scalefont setfont
+     [ currentpoint ] exch dup 2 get 0 exch R dup 5 get 2 ne {dup dup 6
+     get exch 4 get {Gshow} {stringwidth pop 0 R} ifelse }if dup 5 get 0 eq
+     {dup 3 get {2 get neg 0 exch R pop} {pop aload pop M} ifelse} {dup 5
+     get 1 eq {dup 2 get exch dup 3 get exch 6 get stringwidth pop -2 div
+     dup 0 R} {dup 6 get stringwidth pop -2 div 0 R 6 get
+     show 2 index {aload pop M neg 3 -1 roll neg R pop pop} {pop pop pop
+     pop aload pop M} ifelse }ifelse }ifelse }
+     ifelse }
+   forall} def
+/Gswidth {dup type /stringtype eq {stringwidth} {pop (n) stringwidth} ifelse} def
+/MFwidth {0 exch { dup 5 get 3 ge { 5 get 3 eq { 0 } { pop } ifelse }
+ {dup 3 get{dup dup 0 get findfont exch 1 get scalefont setfont
+     6 get Gswidth pop add} {pop} ifelse} ifelse} forall} def
+/MLshow { currentpoint stroke M
+  0 exch R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/MRshow { currentpoint stroke M
+  exch dup MFwidth neg 3 -1 roll R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/MCshow { currentpoint stroke M
+  exch dup MFwidth -2 div 3 -1 roll R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/XYsave    { [( ) 1 2 true false 3 ()] } bind def
+/XYrestore { [( ) 1 2 true false 4 ()] } bind def
 Level1 SuppressPDFMark or 
 {} {
 /SDict 10 dict def
@@ -429,11 +457,11 @@ systemdict /pdfmark known not {
 SDict begin [
   /Title (difference.eps)
   /Subject (gnuplot plot)
-  /Creator (gnuplot 4.6 patchlevel 1)
-  /Author (jtulak)
+  /Creator (gnuplot 4.6 patchlevel 5)
+  /Author (Honza)
 %  /Producer (gnuplot)
 %  /Keywords ()
-  /CreationDate (Mon Jan  6 12:55:37 2014)
+  /CreationDate (Mon Mar 24 18:48:02 2014)
   /DOCINFO pdfmark
 end
 } ifelse
@@ -450,691 +478,784 @@ newpath
 (Helvetica) findfont 210 scalefont setfont
 BackgroundColor 0 lt 3 1 roll 0 lt exch 0 lt or or not {BackgroundColor C 1.000 0 0 8502.00 5102.00 BoxColFill} if
 /Helvetica findfont 210 scalefont setfont
+/vshift -70 def
 /Helvetica findfont 210 scalefont setfont
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 672 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 0) Rshow
+stroke
+1029 672 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 0)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 1136 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 200) Rshow
+stroke
+1029 1136 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 200)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 1600 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 400) Rshow
+stroke
+1029 1600 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 400)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 2064 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 600) Rshow
+stroke
+1029 2064 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 600)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 2528 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 800) Rshow
+stroke
+1029 2528 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 800)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 2993 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 1000) Rshow
+stroke
+1029 2993 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 1000)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 3457 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 1200) Rshow
+stroke
+1029 3457 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 1200)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 3921 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 1400) Rshow
+stroke
+1029 3921 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 1400)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 4385 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 1600) Rshow
+stroke
+1029 4385 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 1600)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 4849 M
 63 0 V
 6905 0 R
 -63 0 V
--7031 0 R
-( 1800) Rshow
+stroke
+1029 4849 M
+[ [(Helvetica) 210.0 0.0 true true 0 ( 1800)]
+] -70.0 MRshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1269 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(1) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+1269 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (1)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1383 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(2) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+1383 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (2)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1498 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(3) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+1498 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (3)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1612 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(4) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+1612 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (4)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1726 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(5) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+1726 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (5)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1840 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(6) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+1840 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (6)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1955 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(7) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+1955 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (7)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2069 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(8) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2069 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (8)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2183 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(9) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2183 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (9)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2297 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(10) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2297 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (10)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2412 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(11) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2412 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (11)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2526 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(12) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2526 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (12)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2640 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(13) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2640 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (13)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2754 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(14) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2754 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (14)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2868 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(15) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2868 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (15)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 2983 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(16) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+2983 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (16)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 3097 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(17) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+3097 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (17)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 3211 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(18) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+3211 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (18)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 3325 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(19) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+3325 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (19)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 3440 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(20) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+3440 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (20)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 3554 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(21) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+3554 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (21)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 3668 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(22) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+3668 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (22)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 3782 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(23) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+3782 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (23)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 3897 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(24) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+3897 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (24)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4011 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(25) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4011 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (25)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4125 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(26) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4125 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (26)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4239 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(27) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4239 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (27)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4353 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(28) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4353 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (28)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4468 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(29) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4468 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (29)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4582 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(30) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4582 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (30)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4696 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(31) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4696 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (31)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4810 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(32) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4810 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (32)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 4925 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(33) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+4925 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (33)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5039 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(34) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5039 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (34)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5153 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(35) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5153 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (35)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5267 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(36) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5267 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (36)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5381 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(37) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5381 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (37)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5496 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(38) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5496 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (38)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5610 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(39) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5610 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (39)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5724 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(40) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5724 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (40)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5838 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(41) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5838 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (41)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 5953 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(42) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+5953 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (42)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6067 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(43) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6067 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (43)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6181 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(44) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6181 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (44)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6295 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(45) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6295 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (45)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6410 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(46) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6410 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (46)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6524 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(47) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6524 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (47)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6638 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(48) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6638 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (48)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6752 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(49) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6752 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (49)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6866 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(50) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6866 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (50)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 6981 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(51) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+6981 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (51)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 7095 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(52) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+7095 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (52)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 7209 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(53) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+7209 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (53)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 7323 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(54) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+7323 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (54)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 7438 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(55) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+7438 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (55)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 7552 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(56) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+7552 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (56)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 7666 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(57) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+7666 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (57)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 7780 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(58) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+7780 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (58)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 7895 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(59) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+7895 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (59)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 8009 672 M
 0 63 V
 0 4114 R
 0 -63 V
-/Helvetica findfont 120 scalefont setfont
-0 -4324 R
-(60) Cshow
-/Helvetica findfont 210 scalefont setfont
+stroke
+8009 462 M
+[ [(Helvetica) 120.0 0.0 true true 0 (60)]
+] -40.0 MCshow
 1.000 UL
 LTb
+LCb setrgbcolor
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 4849 N
 0 -4177 V
 6968 0 V
@@ -1142,21 +1263,25 @@ LTb
 -6968 0 V
 Z stroke
 LCb setrgbcolor
-168 2760 M
-currentpoint gsave translate -270 rotate 0 0 M
-(MiB/s) Cshow
+220 2760 M
+currentpoint gsave translate -270 rotate 0 0 moveto
+[ [(Helvetica) 210.0 0.0 true true 0 (MiB/s)]
+] -70.0 MCshow
 grestore
 LTb
 LCb setrgbcolor
-4639 147 M
-(Threads) Cshow
+4639 95 M
+[ [(Helvetica) 210.0 0.0 true true 0 (Threads)]
+] -70.0 MCshow
 LTb
 1.000 UP
 1.000 UL
 LTb
+LCb setrgbcolor
 % Begin plot #1
 1.000 UL
 LT0
+LC0 setrgbcolor
 /Helvetica findfont 210 scalefont setfont
 LCb setrgbcolor
 7178 4681 M
@@ -1715,6 +1840,7 @@ LT0
 % Begin plot #2
 1.000 UL
 LT1
+LC1 setrgbcolor
 /Helvetica findfont 210 scalefont setfont
 LCb setrgbcolor
 7178 4471 M
@@ -2272,6 +2398,7 @@ LT1
 % End plot #2
 1.000 UL
 LTb
+LCb setrgbcolor
 1155 4849 N
 0 -4177 V
 6968 0 V
@@ -2281,6 +2408,7 @@ Z stroke
 1.000 UP
 1.000 UL
 LTb
+LCb setrgbcolor
 stroke
 grestore
 end

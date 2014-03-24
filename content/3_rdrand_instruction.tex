@@ -23,7 +23,7 @@ Long answer: we use rdrand as \_one\_ of~many inputs into the~random pool, and w
 The Intel Secure Key (ISK) uses cascade construction, combining a~HW RNG with CSPRNG into one sealed block on CPU, which is compliant with many security standards, including NIST SP800-90, FIPS-140-2, and ANSI X9.82\cite{IntelDRNGGuide}. Although it is impossible to audit it, there was found no evidence of~low entropy or anything that would deny the~security standards compliance - neither with tests in \fullref{sec:testing:stat-testing}, nor any other tests anyone else did\footnote{I assume that such revelation would become quickly known and broadly discussed, but all tests I have found has the same conlusion as mine.}.
 
 % --------------------------------------------------------
-\section{Physical implementation}\label{sec:ISK-physical}
+\section{Physical Implementation}\label{sec:ISK-physical}
 One important thing about ISK, that has big impact on performance but also price of~that solution is, that there is only one unit on a~die and the~unit should be the~same on all CPUs.\TODO{quote it} % TODO quote it
 Because all processing units (PUs)\footnote{Two physical cores with hyper-threading counts as four PUs.} on one die share the~RNG, one thread reading random numbers from it can never be faster than $Total speed  \frac{1}{PUs}$. The effect of~this is that the~performance is scalable until until amount of PUs and the maximum output speed are exceeded (see \fullref{sec:testing:performance-testing}), and price of~the~CPU is less affected.
 
@@ -38,7 +38,7 @@ Each ISK unit consists three basic parts: A hardware entropy source, a~condition
 
 
 % ....................................................
-\subsection{Entropy source}
+\subsection{Entropy Source}
 
 The entropy source is a~metastable circuit, with unpredictable behavior based 
 on thermal noise\cite{UnderstandingRdRandElectronic}. 
@@ -88,13 +88,13 @@ but usually it will reseed more frequently,
 about each 10 microseconds~\cite[Chapter~4.4]{IntelDRNGGuide}.
 
 % ....................................................
-\subsection{Built-in self-tests (BIST)}
+\subsection{Built-in Self-Tests (BIST)}
 Intel Secure Key contain also built-in self tests. After a reset, the BIST at first test health of the DRBG and conditioner, then it tests the entropy source. In the first part, ES is disconnected, a previously determined bit sequence is 'generated' and the BIST checks the output with a built-in value. In second phase, the entropy source is connected and few sequences are generated. If the entropy source would be bad, the previously checked health check in conditioner would detect it. 
 
 In case one of the BIST parts would not be finished correctly and the RdRand instruction is called, just zeros are returned and carry flag is cleared\cite{AnalysisOfDRNG}.
 
 % --------------------------------------------------------
-\section{Existing usages} 
+\section{Existing Usages} 
 Some well known projects that already have support for RdRand are the Linux kernel, OpenSSL, ...
 \TODO{write more}% TODO write more
 

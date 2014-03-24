@@ -32,12 +32,14 @@ when I got the~possibility to work on implementation of~a~library using RdRand,
 as well as test it, in production environment of~Red Hat corporation, 
 I was interested in it and choose it as my thesis. 
 During the~work, we have discovered unexpected issue with half performance 
-on some CPUs which was handed to Intel, yet until now without a~result. The last information I havefrom Intel is that the bug is being submitted as a potential bug against the silicon.
+on some CPUs which was handed to Intel, yet without any useful result. The only information we received through Intel Premier program is:
+\begin{quote}
+The expectation need to be set that RDRAND is slower on IVT-EX because IVT is missing some optimizations that IVB has and the measurements ran confirm that after 5 threads, the RdRand throughput maxes out at 375 MiB/s.
+\end{quote}
 
-Because now, in 2013, no other implementation of~RdRand than Intel's one exists\footnote{Although AMD is working on their own implementation for their Excavator architecture~\cite{AMDRdRand}, probably named RDRND.}
+Because now, in spring 2014, no other implementation of~RdRand than Intel's one exists\footnote{Although AMD is working on their own implementation for their future Excavator architecture~\cite{AMDRdRand}, probably named RDRND.}
 the term {\em RdRand} is used just as the~instruction implemented by {\em Intel Secure Key} technology.
 
-\TODO{Update it when news come.}%TODO Update it when news come.
 
 
 %========================================================================= 

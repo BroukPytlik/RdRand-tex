@@ -1,4 +1,4 @@
-#!/usr/bin/gnuplot
+#!/usr/bin/env gnuplot
 
 set boxwidth 0.9 absolute
 #set style fill solid 1.00 border lt -1
@@ -24,6 +24,6 @@ set output 'difference.png'
 plot 'difference.dat' using 2:xtic(1) ti col, '' u 3 ti col
 
 
-set terminal postscript eps fontscale 1.5 colour size 15cm,9cm
+set terminal postscript eps solid enhanced fontscale 1.5 colour size 15cm,9cm
 set output 'difference.eps'
 plot 'difference.dat' using 2:xtic(1) ti col, '' u 3 ti col

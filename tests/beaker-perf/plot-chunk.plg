@@ -1,4 +1,4 @@
-#!/usr/bin/gnuplot
+#!/usr/bin/env gnuplot
 
 # pass filename: gnuplot  -e "filename='foo.dat'" file.plg
 
@@ -29,7 +29,7 @@ set offsets 0,0,GPVAL_DATA_Y_MAX/5,0
 set output filename.'_low.png'
 plot filename.'_low.dat' using 2:xtic(1) ti col, '' u 3 ti col
 
-set terminal postscript eps fontscale 1.5 colour size 12cm,6cm
+set terminal postscript eps solid enhanced fontscale 1.5 colour size 12cm,6cm
 set output filename.'_low.eps'
 plot filename.'_low.dat' using 2:xtic(1) ti col, '' u 3 ti col
 
@@ -44,6 +44,6 @@ set offsets 0,0,GPVAL_DATA_Y_MAX/5,0
 set output filename.'_hi.png'
 plot filename.'_hi.dat' using 2:xtic(1) ti col, '' u 3 ti col
 
-set terminal postscript eps fontscale 1.5 colour size 12cm,6cm
+set terminal postscript eps solid enhanced fontscale 1.5 colour size 12cm,6cm
 set output filename.'_hi.eps'
 plot filename.'_hi.dat' using 2:xtic(1) ti col, '' u 3 ti col

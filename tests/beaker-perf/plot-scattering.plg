@@ -1,4 +1,4 @@
-#!/usr/bin/gnuplot
+#!/usr/bin/env gnuplot
 
 # pass filename: gnuplot  -e "filename='foo.dat'" file.plg
 
@@ -28,6 +28,6 @@ set terminal pngcairo  enhanced font "arial,10" fontscale 1.0 size 800,300
 set output filename.'.png'
 plot filename.'.dat' using (bin($1,binwidth)):(1.0) smooth freq with boxes notitle
 
-set terminal postscript eps fontscale 1.5 colour size 12cm,6cm
+set terminal postscript eps solid enhanced fontscale 1.5 colour size 12cm,6cm
 set output filename.'.eps'
 plot filename.'.dat' using (bin($1,binwidth)):(1.0) smooth freq with boxes notitle
