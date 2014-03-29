@@ -1,22 +1,31 @@
 %=========================================================================
 \chapter{The Library}\label{chap:library}
+\par{
 According the needs of Red Hat I created a library providing basic interface over the RdRand instruction as well as a simple application using this library. The most important reason for Red Hat's own implementation was licensing; Intel has supplied its own library providing similar interface to this one, but under its own license, which could cause problems with modification, redistribution and in combination with GNU GPL. Thus, this work has been released under GNU LGPL 2.1\footnote{For full text of the license, see \cite{GNULGPL}.}. Also, it was important to test the library and to create a documentation for it.
+}
 
-When drafting the library interface, I have at first surveyed the library example from Intel\cite{IntelDRNGGuide}, as well as OpenSSL\cite{OpenSSLAPI}. The first draft included functions described in API in \ref{subsec:api:simple-wrappers}~(simple wrappers) and \ref{subsec:api:single-number}~(single numbers) and one function for longer sequences: \\\function{rdrand_get_bytes_retry}. 
+\par{
+When drafting the library interface, I have at first surveyed the library example from Intel\cite{IntelDRNGGuide}, as well as OpenSSL API\cite{OpenSSLAPI}. The first draft included functions described in API in \ref{subsec:api:simple-wrappers}~(simple wrappers) and \ref{subsec:api:single-number}~(single numbers) and one function for longer sequences: \\\function{rdrand_get_bytes_retry}. 
+}
 
+\par{
 Also, I planned to implement not only the usual, fast method, but also some more secure, that would avoid of relying on the security of the CSPRNG (see \fullref{sec:ISK-physical} for more details), yet I wasn't sure about an interface for this functionality.
+}
 
-This draft was discussed with Jiří Hladký. A need for more functions for longer sequences emerged from the discussion, so other functions from \ref{subsec:api:multiple}~(multiple numbers) were added and also the more secure generation was discussed. Initially, I wanted to implement the fast or more secure method switch as an state variable set up by an initialization function or passed as an argument to the generating functions, but after deeper analysis of the methods of such generating, performance and usability impacts of these options and discussion about probability of using the more secure options, I decided to implement the more secure methods as two independent functions, described in \ref{subsec:api:secure}~(secure generating). 
-\TODO{links} % TODO links
+\par{
+This draft was discussed with Jiří Hladký. A need for more functions for longer sequences emerged from the discussion, so other functions from \ref{subsec:api:multiple}~(multiple numbers) were added and also the more secure generation was discussed. Initially, I wanted to implement the fast or more secure method switch as an state variable, set up in an initialization function or passed as an argument to the generating functions. After deeper analysis of such solution and its impact on performance and usability, I decided to implement the more secure methods as two independent functions, described in \ref{subsec:api:secure}~(secure generating). 
+}
 
+\par{
 In March 2014, this library (and the generator) was pushed into Fedora package repository~\cite{RdRandFedoraPackage,RdRandFedoraPackageBugzilla} in version 1.0.5. 
 In later versions, the functionality of this library was extended above the requested and here described range. 
-
+}
 
 
 \section{API} \label{sec:library-api}
+\par{
 The library, if installed into the system, can be included by using {\tt \#include <librdrand.h>}. In the time of this work, the library is using the following API.
-
+}
 \subsection{Constants}
 \begin{description}
   \item[RDRAND\_SUCCESS] Returned by function if a random number(s) was generated correctly.
@@ -36,7 +45,9 @@ These functions are not generating any random numbers.\\
 \FunctionDeclare{int}{rdrand_testSupport}{void}{Detect if the CPU support RdRand instruction. Returns {\tt RDRAND_SUPPORTED}  or {\tt RDRAND_UNSUPPORTED}.}\\
 
 \subsubsection{Simple Wrappers}\label{subsec:api:simple-wrappers}
+\par{
 These methods are simply wrappers of an ASM code which generates only one n-bits number. Although these functions are provided, I expect that they will be used only infrequently. Returns {\tt RDRAND\_SUCCESS} or {\tt RDRAND\_FAILURE}.\\
+}
 
 \FunctionDeclare{int}{rdrand16_step}{uint16\_t *x}{Generates 16 bits of entropy through RdRand.}\\
 
@@ -45,8 +56,9 @@ These methods are simply wrappers of an ASM code which generates only one n-bits
 \FunctionDeclare{int}{rdrand64_step}{uint64\_t *x}{Generates 64 bits of entropy through RdRand.}\\
 
 \subsubsection{Generating Single Number}\label{subsec:api:single-number}
+\par{
 More complex functions than the previous -- in case of RdRand failure, these functions will try it again for the specified amount of times. Negative {\tt retry\_limit} implies default value with which the library is compiled. Returns {\tt RDRAND\_SUCCESS} or {\tt RDRAND\_FAILURE}.\\
-
+}
 
 \FunctionDeclare{int}{rdrand_get_uint16_retry}{uint16\_t *x, int retry\_limit}{Generates 16 bits of entropy through RdRand.}\\
 
@@ -55,9 +67,10 @@ More complex functions than the previous -- in case of RdRand failure, these fun
 \FunctionDeclare{int}{rdrand_get_uint64_retry}{uint64\_t *x, int retry\_limit}{Generates 64 bits of entropy through RdRand.}\\
 
 \subsubsection{Generating Multiple Numbers}\label{subsec:api:multiple}
+\par{
 As a single random value is usually not enough, the library provides also functions for generating multiple bytes of random values. For higher speed, all these functions are generating values in 64bit blocks when it is possible.
 These functions also accept {\tt retry\_limit} as the previous ones. Returns bytes of sucessfully generated values.\\
-
+}
 
 \FunctionDeclare{size\_t}{rdrand_get_bytes_retry}{void *dest, const size\_t size, int retry\_limit}{Generate {\tt size} bytes of random data.}\\
 
@@ -73,8 +86,11 @@ These functions also accept {\tt retry\_limit} as the previous ones. Returns byt
 \FunctionDeclare{size\_t}{rdrand_fwrite}{FILE *f, const size\_t count, int retry\_limit}{Generate {\tt count} bytes of random values and write it to the {\tt f} stream}\\
 
 \subsubsection{Secure Generating}\label{subsec:api:secure}
+\par{
 As is documented in the \fullref{chap:rdrand-instruction}, the CPU is using an~pseudorandom generator in~connection with an~entropy source. If the~user want to avoid of the~risk of taking two numbers from the same pool, that were generated from the same seed by the PRNG for some reason, it is possible to use these functions, that~guarantee\footnote{Based on description of Intel Secure Key in \fullref{subsec:DRBG}. Verification of this claim is not possible due to sealed implementation in the CPU.} by~reseeding the internal entropy pool, that each~64-bit generated value is independent on the~previous or the~next one. 
+}
 
+\par{
 These methods should be used only in a single thread. 
 If more threads or processes tries to generate random numbers with these two methods, 
 the library has no possibility to enforce the reseeding of the PRNG and the numbers generated 
@@ -83,7 +99,7 @@ However, between numbers in one thread,
 the reseeding is always guarranted\footnote{Accoring to known information~\cite[sec.~2.4.2]{AnalysisOfDRNG}, the DRBG requires reseeding after 512 128-bit outputs, that is 1024 of 64-bit. 
 Thus if this amount of generated values is skipped, the pool has to regenerate.} 
 with all reliability we can have without knowing the implementation details.
-
+}
 
 
 
@@ -99,25 +115,34 @@ than the ideal 800 MiB/s) and in such situation this delay may not be enough.}\\
 
 
 \section{RdRand Calling}
+\par{
 The RdRand instruction is called in three functions: \function{rdrand16_step}, \function{rdrand32_step} and \function{rdrand64_step}. In case that the compiler compiling this library knows RdRand instruction and {\tt x86intrin.h} header file is included, the three named functions are just a renaming of {\tt \_rdrandXX\_step} functions. But if the compiler do not know the instruction (for example when the version is too old), or the header file is not installed on the system, then the functions directly call a byte code.
+}
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=C, numbers=none, numberstyle=\tiny\color{black},caption= {Byte code called in {\tt rdrand64\_step}.}]
  asm volatile (".byte 0x48; .byte 0x0f; .byte 0xc7; .byte 0xf0; setc %1"
                       : "=a" (*x), "=qm" (err));
 \end{lstlisting}
 
+\par{
 Byte code instead of instruction in the assembly language is used to support compilers who do not know about RdRand instruction. A specific example of such can be {\em RedHat Enterprise Linux 5}, whose GCC compiler is from year 2008\footnote{According information provided by GCC itself on any machine with RHEL 5.}. 
+}
 
+\par{
 If the library is compiled for a 32-bit system, then the \function{rdrand64_step} function contain two calls of the RdRand instruction to fill lower and higher half of a 64-bit number, as it is not possible to use 64-bits registers on a 32-bit system. 
-
+}
 \section{Intelligent Generating}
+\par{
 Most of the functions of the library that generates an array fill the array values one by one, as it was passed to the function, just using larger data type if possible, having as little operations as possible. The \function{rdrand_get_bytes_retry} is the only one that is applying a simple heuristic for achieving the best possible speed even when passed memory area is not aligned to 64-bit blocks.
+}
 
+\par{
 The function computes offset of the first 64-bit aligned block within the given memory space and then, if the offset is different than 0, it fills the few unaligned bytes at the beginning individually. After that, the generating continues like in other methods by filling 64-bit blocks until the end, potentially ending again by less than 8 bytes that needs to be filled individually (not in 64-bit chunk). Because of this approach, this function has a performance impact, that can be notable on small memory areas\footnote{See \fullref{sec:testing:performance-testing} for details.}, but on large aligned areas the performance difference is almost undetectable. If the memory area is not aligned, then the performance of this function is the best of all in this library.
-
+}
 
 \section{Support Testing}
+\par{
 Because the RdRand instruction is not on all machines, it is necessary to provide an easy tool to check it. This is done by function \function{rdrand_testSupport}. This functions gets information about a CPU through {\tt cpuid} assembly language instruction and test a vendor string of the CPU. If the string is ``GenuineIntel'', the CPU vendor is Intel\footnote{Currently the only vendor providing this instruction. See \fullref{chap:rdrand-instruction}} and it is possible to test feature bits of the CPU for RdRand flag. Without the vendor check, it would be possible that some other vendor has another feature flag on the same bit as Intel has RdRand.
+}
 
 
-
-%=========================================================================
+%============================================================

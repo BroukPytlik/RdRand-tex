@@ -1,45 +1,146 @@
-%=========================================================================
+%============================================================
 \chapter{Introduction}
-\TODO{Slovosled!} %TODO slovosled!
-Generating of~true random numbers is a~stochastic process.
-In opposite, computers are deterministic machines and as such, 
-they are unable to~generate true random numbers just using abilities of~a~Turing machine. 
-But random numbers are crucial in cryptography and once computers began to be used in this domain,
-people tried combine these two conflicting requests - to~allow a~deterministic machine to act stochasticaly. 
-
-There are two solutions of~this problem. We can stay with completely deterministic machines and through series of~mathematical operations compute pseudo random numbers, that seems to be random, but when using the~same initial state and algorithm, we get the~same numbers again. Or we can add some source of~entropy to the~system, a~device that is physically stochastic and measure the stochastic process (thermal noise, radioactive decay, etc).
-
-The second approach can provide real random numbers, but it requires online testing for case of hardware failure and also, finding of an~entropy source with a~good speed, an~uniform distribution (without a bias) and with a~reliable price, size, energy consumption and other parameters is difficult. Because of this, a lower quality HW generator is connected with an device that tests the bias and selects only some bits and then the~generated random values are used as a~seed for a~crypthographicaly secure pseudo-random generator, which can lead to great speed enhancement without loosing much of~the~randomness.
-
-The problematic of~quality of~the~entropy for a~specific purpose is wide and this work is not intended to cover it to great length, but still it has be shortly mentioned. Clearly, different requests has an developer of~a~video game, a~researcher performing a~simulation and an~army for encrypting their information. The researcher needs numbers that seems to be random, but aren't - he or she needs to be able to repeat the~simulation with the~same initial state to get the~same result\footnote{In some cases of~computing, researchers are even keeping the~same machines, as a~different machine would provide a~different results due to inner number representation and architecture differences.\cite{ArithmeticInCloud}\TODO{Is it ok?}%TODO is it ok?
+\par{\TODO{Slovosled!} %TODO slovosled!
+Generation of~true random numbers is a~stochastic process.
+In opposite, computers are deterministic machines 
+and thus they are unable to~generate true random numbers by using abilities 
+of~a~Turing machine. 
+But random numbers are crucial in cryptography and once computers began 
+to be used in this domain, people tried combine these two conflicting requests 
+-- to~allow a~deterministic machine to act stochasticaly. 
 }
 
-The video game developer can also need the~repeatibility (e.g. for generating a~terrain), but in another case, like decisions of~a~artificial intelligence, the~repeatibility may not be requested and in case of~gambling highly unwanted. And the~army needs the~random numbers generator to be completely stochastic to prevent an enemy to decipher their messages. Another example, where random numbers are used, is the {\em Monte Carlo} method of solving definite integrals. Each of~these cases has different requests for quality, speed and price.
+\par{
+There are two solutions of~this problem. We can stay with completely 
+deterministic machines and through series of~mathematical operations 
+compute pseudo random numbers, that seems to be random, 
+but when using the~same initial state and algorithm, we get the~same 
+numbers again. Or we can add some source of~entropy to the~system, 
+a~device that is physically stochastic and measure the stochastic process 
+(thermal noise, radioactive decay, etc).
+}
 
-Due to prices of~{\em Hardware Random Number Generators (HW RNG)}, they were for long time domain of~just governments and big corporations,\TODO{Quote it}%TODO quote it - security oriented CPUs with HW RNGs...
-leaving the~consumer electronic to rely only on {\em Pseudo-Random Number Generators (PRNG)}. PRNG algorithms developed to great success over time, providing enough entropy for usual needs of~ordinary people and also for most of~cryptographic needs ({\em Cryptographically Secure Random Number Generators - CSPRNG}), but still it needs to be seeded by data with at least some entropy from the~beginning. And as more and more of~our daily life depends on computers, the~importance of~keeping our data secured raised up. 
+\par{
+The second approach can provide real random numbers, but it requires online 
+testing for case of hardware failure and also, finding of an~entropy source with
+a~good speed, an~uniform distribution (without a bias) and with a~reliable price,
+size, energy consumption and other parameters is difficult. Because of this, 
+a lower quality HW generator is connected with an device that tests the bias 
+and selects only some bits and then the~generated random values are used 
+as a~seed for a~crypthographicaly secure pseudo-random generator, 
+which can lead to great speed enhancement without loosing much 
+of~the~randomness.
+}
 
-In 2012\cite{IntelRdRandFindAbout} Intel added a~Digital Random Number Generator (DRNG) on their chips and allowed programmers to use it as part of~instruction set of~that CPUs. Intel named the~instruction RdRand and its own implementation and the~underlying DRNG hardware implementation is named {\em Intel Secure Key} (previously code-named Bull Mountain Technology)\cite{IntelDRNGAnalysis}. Intel used combination of~HW RNG and CSPRNG, solution known as {\em Cascade Construction RNG}, where the~relatively slow HW RNG\footnote{The HW RNG itself has output about 3 gigabits per second\cite{BehindRdRand}, but these values are biased, so amount of the bites is reduced to concentrate the randomness.} works as a~seed generator for much faster CSPRNG. As is showed later in this thesis, in \fullref{sec:testing:performance-testing}, the~difference in speed is about thousand times.
+\par{
+The problematic of~quality of~the~entropy for a~specific purpose is wide 
+and this work is not intended to cover it to great length, but still this area 
+has to be shortly mentioned. Clearly, different requests has an developer 
+of~a~video game, a~researcher performing a~simulation and an~army 
+for encrypting their information. 
+The researcher needs numbers that seems to be random, but aren't 
+-- he or she needs to be able to repeat the~simulation with the~same initial state 
+to get the~same result\footnote{In some cases of~computing, 
+researchers are even keeping the~same machines, as a~different machine 
+would provide a~different results due to inner number representation and architectural differences.\cite{ArithmeticInCloud}}.
+}
 
-This step brought HW RNGs to general public, but the~limitation on only Intel CPUs means that there is still big part of~the~information technology market without such solution - in x86 world there is also AMD who did not yet implemented this instruction and also many of~different architectures, like ARM, in mobile devices. So the~programmers cannot count on the~presence of~a~HW RNG on a~casual computers yet. 
+\par{
+The video game developer can also need the~repeatibility (e.g. for generating 
+a~terrain), but in another case, like decisions of~a~artificial intelligence, 
+the~repeatibility may not be requested and in case of~gambling highly unwanted. 
+And the~army needs the~random numbers generator to be completely stochastic 
+to prevent an enemy to decipher their messages. Another example, where random 
+numbers are used, is the {\em Monte Carlo} method of solving definite integrals. 
+Each of~these cases has different requests for quality, speed and price.
+}
 
-Furthermore, the~Intel's RdRand instruction is still mostly unknown and there are also a~questions about reliability of~this generator, which is sealed into the~chip and unable to be audited\cite{TheodoreTsoNSA} if it is really manufactured according of~published scheme\cite{AnalysisOfDRNG} or if there is not a~backdoor. 
+\par{
+Due to prices of~{\em Hardware Random Number Generators (HW RNG)} 
+and because the few cheap solutions never got widely used, 
+they were for long time domain of~just governments and big corporations,
+leaving the~consumer electronic to rely only on {\em Pseudo-Random Number 
+Generators (PRNG)}. PRNG algorithms developed to great success over time, 
+providing enough entropy for usual needs of~ordinary people and also for most 
+of~cryptographic needs ({\em Cryptographically Secure Random Number 
+Generators - CSPRNG}), but still it needs to be seeded by data with at least 
+some entropy from the~beginning. And as more and more of~our daily life 
+depends on computers, the~importance of~keeping our data secured have 
+raised up. 
+}
 
-There is important to notice that if there could be a~backdoor in the~RNG, there could be possibly backdoors also in any other part of~the~CPU, opening possibilities for many others attacks which could achieve {\em the~same} result. But hiding a backdoor to RdRand could be done more easily than to, for example, a HW acceleration for AES encrypting, so I agree with Linus Torvalds that RdRand alone is great if we do not need crypthographicaly secure numbers, but for cryptographic usage, it is better to use it just as one of more sources of entropy and seed some CSPRNG by it.
+\par{
+In 2012\cite{IntelRdRandFindAbout} Intel added a~Digital Random Number 
+Generator (DRNG) on their chips in Ivy Bridge generation
+and allowed programmers to use it as part 
+of~instruction set of~that CPUs. Intel named the~instruction RdRand and its own 
+implementation and the~underlying DRNG hardware implementation is named 
+{\em Intel Secure Key} (previously code-named Bull Mountain Technology)
+\cite{IntelDRNGAnalysis}. Intel used combination of~HW RNG and CSPRNG, 
+solution known as {\em Cascade Construction RNG}, where the~relatively slow 
+HW RNG\footnote{The HW RNG itself has output about 3 gigabits per second
+\cite{BehindRdRand}, but these values are biased, so amount of the bites 
+is reduced to concentrate the randomness.} works as a~seed generator 
+for much faster CSPRNG. As is showed later in this thesis, 
+in \fullref{sec:testing:performance-testing}, the~difference in speed 
+is about thousand times.
+}
 
-As I'm interested in computer security on some level, as well as in Linux, 
-when I got the~possibility to work on implementation of~a~library using RdRand, 
-as well as test it, in production environment of~Red Hat corporation, 
+\par{
+This step brought HW RNGs to general public, but the~limitation on only Intel 
+CPUs means that there is still big part of~the~information technology market 
+without such solution - in x86 world there is another big player, 
+AMD, who did not yet implemented this instruction and also many 
+of~different architectures, like ARM, in mobile devices. 
+So the~programmers cannot count on the~presence of~a~HW RNG 
+on a~casual computers yet. 
+}
+
+\par{
+Furthermore, the~Intel's RdRand instruction is still mostly unknown 
+and there are also a~questions about reliability of~this generator, 
+which is sealed into the~chip and unable to be audited\cite{TheodoreTsoNSA} 
+if it is really manufactured according of~published 
+scheme\cite{AnalysisOfDRNG} or if there is a~backdoor. 
+}
+
+\par{
+There is important to notice that if there could be a~backdoor in the~RNG, 
+there could be possibly backdoors also in any other part of~the~CPU, opening 
+possibilities for many others attacks which could achieve {\em the~same} result. 
+But hiding a backdoor to RdRand could be done more easily than to, 
+for example, a HW acceleration for AES encrypting, so I agree with Linus 
+Torvalds that RdRand alone is great if we do not need crypthographicaly secure 
+numbers, but for cryptographic usage, it is better to use it just as one of more 
+sources of entropy and seed some CSPRNG by it.
+}
+
+\par{
+As I'm interested in computer security (on some level), 
+as well as I'm interested in Linux, 
+when I got the~possibility to work on implementation of~a~library using RdRand
+in production environment of~Red Hat corporation, 
 I was interested in it and choose it as my thesis. 
 During the~work, we have discovered unexpected issue with half performance 
-on some CPUs which was handed to Intel, yet without any useful result. The only information we received through Intel Premier program is:
+on some CPU. This was handed to Intel, yet without a result. 
+The only information we received through Intel Premier program is:
 \begin{quote}
-The expectation need to be set that RDRAND is slower on IVT-EX because IVT is missing some optimizations that IVB has and the measurements ran confirm that after 5 threads, the RdRand throughput maxes out at 375 MiB/s.
+The expectation need to be set that RDRAND is slower on IVT-EX 
+because IVT is missing some optimizations that IVB has 
+and the measurements ran confirm that after 5 threads, 
+the RdRand throughput maxes out at 375 MiB/s.
 \end{quote}
+Unfortunately, this is not telling us anything useful and just it raises more 
+questions about security of this solution.
+}
+\par{
+Because now, in spring 2014, no other implementation of~RdRand than Intel's 
+one exists\footnote{Although AMD is working on their own implementation 
+for their future Excavator architecture~\cite{AMDRdRand}, probably named 
+RDRND.}
+the term {\em RdRand} is used just as the~instruction implemented 
+by {\em Intel Secure Key} technology.
+}
 
-Because now, in spring 2014, no other implementation of~RdRand than Intel's one exists\footnote{Although AMD is working on their own implementation for their future Excavator architecture~\cite{AMDRdRand}, probably named RDRND.}
-the term {\em RdRand} is used just as the~instruction implemented by {\em Intel Secure Key} technology.
 
-
-
-%========================================================================= 
+%============================================================
