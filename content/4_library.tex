@@ -13,12 +13,16 @@ Also, I planned to implement not only the usual, fast method, but also some more
 }
 
 \par{
-This draft was discussed with Jiří Hladký. A need for more functions for longer sequences emerged from the discussion, so other functions from \ref{subsec:api:multiple}~(multiple numbers) were added and also the more secure generation was discussed. Initially, I wanted to implement the fast or more secure method switch as an state variable, set up in an initialization function or passed as an argument to the generating functions. After deeper analysis of such solution and its impact on performance and usability, I decided to implement the more secure methods as two independent functions, described in \ref{subsec:api:secure}~(secure generating). 
+This draft was discussed with Jiří Hladký. A need for more functions for longer sequences emerged from the discussion, so other functions from \ref{subsec:api:multiple}~(multiple numbers) were added and also the more secure generation was discussed. Initially, I wanted to implement the fast or more secure method switch as an state variable, set up in an initialization function or passed as an argument to the generating functions. After deeper analysis of such solution and its impact on performance and usability, I decided to implement the more secure methods as two independent functions, described in \ref{subsec:api:secure}~(secure generating).  
+}
+
+\par{
+Also, the library could be used on machines with current hardware, but with legacy software where is not any support for RdRand in system libraries (for example RHEL 5). For this reason, dependency on system libraries of specific versions was declined. This means that although Linux has a {\tt X86\_FEATURE\_RDRAND} flag for testing whether the RdRand is available and function similar to wrappers in \ref{subsec:api:simple-wrappers}, it wasn't used.
 }
 
 \par{
 In March 2014, this library (and the generator) was pushed into Fedora package repository~\cite{RdRandFedoraPackage,RdRandFedoraPackageBugzilla} in version 1.0.5. 
-In later versions, the functionality of this library was extended above the requested and here described range. 
+In later versions, the functionality of this library is going to be extended above the requested and described range. Specifically, some sort of encryption of generated values is going to be added to counter the possibility of predicable output.
 }
 
 
@@ -124,7 +128,7 @@ The RdRand instruction is called in three functions: \function{rdrand16_step}, \
 \end{lstlisting}
 
 \par{
-Byte code instead of instruction in the assembly language is used to support compilers who do not know about RdRand instruction. A specific example of such can be {\em RedHat Enterprise Linux 5}, whose GCC compiler is from year 2008\footnote{According information provided by GCC itself on any machine with RHEL 5.}. 
+Byte code instead of instruction in the assembly language is used to support compilers who do not know about RdRand instruction. A specific example of such can be {\em RedHat Enterprise Linux 5}, whose {\tt gcc} compiler is from year 2008\footnote{According information provided by {\tt gcc} itself on any machine with RHEL 5.}. 
 }
 
 \par{
@@ -136,7 +140,7 @@ Most of the functions of the library that generates an array fill the array valu
 }
 
 \par{
-The function computes offset of the first 64-bit aligned block within the given memory space and then, if the offset is different than 0, it fills the few unaligned bytes at the beginning individually. After that, the generating continues like in other methods by filling 64-bit blocks until the end, potentially ending again by less than 8 bytes that needs to be filled individually (not in 64-bit chunk). Because of this approach, this function has a performance impact, that can be notable on small memory areas\footnote{See \fullref{sec:testing:performance-testing} for details.}, but on large aligned areas the performance difference is almost undetectable. If the memory area is not aligned, then the performance of this function is the best of all in this library.
+The function computes offset of the first 64-bit aligned block within the given memory space and then, if the offset is different than 0, it fills the few unaligned bytes at the beginning individually. After that, the generating continues like in other methods by filling 64-bit blocks until the end, potentially ending again by less than 8 bytes that needs to be filled individually (not in 64-bit chunk). Because of this approach, the function has a performance impact that can be notable on small memory areas\footnote{See \fullref{sec:testing:performance-testing} for details.}, but on large aligned areas the performance difference is almost undetectable. 
 }
 
 \section{Support Testing}
@@ -144,5 +148,9 @@ The function computes offset of the first 64-bit aligned block within the given 
 Because the RdRand instruction is not on all machines, it is necessary to provide an easy tool to check it. This is done by function \function{rdrand_testSupport}. This functions gets information about a CPU through {\tt cpuid} assembly language instruction and test a vendor string of the CPU. If the string is ``GenuineIntel'', the CPU vendor is Intel\footnote{Currently the only vendor providing this instruction. See \fullref{chap:rdrand-instruction}} and it is possible to test feature bits of the CPU for RdRand flag. Without the vendor check, it would be possible that some other vendor has another feature flag on the same bit as Intel has RdRand.
 }
 
+\section{Development and Testing Options}
+\par{
+Testing whether some functions that should produce random numbers are correctly working (and for example not just reusing part of memory without overwriting it) is difficult. Thus, it is possible to compile the library with defined constant {\tt STUB\_RDRAND}\footnote{When using {\tt gcc}, flag {\tt -dSTUB\_RDRAND} can be used.}. This overwrites the RdRand instruction calling, resulting in all returned bits enabled (each byte is {\tt 0xFF}). This allow to easily see, whether the generated values are correctly used in full length.
+}
 
 %============================================================

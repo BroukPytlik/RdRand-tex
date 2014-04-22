@@ -1,14 +1,16 @@
 \chapter{Glossary}\label{chap:glossary}
 
 \begin{description}
+ \item [ASLR --] Address Space Layout Randomization. Security mechanism involving randomisation of memory addresses of various system data structures to make it harder to change them in an attack.
  \item [RNG --] Random number generator.
  \item [PRNG --] Pseudorandom number generator.
  \item [CSPRNG --] Cryptographicaly secure PRNG.
  \item [TRNG --] True random number generator.
  \item [LCRNG --] Linear congruential random number generator -- a basic PRNG,
  	probably most widely used~\cite[p.~151]{CryptographyAndNetworkSecurity}.
- \item [LRNG --] Linux random number generator -- a RNG used in Linux Kernel.
+ \item [LRNG --] Linux Random Number Generator -- a RNG used in Linux Kernel.
  \item [Entropy --] Measure of disorder and uncertainty of a system. 
  	In this report the term {\em entropy} can also refer to a random value itself 
-	from an information source. See chapter 2.
+	from an information source. See \fullref{chap:randomNumbers}.
+\item [PU --] Processing Unit. A CPU with 2 cores and Hyper--Threading has 4 PUs.
 \end{description}

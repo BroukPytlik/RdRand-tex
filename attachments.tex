@@ -6,7 +6,7 @@ List of content on the attached CD.
   \item[data -] Full results of tests used for this report.
   \item[docs -] This report and its source files (LaTeX).
   \item[literature -] Copy of used literature, if it is publicly available.
-  \item[RdRand -] Clone of bgit repository with the library.
+  \item[RdRand -] Clone of Git repository with the library.
 \end{description}
 
 %\chapter{Manual}
@@ -14,4 +14,222 @@ List of content on the attached CD.
 %\chapter{RelaxNG Sch�ma konfigura�n�ho soboru}
 %\chapter{Plakat}
 
+\section{Times of threads on RHEL 6}\label{attachment:times-of-threads-rhel6}
+Result of running time measurement on RHEL 6 on \machine{hp-aladdin-01.lab.bos.redhat.com}.
+\begin{lstlisting}
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 1
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 70
+thread 0 clocks (avg): 70
+rdrand_get_bytes_retry 215.772 MiB/s 100.00 %
 
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 2
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 145
+thread 0 clocks (avg): 143
+thread 1 clocks (avg): 144
+rdrand_get_bytes_retry 418.631 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 3
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 226
+thread 0 clocks (avg): 224
+thread 1 clocks (avg): 223
+thread 2 clocks (avg): 223
+rdrand_get_bytes_retry 600.268 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 4
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 334
+thread 0 clocks (avg): 330
+thread 1 clocks (avg): 330
+thread 2 clocks (avg): 329
+thread 3 clocks (avg): 329
+rdrand_get_bytes_retry 726.714 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 5
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 522
+thread 0 clocks (avg): 515
+thread 1 clocks (avg): 516
+thread 2 clocks (avg): 515
+thread 3 clocks (avg): 516
+thread 4 clocks (avg): 516
+rdrand_get_bytes_retry 731.115 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 6
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 753
+thread 0 clocks (avg): 741
+thread 1 clocks (avg): 741
+thread 2 clocks (avg): 738
+thread 3 clocks (avg): 739
+thread 4 clocks (avg): 741
+thread 5 clocks (avg): 742
+rdrand_get_bytes_retry 733.988 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 7
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1022
+thread 0 clocks (avg): 1009
+thread 1 clocks (avg): 1004
+thread 2 clocks (avg): 1003
+thread 3 clocks (avg): 1007
+thread 4 clocks (avg): 1009
+thread 5 clocks (avg): 1006
+thread 6 clocks (avg): 1007
+rdrand_get_bytes_retry 733.639 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 8
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1330
+thread 0 clocks (avg): 1314
+thread 1 clocks (avg): 1312
+thread 2 clocks (avg): 1312
+thread 3 clocks (avg): 1313
+thread 4 clocks (avg): 1312
+thread 5 clocks (avg): 1313
+thread 6 clocks (avg): 1312
+thread 7 clocks (avg): 1312
+rdrand_get_bytes_retry 736.122 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 9
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1602
+thread 0 clocks (avg): 529
+thread 1 clocks (avg): 508
+thread 2 clocks (avg): 547
+thread 3 clocks (avg): 413
+thread 4 clocks (avg): 501
+thread 5 clocks (avg): 547
+thread 6 clocks (avg): 520
+thread 7 clocks (avg): 568
+thread 8 clocks (avg): 471
+rdrand_get_bytes_retry 421.251 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 10
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1488
+thread 0 clocks (avg): 480
+thread 1 clocks (avg): 463
+thread 2 clocks (avg): 501
+thread 3 clocks (avg): 499
+thread 4 clocks (avg): 476
+thread 5 clocks (avg): 458
+thread 6 clocks (avg): 418
+thread 7 clocks (avg): 431
+thread 8 clocks (avg): 508
+thread 9 clocks (avg): 588
+rdrand_get_bytes_retry 603.341 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 11
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1611
+thread 0 clocks (avg): 237
+thread 1 clocks (avg): 376
+thread 2 clocks (avg): 460
+thread 3 clocks (avg): 493
+thread 4 clocks (avg): 380
+thread 5 clocks (avg): 390
+thread 6 clocks (avg): 396
+thread 7 clocks (avg): 365
+thread 8 clocks (avg): 446
+thread 9 clocks (avg): 390
+thread 10 clocks (avg): 353
+rdrand_get_bytes_retry 487.343 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 12
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1660
+thread 0 clocks (avg): 435
+thread 1 clocks (avg): 296
+thread 2 clocks (avg): 389
+thread 3 clocks (avg): 474
+thread 4 clocks (avg): 470
+thread 5 clocks (avg): 419
+thread 6 clocks (avg): 442
+thread 7 clocks (avg): 284
+thread 8 clocks (avg): 354
+thread 9 clocks (avg): 440
+thread 10 clocks (avg): 376
+thread 11 clocks (avg): 443
+rdrand_get_bytes_retry 516.715 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 13
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1760
+thread 0 clocks (avg): 272
+thread 1 clocks (avg): 379
+thread 2 clocks (avg): 355
+thread 3 clocks (avg): 447
+thread 4 clocks (avg): 331
+thread 5 clocks (avg): 398
+thread 6 clocks (avg): 401
+thread 7 clocks (avg): 412
+thread 8 clocks (avg): 397
+thread 9 clocks (avg): 331
+thread 10 clocks (avg): 334
+thread 11 clocks (avg): 363
+thread 12 clocks (avg): 353
+rdrand_get_bytes_retry 482.253 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 14
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1834
+thread 0 clocks (avg): 152
+thread 1 clocks (avg): 365
+thread 2 clocks (avg): 339
+thread 3 clocks (avg): 439
+thread 4 clocks (avg): 370
+thread 5 clocks (avg): 441
+thread 6 clocks (avg): 279
+thread 7 clocks (avg): 395
+thread 8 clocks (avg): 308
+thread 9 clocks (avg): 455
+thread 10 clocks (avg): 354
+thread 11 clocks (avg): 368
+thread 12 clocks (avg): 276
+thread 13 clocks (avg): 377
+rdrand_get_bytes_retry 459.098 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 15
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 1940
+thread 0 clocks (avg): 385
+thread 1 clocks (avg): 279
+thread 2 clocks (avg): 407
+thread 3 clocks (avg): 284
+thread 4 clocks (avg): 290
+thread 5 clocks (avg): 357
+thread 6 clocks (avg): 253
+thread 7 clocks (avg): 286
+thread 8 clocks (avg): 248
+thread 9 clocks (avg): 237
+thread 10 clocks (avg): 436
+thread 11 clocks (avg): 261
+thread 12 clocks (avg): 292
+thread 13 clocks (avg): 396
+thread 14 clocks (avg): 286
+rdrand_get_bytes_retry 427.849 MiB/s 100.00 %
+
+ cmd: ./RdRand -m rdrand_get_bytes_retry -r1 -t 16
+Data will be printed to stdout if -p is specified.
+total clocks (avg): 2046
+thread 0 clocks (avg): 188
+thread 1 clocks (avg): 327
+thread 2 clocks (avg): 315
+thread 3 clocks (avg): 271
+thread 4 clocks (avg): 382
+thread 5 clocks (avg): 329
+thread 6 clocks (avg): 329
+thread 7 clocks (avg): 350
+thread 8 clocks (avg): 364
+thread 9 clocks (avg): 299
+thread 10 clocks (avg): 323
+thread 11 clocks (avg): 392
+thread 12 clocks (avg): 362
+thread 13 clocks (avg): 396
+thread 14 clocks (avg): 295
+thread 15 clocks (avg): 323
+rdrand_get_bytes_retry 411.730 MiB/s 100.00 %
+\end{lstlisting}

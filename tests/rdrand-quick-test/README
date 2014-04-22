@@ -1,0 +1,13 @@
+Automatic test of RdRand scaling.
+
+How to use: 
+1) Run ./git.sh for cloning the repo and compiling it.
+
+2) [optional] open the test.sh and change ranges of the test 
+   (TEST_T_FROM and TEST_T_TO variables) according of how many cores your CPU
+   has.
+
+3) Run ./test.sh for making the test
+
+The test script will save results in file with current date and time 
+and will plot it using gnuplot.

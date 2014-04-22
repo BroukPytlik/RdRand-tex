@@ -1,0 +1,1 @@
+test on RHEL6 whether it is slow also when the generating is running in parallel by parallel :-)

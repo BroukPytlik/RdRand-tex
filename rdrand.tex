@@ -9,7 +9,7 @@
 % připomínky posílejte na e-mail: bidlom AT fit.vutbr.cz
 % vim: set syntax=tex encoding=latin2:
 %============================================================================
-\documentclass[cover,english]{jtulak} % odevzdani do wisu - odkazy, na ktere se da klikat
+\documentclass[english]{jtulak} % odevzdani do wisu - odkazy, na ktere se da klikat
 %\documentclass[cover,print]{fitthesis} % pro tisk - na odkazy se neda klikat
 %\documentclass[english,print]{fitthesis} % pro tisk - na odkazy se neda klikat
 %      \documentclass[english]{fitthesis}
@@ -90,8 +90,12 @@
   % abstrakt v ceskem jazyce
   abstract.cs={Tato práce popisuje implementaci a testování Linuxové knihovny,
   vytvořené pro poskytnutí abstrakce mezi uživatelem a instrukcí RdRand 
-  od Intelu (Ivy Bridge RNG). Samotná instrukce je rovněž zběžně popsána, stejně jako základní
-  problematika generování náhodných čísel.}, 
+  od Intelu (Ivy Bridge RNG). Samotná instrukce je rovněž zběžně popsána, 
+  stejně jako základní problematika generování náhodných čísel.\\ \\
+  V první kapitole (Introduction) je stručné shrnutí historie a využití generování 
+  náhodných čísel a shrnutí důvodů, proč jsem si vybral toto téma. 
+  Druhá kapitola pojednává o možnostech generování náhodných čísel na deterministických strojích a popisuje princip generátoru náhodných čísel v Linuxovém jádře.
+  Kapitola tři rozebírá funkčnost samotné instrukce RdRand a zmiňuje i potenciální rizika. Čtvrtá a pátá kapitola je věnována popisu a vysvětlení kódu, který je praktickým výstupem této práce a který je otestován jak po statistické, tak pro výkonnostní stránce v kapitole 6.},
   % abstrakt v anglickem jazyce
   abstract.en={This thesis describe implementation and testing of a Linux 
   library, created for providing an abstraction layer between an user and 

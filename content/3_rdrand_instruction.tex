@@ -11,13 +11,6 @@ First public information about RdRand came somewhen during year
 }
 
 \par{
-We weren't able to find any relevant data about usage of~RdRand in Windows 
-kernel, probably because all negotiations and development happened behind 
-closed doors. In user space, there is no difference between Linux and Windows; 
-when it is possible to call the~instruction, user space applications can use it. 
-}
-
-\par{
 After disclosure of~extends of~NSA spying activities by Edward Snowden 
 in summer of~2013\cite{GuardianNSA,DailymailNSA}, a~petition for removing 
 RdRand from Linux entropy sources was created\cite{PetitionRdRand}. 
@@ -84,9 +77,9 @@ X9.82\cite{IntelDRNGGuide}. Although it is impossible to audit it, there was fou
 % --------------------------------------------------------
 \section{Physical Implementation}\label{sec:ISK-physical}
 \par{
-One important thing about ISK, that has big impact on performance but also price 
-of~that solution is, that there is only one unit on a~die and the~unit should be
- the~same on all CPUs.\TODO{quote it} % TODO quote it
+One important thing about ISK with a big impact on the performance, but also price 
+of~that solution is that there is only one unit on a~die and the~unit should be
+ the~same on all CPUs\footnote{We didn't find the "be the same" officially confirmed and it can change in future CPUs. But empirical test results made on range of different CPU types provided the same characteristics, with exception of Intel Xeon CPUs as is described in the \ref{chap:testing}.}~\cite{IntelDRNGGuide}[Chapter 3.1].
 Because all processing units (PUs)\footnote{Two physical cores with 
 hyper-threading counts as four PUs.} on one die share the~RNG, one thread 
 reading random numbers from it can never be faster than 
@@ -191,6 +184,44 @@ If the entropy source would be bad, the previously checked health check in condi
 In case one of the BIST parts would not be finished correctly and the RdRand 
 instruction is called, just zeros are returned and carry flag is cleared\cite{AnalysisOfDRNG}.
 }
+
+% --------------------------------------------------------
+\section{Existing Usages} 
+\par{
+RdRand is already used in Linux kernel for the both blocking and non-blocking pools. For the non-blocking pool({\tt /dev/urandom}), it is possible to completely feed the pool with RdRand~\cite{KernelRdRand}. For blocking pool ({\tt /dev/random}), the RdRand is used as one from more entropy sources in {\tt drivers/char/random.c}.
+}
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=C, numbers=none, numberstyle=\tiny\color{black},caption= {Adding RdRand (and any other platform-depending HW RNG) to blocking pool with XOR, at line 1042 in {\tt drivers/char/random.c}~\cite{random.c}. }]
+for (i = 0; i < LONGS(20); i++) {
+	unsigned long v;
+	if (!arch_get_random_long(&v))
+		break;
+	hash.l[i] ^= v;
+}
+\end{lstlisting}
+
+\par{
+Another well-known and widely spread system already using RdRand is OpenSSL. This library added the support in version 1.0.1~\cite{OpenSSLRandomNumbers}[Chapter 3.2 Generation]. There the RdRand is provided as one engine of many and requires to be explicitly enabled.
+}
+
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=C, numbers=none, numberstyle=\tiny\color{black},caption= {Simplified example of usage of RdRand in OpenSSL~\cite{OpenSSLRandomNumbers}. }]
+OPENSSL_cpuid_setup();
+ENGINE_load_rdrand();
+ENGINE* eng = ENGINE_by_id("rdrand");
+ENGINE_init(eng);
+ENGINE_set_default(eng, ENGINE_METHOD_RAND);
+
+// Here use the engine with some RAND_ method
+
+ENGINE_finish(eng);
+ENGINE_free(eng);
+ENGINE_cleanup();
+\end{lstlisting}
+
+\par{
+In Windows 8, RdRand is used for example during boot for {\tt ASLR} {\em (Address Space Layout Randomization)}~\cite{WindowsASLR,WindowsHeap}.
+}
+
 % --------------------------------------------------------
 \section{Security}\label{sec:security}
 \par{
@@ -228,11 +259,8 @@ $ 1/2^n$~\cite{DopantAttack}[Chap. 3.2, page 9], but the output of such
  modified RdRand is still looking randomly. In the work is achieved  
  $n = 32$, while it still pass NIST random number test suite.
 }
-% --------------------------------------------------------
-\section{Existing Usages} 
-\par{
-Some well known projects that already have support for RdRand are the Linux kernel, OpenSSL, ...
-\TODO{write more}% TODO write more
-}
 
+\par{
+This kind of attack (predicability) is different from what the authors of the petition~\cite{PetitionRdRand} for removing RdRand from {\tt /dev/random} fears. Their point is that RdRand, as a part of the CPU, can actively try to reduce entropy of the pool. If it would know with what values it will be XORed (they can be in cache of the CPU), it can produce inverted value and effectively impact the pool. But I don't have enough understanding of this Linux subsystem to be able to evaluate this claim.
+}
 %============================================================

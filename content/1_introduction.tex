@@ -1,6 +1,6 @@
 %============================================================
 \chapter{Introduction}
-\par{\TODO{Slovosled!} %TODO slovosled!
+\par{
 Generation of~true random numbers is a~stochastic process.
 In opposite, computers are deterministic machines 
 and thus they are unable to~generate true random numbers by using abilities 
@@ -123,15 +123,6 @@ in production environment of~Red Hat corporation,
 I was interested in it and choose it as my thesis. 
 During the~work, we have discovered unexpected issue with half performance 
 on some CPU. This was handed to Intel, yet without a result. 
-The only information we received through Intel Premier program is:
-\begin{quote}
-The expectation need to be set that RDRAND is slower on IVT-EX 
-because IVT is missing some optimizations that IVB has 
-and the measurements ran confirm that after 5 threads, 
-the RdRand throughput maxes out at 375 MiB/s.
-\end{quote}
-Unfortunately, this is not telling us anything useful and just it raises more 
-questions about security of this solution.
 }
 \par{
 Because now, in spring 2014, no other implementation of~RdRand than Intel's 
