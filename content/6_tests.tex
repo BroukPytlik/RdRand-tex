@@ -1,7 +1,7 @@
 %=========================================================================
 \chapter{Testing} \label{chap:testing}
 \par{
-During the development, we measured speed of the library and after getting the code on decent performance and finishing the main development work, we also used some statistical tests batteries. More information about them can be find in \fullref{sec:testing:stat-testing}.
+During the development, we measured speed of the library and after getting the code on decent performance and finishing the main development work, we also used some statistical tests batteries. More information about them can be found in \fullref{sec:testing:stat-testing}.
 }
 \par{
 For these tests, multiple operating systems were used.
@@ -57,7 +57,7 @@ All tests were done on all listed systems\footnote{For raw data see \fullref{cha
 \end{tabular}
 
 \par{
-Because it is important to be sure that generated values are truly random, two test suites were used: PractRand and TestU01. From PractRand, test battery {\tt RNG\_test} was used and from TestU01, {\tt BigCrush} and {\tt Alphabit}. No deviation was found by these test suits at all.
+Because it is important to be sure that generated values are truly random, two test suites were used: PractRand and TestU01. From PractRand, test battery {\tt RNG\_test} was used and from TestU01, {\tt BigCrush} and {\tt Alphabit}. These test suits found no deviation at all.
 }
 
 \subsection{PractRand}
@@ -103,34 +103,34 @@ The TestU01 batteries tested on each run about 20 terabytes of randomness at sum
 
 \subsection{Conclusion}
 \par{
-The statistical tests passed successfully with tens of TB of generated data. This can't provide a reliable information whether the RdRand has a backdoor or some side-channel security hole (see \fullref{sec:security} for more details), but it shows that the generated values has a good statistical properties.
+The statistical tests passed successfully with tens of TB of generated data. This can't provide reliable information whether the RdRand has a backdoor or some side-channel security hole (see \fullref{sec:security} for more details), but it shows that the generated values have good statistical properties.
 }
 
 %------------------------------------------------------------------------------
 \section{Performance Testing} \label{sec:testing:performance-testing}
 \par{
-Because the performance of the RNG is important, we had to measure the performance. There are generaly two options of how the performance can be measured:
+Because the performance of the RNG is important, we had to measure the performance. There are generally two options of how the performance can be measured:
 \begin{itemize}
- \item Speed of the library itself, minimising other influences
- \item Overal speed with writing the generated values
+ \item Speed of the library itself, minimizing other influences
+ \item Overall speed with writing the generated values
 \end{itemize}
-Althought during the development was measured both, here the first option is tested primary, because it provides better information about the Intel Secure Key, not so biased by output routines or by speed of a memory medium. 
+Although during the development was measured both, here the first option is tested primary, because it provides better information about the Intel Secure Key, not so biased by output routines or by speed of a memory medium. 
 }
 
 \par{
-A Bash script named {\tt perftest.sh} in the {\tt tests/} directory contains a battery of performance tests which are described later in subsections. The battery runs the specified set of tests ten times to get a median values, in cyclic way; between two runs of each test, all other tests were started. Within each test description, the used command called in the test is included. All other options that are not specified within such command were left with default values of the {\tt RdRand} executable\footnote{Only relevant options that has an impact on the performance are described.}:
+A Bash script named {\tt perftest.sh} in the {\tt tests/} directory contains a battery of performance tests, which are described later in subsections. The battery runs the specified set of tests ten times to get a median values, in cyclic way; between two runs of each test, all other tests were started. Within each test description, the used command called in the test is included. All other options that are not specified within such command were left with default values of the {\tt RdRand} executable\footnote{Only relevant options that has an impact on the performance are described.}:
 }
 
 \begin{itemize}
  \item {\tt --numbers, -n}: {\em printing of generated values is not enabled}
  \item {\tt --thread, -t}: {\em 2 threads used for generation}
- \item {\tt --duration, -d}: {\em 3 seconds} -- empiricaly measured that 3 seconds are the minimum duration when the result is not influenced by initialization overhead.
+ \item {\tt --duration, -d}: {\em 3 seconds} -- empirically measured that 3 seconds are the minimum duration when the result is not influenced by initialization overhead.
  \item {\tt --repetition, -r}: {\em 2 times repeat the test, print the average value} -- has reason only when testing all methods at once.
- \item {\tt --chunk-size, -c}: {\em size of the memory space filled in one call: 2048 of 64-bit values} -- empiricaly selected the minimum size which is not slowing the speed by overhead, that means bigger value has no performance effect.
+ \item {\tt --chunk-size, -c}: {\em size of the memory space filled in one call: 2048 of 64-bit values} -- empirically selected the minimum size which is not slowing the speed by overhead, that means bigger value has no performance effect.
 \end{itemize}
 
 \par{
-But usually, the duration was set to 5 seconds to be more sure that the measured speed is not influenced by startup overhead. Repetition was disabled (set to 1) as only one method is tested at a time and all the tests are started repeatedly. Amount of threads was depending on the specific test as well as the size of the chunk and generated values weren't printed at all.
+But usually, the duration was set to 5 seconds to be surer that the measured speed is not influenced by startup overhead. Repetition was disabled (set to 1) as only one method is tested at a time and all the tests are started repeatedly. Amount of threads was depending on the specific test as well as the size of the chunk and generated values weren't printed at all.
 }
 
 \par{
@@ -142,7 +142,7 @@ The \lstref{lst:testing:generator_speed} shows how the speed was measured on the
 ./rdrand-gen -t THREADS -n AMOUNT | pv -c >/dev/null
 \end{lstlisting}
 
-\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Usage of the testing appliaction}
+\begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Usage of the testing application}
 ,label={lst:testing:test_speed}]
 ./RdRand -m METHOD -r1 -d5 [OTHER OPTIONS]
 \end{lstlisting}
@@ -176,7 +176,7 @@ To be able to evaluate results of tests, it is necessary to know the spread of s
 \end{lstlisting}
 
 \par{
-Each version of RHEL has a different histogram and statistical properties, caused by differences in used scheduler settings, system libraries, and compiler and kernel version. The differences weren't deeply investigated, because important was the performance on an unmodified system, not on system optimalized for best speed of this library. 
+Each version of RHEL has a different histogram and statistical properties, caused by differences in used scheduler settings, system libraries, and compiler and kernel version. The differences weren't deeply investigated, because important was the performance on an unmodified system, not on system optimised for best speed of this library. 
 }
 % --------------------
 % RHEL 5 statistics
@@ -303,7 +303,7 @@ This test shows how the output speed changes in dependency of count of used thre
 \end{lstlisting}
 
 \par{
-On the \fullref{fig:testing:threadsScalability} can be seen that the average performance per one thread is about 170 MiB/s up to four threads. Then, on about 730 MiB/s is the performance peak, where it is not possible to get higher speed anymore by adding more threads. Because the performance gets stable now (do not drop), this stabilisation cannot be caused by scheduler (as the scheduler cause the drop down later in the graph). Thus this has to be the performance limit of the Intel Secure Key. 
+On the \fullref{fig:testing:threadsScalability} can be seen that the average performance per one thread is about 170 MiB/s up to four threads. Then, on about 730 MiB/s is the performance peak, where it is not possible to get higher speed anymore by adding more threads. Because the performance gets stable now (does not drop), this stabilisation cannot be caused by scheduler (as the scheduler cause the drop down later in the graph). Thus this has to be the performance limit of the Intel Secure Key. 
 }
 
 \par{
@@ -363,7 +363,7 @@ During the first stages of development we thought that the multiple variants of 
 \end{figure}
 
 \par{
-The differences between 64-bit RHELs are much smaller, yet the RHEL 7 has worse performance when not on a peak. Furthermore, the peak speed is the same, but is reached with one thread more, so it seems that on RHEL 7, the system is interrupting the threads more frequently. It can be also by worse optimalization, but this seems to be less probable, because for a single thread, the speed is the same for all three versions.
+The differences between 64-bit RHELs are much smaller, yet the RHEL 7 has worse performance when not on a peak. Furthermore, the peak speed is the same, but is reached with one thread more, so it seems that on RHEL 7, the system is interrupting the threads more frequently. It can be also by worse optimization, but this seems to be less probable, because for a single thread, the speed is the same for all three versions.
 }
 
 \par{
@@ -374,7 +374,7 @@ Another interesting point is what happens with RHEL 6 after amount of threads re
 In an effort to find reason of this difference on RHEL, these tests were done (each of them was independent and not affecting the others):
 \begin{itemize}
 \item Scheduler settings of RHEL6 were changed through {\tt sysctl} to have the same configuration as on RHEL7.
-\item A current versions of GCC and OpenMP\footnote{GCC 4.8.2 
+\item Current versions of GCC and OpenMP\footnote{GCC 4.8.2 
 with other requested libraries was installed alongside of the distribution's 4.4.7 
 into a custom directory. {\tt Makefile} was edited respectively.} %footnote
 libraries were manually installed.
@@ -392,12 +392,12 @@ Running the application as multiple processes with a single thread, on the other
   \centering
  \includegraphics[width=15cm]{fig/tests/r6_parallel.eps} % Or .pdf
 %\includegraphics[width=10cm,keepaspectratio]{fig/ISK-scheme}
-\caption{The speed of a single thread runs of RdRand test in dependency of amount of parallel runs. Per-process and total speeds are showed.}
+\caption{The speed of single thread runs of RdRand test in dependency of amount of parallel runs. Per-process and total speeds are showed.}
 \label{fig:testing:r6parallel}
 \end{figure}
 
 \par{
-Because changing of the GCC and OpenMP library version did not changed the behaviour, nor the scheduler options, it seems that the cause is rather in kernel code itself. According of Jiří Hladký, RHEL 6 has also confirmed similar behaviour for other applications that uses more threads: it seems that the threads are not running concurrently, but sequentially.
+Because changing of the GCC and OpenMP library version did not change the behavior, nor the scheduler options, it seems that the cause is rather in kernel code itself. According of Jiří Hladký, RHEL 6 has also confirmed similar behavior for other applications that uses more threads: it seems that the threads are not running concurrently, but sequentially.
 }
 
 \par{
@@ -431,7 +431,7 @@ In this test, functions \function{rdrand_get_bytes_retry} and \function{rdrand_g
 
 
 \par{
-For a better visibility, the figure with measured values is splitted to two parts. The \figref{fig:testing:bytesArrayLow} shows the difference from 1 to 32 of 64-bit numbers (quadwords) and \figref{fig:testing:bytesArrayHi} shows the rest, from 64 to 8192 generated number.
+For a better visibility, the figure with measured values is split to two parts. The \figref{fig:testing:bytesArrayLow} shows the difference from 1 to 32 of 64-bit numbers (quadwords) and \figref{fig:testing:bytesArrayHi} shows the rest, from 64 to 8192 generated numbers.
 }
 
 
@@ -483,7 +483,7 @@ Because the secure methods, described in the section \ref{subsec:api:secure}~\na
 }
 
 \par{
-In tables in this section is shown that the delay method is the most slow.The common, fast method is about one thousand times faster than the skipping method; this is according expectations, because just one per thousand values is used. 
+In tables in this section is shown that the delay method is the slowest.The common, fast method is about one thousand times faster than the skipping method; this is according expectations, because just one per thousand values is used. 
 }
 
 \par{
@@ -532,7 +532,7 @@ The speed of the given by \function{rdrand_get_uint64_array_reseed_skip} should 
 }
 
 \par{
-Also note, that while the skipping speed on the Brickland machine is about one third of the Aladdin (see \fullref{subsec:testing:halfPerf} for more about this difference), the delay is roughly the same. This is because the skipping method speed depends on speed of RdRand per thread, while the delay method do not.
+Also note, that while the skipping speed on the Brickland machine is about one third of the Aladdin (see \fullref{subsec:testing:halfPerf} for more about this difference), the delay is roughly the same. This is because the skipping method speed depends on speed of RdRand per thread, while the delay method does not.
 }
 
 %..............................................................................
@@ -551,7 +551,7 @@ and the measurements ran confirm that after 5 threads,
 the RdRand throughput maxes out at 375 MiB/s.
 \end{quote}
 Unfortunately, this is not telling us anything useful and just it raises more 
-questions about security of this solution, whether the the optimizations can affect not just the speed.
+questions about security of this solution, whether the optimizations can affect not just the speed.
 }
 
 %..............................................................................

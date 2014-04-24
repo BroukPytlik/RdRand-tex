@@ -7,7 +7,7 @@ and thus they are unable to~generate true random numbers by using abilities
 of~a~Turing machine. 
 But random numbers are crucial in cryptography and once computers began 
 to be used in this domain, people tried combine these two conflicting requests 
--- to~allow a~deterministic machine to act stochasticaly. 
+-- to~allow a~deterministic machine to act stochastically. 
 }
 
 \par{
@@ -17,7 +17,7 @@ compute pseudo random numbers, that seems to be random,
 but when using the~same initial state and algorithm, we get the~same 
 numbers again. Or we can add some source of~entropy to the~system, 
 a~device that is physically stochastic and measure the stochastic process 
-(thermal noise, radioactive decay, etc).
+(thermal noise, radioactive decay, etc.).
 }
 
 \par{
@@ -25,9 +25,9 @@ The second approach can provide real random numbers, but it requires online
 testing for case of hardware failure and also, finding of an~entropy source with
 a~good speed, an~uniform distribution (without a bias) and with a~reliable price,
 size, energy consumption and other parameters is difficult. Because of this, 
-a lower quality HW generator is connected with an device that tests the bias 
+a lower quality HW generator is connected with a device that tests the bias 
 and selects only some bits and then the~generated random values are used 
-as a~seed for a~crypthographicaly secure pseudo-random generator, 
+as a~seed for a~cryptographically secure pseudo-random generator, 
 which can lead to great speed enhancement without loosing much 
 of~the~randomness.
 }
@@ -35,20 +35,20 @@ of~the~randomness.
 \par{
 The problematic of~quality of~the~entropy for a~specific purpose is wide 
 and this work is not intended to cover it to great length, but still this area 
-has to be shortly mentioned. Clearly, different requests has an developer 
+has to be shortly mentioned. Clearly, different requests have a developer 
 of~a~video game, a~researcher performing a~simulation and an~army 
 for encrypting their information. 
-The researcher needs numbers that seems to be random, but aren't 
+The researcher needs numbers that seem to be random but aren't 
 -- he or she needs to be able to repeat the~simulation with the~same initial state 
 to get the~same result\footnote{In some cases of~computing, 
 researchers are even keeping the~same machines, as a~different machine 
-would provide a~different results due to inner number representation and architectural differences.\cite{ArithmeticInCloud}}.
+would provide a~different results due to inner number representation and architectural differences.~\cite{ArithmeticInCloud}}.
 }
 
 \par{
-The video game developer can also need the~repeatibility (e.g. for generating 
+The video game developer can also need the~repeatability (e.g. for generating 
 a~terrain), but in another case, like decisions of~a~artificial intelligence, 
-the~repeatibility may not be requested and in case of~gambling highly unwanted. 
+the~repeatability may not be requested and in case of~gambling highly unwanted. 
 And the~army needs the~random numbers generator to be completely stochastic 
 to prevent an enemy to decipher their messages. Another example, where random 
 numbers are used, is the {\em Monte Carlo} method of solving definite integrals. 
@@ -65,7 +65,7 @@ providing enough entropy for usual needs of~ordinary people and also for most
 of~cryptographic needs ({\em Cryptographically Secure Random Number 
 Generators - CSPRNG}), but still it needs to be seeded by data with at least 
 some entropy from the~beginning. And as more and more of~our daily life 
-depends on computers, the~importance of~keeping our data secured have 
+depend on computers, the~importance of~keeping our data secured have 
 raised up. 
 }
 
@@ -93,15 +93,15 @@ without such solution - in x86 world there is another big player,
 AMD, who did not yet implemented this instruction and also many 
 of~different architectures, like ARM, in mobile devices. 
 So the~programmers cannot count on the~presence of~a~HW RNG 
-on a~casual computers yet. 
+on casual computers yet. 
 }
 
 \par{
 Furthermore, the~Intel's RdRand instruction is still mostly unknown 
 and there are also a~questions about reliability of~this generator, 
-which is sealed into the~chip and unable to be audited\cite{TheodoreTsoNSA} 
+which is sealed into the~chip and unable to be audited~\cite{TheodoreTsoNSA} 
 if it is really manufactured according of~published 
-scheme\cite{AnalysisOfDRNG} or if there is a~backdoor. 
+scheme~\cite{AnalysisOfDRNG} or if there is a~backdoor. 
 }
 
 \par{
@@ -110,7 +110,7 @@ there could be possibly backdoors also in any other part of~the~CPU, opening
 possibilities for many others attacks which could achieve {\em the~same} result. 
 But hiding a backdoor to RdRand could be done more easily than to, 
 for example, a HW acceleration for AES encrypting, so I agree with Linus 
-Torvalds that RdRand alone is great if we do not need crypthographicaly secure 
+Torvalds that RdRand alone is great if we do not need cryptographically secure 
 numbers, but for cryptographic usage, it is better to use it just as one of more 
 sources of entropy and seed some CSPRNG by it.
 }
