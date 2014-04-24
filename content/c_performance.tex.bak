@@ -2,7 +2,7 @@
 \chapter{Performance testing} \label{chap:performance}
 In RedHat I had access to~machines on which I could test the~library. 
 
-\TODO{measure also times for getting one number, one~KiB... Don't forget to~include any referenced test!} % TODO performance tests!
+\TODO{measure also times for getting one number, one KiB... Don't forget to~include any referenced test!} % TODO performance tests!
 
 \section{Half performance on some machines}
 

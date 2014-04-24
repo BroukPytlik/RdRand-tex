@@ -120,7 +120,7 @@ than the~ideal 800~MiB/s) and~in such situation this delay may not be enough.}\\
 
 \section{RdRand Calling}
 \par{
-The~RdRand instruction is called in three functions: \function{rdrand16_step}, \function{rdrand32_step} \\and~\function{rdrand64_step}. In case that the~compiler compiling this library knows RdRand instruction and~{\tt x86intrin.h} header file is included, the~three named functions are just a~renaming of~{\tt \_rdrandXX\_step} functions. But if the~compiler does not know the~instruction (for example when the~version is too old), or the~header file is not installed on the~system, then the~functions directly call a~byte code.
+The~RdRand instruction is called in three functions: \function{rdrand16_step}, \function{rdrand32_step} and~\function{rdrand64_step}. In case that the~compiler compiling this library knows RdRand instruction and~{\tt x86intrin.h} header file is included, the~three named functions are just a~renaming of~{\tt \_rdrandXX\_step} functions. But if the~compiler does not know the~instruction (for example when the~version is too old), or the~header file is not installed on the~system, then the~functions directly call a~byte code.
 }
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=C, numbers=none, numberstyle=\tiny\color{black},caption= {Byte code called in {\tt rdrand64\_step}.}]
  asm volatile (".byte 0x48; .byte 0x0f; .byte 0xc7; .byte 0xf0; setc %1"

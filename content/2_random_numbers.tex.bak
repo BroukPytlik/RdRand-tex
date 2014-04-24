@@ -136,7 +136,7 @@ The~{\tt /dev/random} is producing more secure randomness and~if there
 is not enough entropy in the~entropy pool, then it can block the~reader, 
 until enough entropy is gathered. {\tt /dev/urandom} then never blocks its output
  and~produce less secure values, but is faster\footnote{Just for illustration, 
- the~speed of~{\tt /dev/random} on my machine is about 300-400~KiB/s, 
+ the~speed of~{\tt /dev/random} on my machine is about 300-400 KiB/s, 
  while {\tt /dev/urandom} is about 16~MiB/s}~\cite[chapter~1]{AnalysisOfLinuxRNG}. 
 }
 

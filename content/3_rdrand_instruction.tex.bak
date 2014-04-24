@@ -2,9 +2,9 @@
 \chapter{The~RdRand instruction}  \label{chap:rdrand-instruction}
 \par{
 First public information about RdRand came sometime during year 
-2011~\cite{IntelRdRandFindAbout}, a~year before the~CPUs with it were released
+2011\cite{IntelRdRandFindAbout}, a~year before the~CPUs with it were released
  and~Intel itself send patches to~add support into Linux in summer of~the~same 
- year~\cite{KernelRdRand}. Later, RdRand was added between Linux entropy 
+ year\cite{KernelRdRand}. Later, RdRand was added between Linux entropy 
  sources for {\tt /dev/[u]random}. According to~known 
  information~\cite{TheodoreTsoNSA}, Intel tried to~have {\tt /dev/[u]random} rely
   only on their instruction, but that was denied. 
@@ -12,7 +12,7 @@ First public information about RdRand came sometime during year
 
 \par{
 After disclosure of~extends of~NSA spying activities by~Edward Snowden 
-in summer of~2013~\cite{GuardianNSA,DailymailNSA}, a~petition for removing 
+in summer of~2013\cite{GuardianNSA,DailymailNSA}, a~petition for removing 
 RdRand from Linux entropy sources was created~\cite{PetitionRdRand}. 
 Although supported by~just 8 signatures, it got wide attention on 
 information-technology aimed news pages and~magazines, like Slashdot.org~\cite{PetitionRdRandSlashdot}. The~petition was closed after Linus Torvalds 
@@ -66,7 +66,7 @@ Pairs of~generated bits were digitally processed, using Von Neumann Corrector to
 The~Intel Secure Key (ISK) uses cascade construction, combining a~HW RNG
  with CSPRNG into one sealed block on CPU, which is compliant with many 
  security standards, including NIST SP800-90, FIPS-140-2, and~ANSI 
-X9.82~\cite{IntelDRNGGuide}. Although it is impossible to~audit it, there was found 
+X9.82\cite{IntelDRNGGuide}. Although it is impossible to~audit it, there was found 
  no evidence of~low entropy or anything that would deny the~security standards 
  compliance - neither with tests in \fullref{sec:testing:stat-testing}, nor any other 
  tests anyone else did\footnote{I assume that such revelation would become 
@@ -139,7 +139,7 @@ from the~rest of~the~RNG, about 3~GHz.
 \subsection{Conditioner}
 \par{
 The~entropy source provides random bits with some entropy, 
-but due to~implementation and the~feedback, it can be unbalanced 
+but due to~implementation and~the~feedback, it can be unbalanced 
 and~produce values in something close to~oscillating patterns. 
 For this reason, there is the~conditioner that adds them to~a~256 bit pool, 
 make a~set of~XOR and~AES operations over lower and~upper half of~the~pool 

@@ -73,7 +73,7 @@ From PractRand suite, just the~shipped {\tt RNG\_test} battery was used in the~m
 
 \subsection{TestU01}
 \par{
-Test01 is, in opposite of~PractRand, a~C library, without any shipped binaries usable for testing. Thus a~testing program {\tt TestU01\_raw\_stdin\_input\_with\_log} by~Jiří Hladký~\cite{CSPRNG} was used. This program can read values from standard input and~pass it to~the~test batteries, which can be selected. The~used commands are in \lstref{lst:testing:stat-testing:testu01-bigcrush} to~\lstref{lst:testing:stat-testing:testu01-alphabit-onebit}. On every machine, threads count for the~generator was set to~number of~PUs -1, leaving one PU for system and~the~test itself.
+Test01 is, in opposite of~PractRand, a~C library, without any shipped binaries usable for testing. Thus a~testing program {\tt TestU01\_raw\_stdin\_input\_with\_log} by~Jiří Hladký\cite{CSPRNG} was used. This program can read values from standard input and~pass it to~the~test batteries, which can be selected. The~used commands are in \lstref{lst:testing:stat-testing:testu01-bigcrush} to~\lstref{lst:testing:stat-testing:testu01-alphabit-onebit}. On every machine, threads count for the~generator was set to~number of~PUs -1, leaving one PU for system and~the~test itself.
 }
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {TestU01 BigCrush battery}
@@ -347,7 +347,7 @@ The~maximum speed of~about 730~MiB/s is equal to~$\frac{730 \times 2^{10} \times
 \end{tabular}
 
 \par{
-Performance was measured on 32 and~64 bits version of~RHEL 5 and~6, but not 7 as RHEL 7 has just 64 bits version~\cite{RHEL7Just64bits}. To~make the~figure \figref{fig:testing:difference} more readable, just RHEL 5 is included to~demonstrate the~difference between 32 and~64 bits of~the~same system. The~32 bits version is exactly according the~expectation from the~\fullref{sec:ISK-physical} almost exactly half.
+Performance was measured on 32 and~64 bits version of~RHEL 5 and~6, but not 7 as RHEL 7 has just 64 bits version\cite{RHEL7Just64bits}. To~make the~figure \figref{fig:testing:difference} more readable, just RHEL 5 is included to~demonstrate the~difference between 32 and~64 bits of~the~same system. The~32 bits version is exactly according the~expectation from the~\fullref{sec:ISK-physical} almost exactly half.
 }
 
 \par{

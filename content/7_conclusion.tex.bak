@@ -5,8 +5,7 @@ In this thesis I have described the~Intel Secure Key instruction RdRand and~the~
 }
 
 \par{
-Performance testing confirmed that the~maximum speed of~RdRand is close to~the~presented value 800~MiB/s, but it also found, that a~single thread can never achieve better speed than
-$800 / PUs$~MiB/s and~on IVT-EX (Intel Xeon, for example) the~production speed of~RdRand is just 400~MiB/s. Also, the~tests uncovered few performance issues on specific versions of~RHEL, namely performance drop on RHEL 6 when there is more reading threads in one application than PUs (\fullref{subsec:testing:differences}), and~a~very slow secure--generating method on RHEL 5 (\fullref{subsec:testing:fastVsSecure}).
+Performance testing confirmed that the~maximum speed of~RdRand is close to~the~presented value 800~MiB/s, but it also found, that a~single thread can never achieve more than $800 / PUs$~MiB/s and~on IVT-EX (Intel Xeon, for example) the~production speed of~RdRand is just 400~MiB/s. Also, the~tests uncovered few performance issues on specific versions of~RHEL, namely performance drop on RHEL 6 when there is more reading threads in one application than PUs (\fullref{subsec:testing:differences}), and~a~very slow secure--generating method on RHEL 5 (\fullref{subsec:testing:fastVsSecure}).
 }
 
 \par{

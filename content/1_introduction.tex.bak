@@ -70,7 +70,7 @@ raised up.
 }
 
 \par{
-In 2012~\cite{IntelRdRandFindAbout} Intel added a~Digital Random Number 
+In 2012\cite{IntelRdRandFindAbout} Intel added a~Digital Random Number 
 Generator (DRNG) on their chips in Ivy Bridge generation
 and~allowed programmers to~use it as part 
 of~instruction set of~that CPUs. Intel named the~instruction RdRand and~its own 
