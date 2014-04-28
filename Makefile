@@ -9,8 +9,12 @@ all: $(CO).pdf
 
 pdf: $(CO).pdf
 
+html: rdrand.dvi
+	tex4ht rdrand.dvi
+
 $(CO).ps: $(CO).dvi
 	dvips $(CO)
+
 
 $(CO).pdf: clean
 	pdflatex $(CO)
@@ -19,7 +23,8 @@ $(CO).pdf: clean
 	pdflatex $(CO)
 	pdflatex $(CO)
 
-$(CO).dvi: $(CO).tex $(CO).bib
+$(CO).dvi: $(CO).tex 
+	#$(CO).bib
 	latex $(CO)
 	bibtex $(CO)
 	latex $(CO)

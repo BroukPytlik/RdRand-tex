@@ -2,13 +2,13 @@
 \chapter{Random Numbers and~Deterministic Machines}\label{chap:randomNumbers}
 \par{
 The~term {\em Entropy} is usually used  as the~{\em measure of~disorder 
-and~uncertainty of~a~system}.~\cite{Entrophy}. Claude E. Shannon defined it 
+and~uncertainty of~a~system}~\cite{Entrophy}. Claude E. Shannon defined it 
 for information theory as the~average of~uncertainty (unpredictability) 
 of~an information source~\cite[p.~396]{AMathematicalTheoryOfCommunication}. 
 The~important properties of~an information source with high entropy 
 are~\cite[p.~150]{CryptographyAndNetworkSecurity}: 
 \begin{description}
- \item [Uniform distribution:] Probability of~each value should be the~same, 
+ \item [Uniform distribution:] Probability of~each value should be the~same; 
  no values should be generated with higher frequency of~occurrence than others.
  \item [Independence:] No one value can be inferred from the~others.
 \end{description}
@@ -16,7 +16,7 @@ are~\cite[p.~150]{CryptographyAndNetworkSecurity}:
 
 \par{
 In this report the~term {\em entropy} can also refer to~a~random value itself 
-from an information source. 
+from a~information source. 
 }
 
 \par{
@@ -41,7 +41,7 @@ is the~{\em linear congruential random number generator} (LCRNG) defined as
 \end{equation}
 where $X_n$ is the~$n$th number of~the~sequence ($X_{n-1}$ respectively 
 the~previous). $a$, $b$ and~$m$ are constants and~the~selected values 
-has big impact on quality of~the~output. $X_0$ is a~seed. 
+have big impact on quality of~the~output. $X_0$ is a~seed. 
 }
 
 \par{
@@ -49,7 +49,7 @@ The~LCRNGs are still useful because of~their speed and~easy implementation
 in various noncryptographic situations, when their disadvantages 
 (most importantly their predictability~\cite[p.~152, 153]
 {CryptographyAndNetworkSecurity}) 
-are not important.~\cite[chapter~16.1]{AppliedCryptography}
+are not important~\cite[chapter~16.1]{AppliedCryptography}.
 }
 
 \par{
@@ -158,7 +158,7 @@ mixing~\cite[section~2.6]{AnalysisOfLinuxRNG}.}~\cite[chapter~2]{AnalysisOfLinux
 to~the~primary pool. Entropy is extracted (E) from the~secondary or urandom 
 pool. Whenever entropy is extracted from a~pool, some of~it is also fed back 
 into this pool (broken line). The~secondary pool and~the~urandom pool draw 
-entropy from the~primary pool.~\cite{AnalysisOfLinuxRNG}}
+entropy from the~primary pool~\cite{AnalysisOfLinuxRNG}.}
 \label{fig:LRNG}
 \end{figure}
 

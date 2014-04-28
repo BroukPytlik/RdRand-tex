@@ -5,7 +5,7 @@ According the~needs of~Red Hat I created a~library providing basic interface ove
 }
 
 \par{
-When drafting the~library interface, I have at first surveyed the~library example from Intel,~\cite{IntelDRNGGuide} as well as OpenSSL API.~\cite{OpenSSLAPI} The~first draft included functions described in API in~\ref{subsec:api:simple-wrappers}~(simple wrappers) and~\ref{subsec:api:single-number}~(single numbers) and~one function for longer sequences: \\\function{rdrand_get_bytes_retry}. 
+When drafting the~library interface, I have at first surveyed the~library example from Intel~\cite{IntelDRNGGuide}, as well as OpenSSL API~\cite{OpenSSLAPI}. The~first draft included functions described in API in~\ref{subsec:api:simple-wrappers}~(simple wrappers) and~\ref{subsec:api:single-number}~(single numbers) and~one function for longer sequences: \\\function{rdrand_get_bytes_retry}. 
 }
 
 \par{
@@ -34,7 +34,7 @@ The~library, if installed into the~system, can be included by~using {\tt \#inclu
 \begin{description}
   \item[RDRAND\_SUCCESS] Returned by~function if a~random number(s) was generated correctly.
   \item[RDRAND\_FAILURE] Returned by~function if a~random number(s) was NOT generated correctly.
-  \item[RDRAND\_SUPPORTED] Returned by~\function{rdrand_testSupport} function if the~CPU support RdRand.
+  \item[RDRAND\_SUPPORTED] Returned by~\function{rdrand_testSupport} function if the~CPU supports RdRand.
   \item[RDRAND\_UNSUPPORTED] Returned by~\function{rdrand_testSupport} function if the~CPU doesn't know RdRand.
   
 \end{description}
@@ -145,7 +145,7 @@ The~function computes offset of~the~first 64-bit aligned block within the~given 
 
 \section{Support Testing}
 \par{
-Because the~RdRand instruction is not on all machines, it is necessary to~provide an easy tool to~check it. This is done by~function \function{rdrand_testSupport}. This function gets information about a~CPU through {\tt cpuid} assembly language instruction and~test a~vendor string of~the~CPU. If the~string is ``GenuineIntel'', the~CPU vendor is Intel\footnote{Currently the~only vendor providing this instruction. See \fullref{chap:rdrand-instruction}} and~it is possible to~test feature bits of~the~CPU for RdRand flag. Without the~vendor check, it would be possible that some other vendor has another feature flag on the~same bit as Intel has RdRand.
+Because the~RdRand instruction is not on all machines, it is necessary to~provide an easy tool to~check it. This is done by~function \function{rdrand_testSupport}. This function gets information about a~CPU through {\tt cpuid} assembly language instruction and~tests a~vendor string of~the~CPU. If the~string is ``GenuineIntel'', the~CPU vendor is Intel\footnote{Currently the~only vendor providing this instruction. See \fullref{chap:rdrand-instruction}} and~it is possible to~test feature bits of~the~CPU for RdRand flag. Without the~vendor check, it would be possible that some other vendor has another feature flag on the~same bit as Intel has RdRand.
 }
 
 \section{Development and~Testing Options}

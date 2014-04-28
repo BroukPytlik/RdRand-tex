@@ -34,13 +34,14 @@
 \usepackage{syntonly}
 %\syntaxonly
 
-
 % =======================================================================
 % balíček "hyperref" vytváří klikací odkazy v pdf, pokud tedy použijeme pdflatex
 % problém je, že balíček hyperref musí být uveden jako poslední, takže nemůže
 % být v šabloně
 
 \ifx\pdfoutput\undefined % nejedeme pod pdflatexem
+	\usepackage[dvips]{color, graphicx}
+	\usepackage[tex4ht]{hyperref}
 \else
   \ifNotPrint
     \usepackage{color}
@@ -97,9 +98,9 @@
   Druhá kapitola pojednává o možnostech generování náhodných čísel na deterministických strojích a popisuje princip generátoru náhodných čísel v Linuxovém jádře.
   Kapitola tři rozebírá funkčnost samotné instrukce RdRand a zmiňuje i potenciální rizika. Čtvrtá a pátá kapitola je věnována popisu a vysvětlení kódu, který je praktickým výstupem této práce a který je otestován jak po statistické, tak pro výkonnostní stránce v kapitole 6.},
   % abstrakt v anglickem jazyce
-  abstract.en={This thesis describe implementation and testing of a Linux 
-  library, created for providing an abstraction layer between an user and 
-  the Intel's RdRand instruction (Ivy Bridge RNG). The instruction itself is briefly described
+  abstract.en={This thesis describes implementation and testing of a~Linux 
+  library, created for providing an~abstraction layer between a~user and 
+  the~Intel's RdRand instruction (Ivy Bridge RNG). The~instruction itself is briefly described
   here, as well as basics of random number generation.}, 
   %Prohlaseni
   declaration={Hereby I declare that I wrote this work on my own and all used sources are stated and correctly noted as citations.},

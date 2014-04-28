@@ -67,7 +67,8 @@
 \usepackage[utf8]{inputenc} % enconding
 
 \ifx\pdfoutput\undefined  % nejedeme pod pdftexem
-  \usepackage{graphics}
+  %\usepackage{graphics}
+  \usepackage[dvips]{graphicx}
   \usepackage{epsfig}
 \else % je to pdftex !
   \usepackage[pdftex]{graphicx}

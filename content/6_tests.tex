@@ -35,7 +35,7 @@ For these tests, multiple operating systems were used.
 }
 
 \par{
-All tests were done on all listed systems\footnote{For raw data see \fullref{chap:attachments}}. The~operating system was installed clean on every machine for these tests. No additional than default services were run and~no other work was done with the~machine during the~tests.
+All tests were done on all listed systems\footnote{For raw data see \fullref{chap:attachments}}. Fresh instalation of the~operating system was made on every machine for these tests. No additional than default services were running and~no other work was done with the~machine during the~tests.
 }
 
 
@@ -62,7 +62,7 @@ Because it is important to~be sure that generated values are truly random, two t
 
 \subsection{PractRand}
 \par{
-From PractRand suite, just the~shipped {\tt RNG\_test} battery was used in the~manner of~\lstref{lst:testing:stat-testing:practrand}. About 32 TB of~randomness was tested for a~single run of~PractRand battery.
+From PractRand suite, just the~shipped {\tt RNG\_test} battery was used in the~manner of~\lstref{lst:testing:stat-testing:practrand}. About 16 TB of~randomness was tested for a~single run of~PractRand battery.
 }
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {PractRand test battery usage}
@@ -103,16 +103,16 @@ The~TestU01 batteries tested on each run about 20 terabytes of~randomness at sum
 
 \subsection{Conclusion}
 \par{
-The~statistical tests passed successfully with tens of~TB of~generated data. This can't provide reliable information whether the~RdRand has a~backdoor or some side-channel security hole (see \fullref{sec:security} for more details), but it shows that the~generated values have good statistical properties.
+The~statistical tests passed successfully with tens of~TB of~generated data. This can't provide reliable information whether the~RdRand has a~backdoor or some side-channel security hole (see \fullref{sec:security} for more details), but it shows that the~generated values have good statistical properties and cannot by distinguished from real random numbers.
 }
 
 %------------------------------------------------------------------------------
 \section{Performance Testing} \label{sec:testing:performance-testing}
 \par{
-Because the~performance of~the~RNG is important, we had to~measure the~performance. There are generally two options of~how the~performance can be measured:
+Because the~performance of~the~RNG is important, we had to~measure it. There are generally two options of~how the~performance can be measured:
 \begin{itemize}
  \item Speed of~the~library itself, minimizing other influences
- \item Overall speed with writing the~generated values
+ \item Speed of~the~application using the library, including printing the generated values on stdout
 \end{itemize}
 Although during the~development was measured both, here the~first option is tested primary, because it provides better information about the~Intel Secure Key, not so biased by~output routines or by~speed of~a~memory medium. 
 }
@@ -176,8 +176,9 @@ To~be able to~evaluate results of~tests, it is necessary to~know the~spread of~s
 \end{lstlisting}
 
 \par{
-Each version of~RHEL has a~different histogram and~statistical properties, caused by~differences in used scheduler settings, system libraries, and~compiler and~kernel version. The~differences weren't deeply investigated, because important was the~performance on an unmodified system, not on system optimised for best speed of~this library. 
+Each version of~RHEL has a~different histogram and~statistical properties, caused by~differences in used scheduler settings, system libraries, and~compiler and~kernel version. The~differences weren't deeply investigated, because important was the~performance on an unmodified system, not on a system optimized for best speed of~this library.
 }
+
 % --------------------
 % RHEL 5 statistics
 \begin{figure}[h!]
@@ -241,7 +242,7 @@ Results of~RHEL 5 has the~smallest standard deviation (about 1.7 \%), but also t
 \end{table}
 
 \par{
-The~measured speeds are mostly about 215~MiB/s, but quite large amount is gathered on 205~MiB/s mark. RHEL 6 the~best performance results on a~single thread, but as can be seen in \fullref{subsec:testing:differences}, the~performance has absolutely different profile from other versions of~RHEL once it runs in more threads than the~machine has processing units.
+The~measured speeds are mostly about 215~MiB/s, but quite large amount is gathered on 205~MiB/s mark. RHEL 6 has the~best performance results on a~single thread, but as can be seen in \fullref{subsec:testing:differences}, the~performance has absolutely different profile from other versions of~RHEL once it runs in more threads than the~machine has processing units.
 }
 
 % --------------------
@@ -274,7 +275,7 @@ The~measured speeds are mostly about 215~MiB/s, but quite large amount is gather
 \end{table}
 
 \par{
-RHEL 7 has far the~worst standard deviation and~while on RHEL 5 and~6 there is one or two dominating speeds, in case of~RHEL 7 there are three values, pretty far away (about 180, 214 and~224~MiB/s). On this version of~RHEL, the~measured speed was the~highest, but also the~lowest.
+RHEL 7 has far the~worst standard deviation and~while on RHEL 5 and~6 there are one or two dominating speeds, in case of~RHEL 7 there are three values, pretty far away (about 180, 214 and~224~MiB/s). On this version of~RHEL, the~measured speed was the~highest, but also the~lowest.
 }
 %..............................................................................
 %\newpage
@@ -289,7 +290,7 @@ RHEL 7 has far the~worst standard deviation and~while on RHEL 5 and~6 there is o
 \end{tabular}
 
 \par{
-This test shows how the~output speed changes in dependency of~count of~used threads for both the~{\tt rdrand-gen} application shipped with the~library and~{\tt RdRand} performance testing application. 
+This test shows how the~output speed depends on count of~used threads for both the~{\tt rdrand-gen} application shipped with the~library and~{\tt RdRand} performance testing application. 
 }
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=Bash, numbers=none, numberstyle=\tiny\color{black},caption= {Test application command.}
@@ -303,11 +304,11 @@ This test shows how the~output speed changes in dependency of~count of~used thre
 \end{lstlisting}
 
 \par{
-On the~\fullref{fig:testing:threadsScalability} can be seen that the~average performance per one thread is about 170~MiB/s up to~four threads. Then, on about 730~MiB/s is the~performance peak, where it is not possible to~get higher speed anymore by~adding more threads. Because the~performance gets stable now (does not drop), this stabilisation cannot be caused by~scheduler (as the~scheduler cause the~drop down later in the~graph). Thus this has to~be the~performance limit of~the~Intel Secure Key. 
+On the~\fullref{fig:testing:threadsScalability} can be seen that the~average performance per one thread is about 170~MiB/s up to~four threads. Then, on about 730~MiB/s is the~performance peak, where it is not possible to~get higher speed anymore by~adding more threads. Because the~performance gets stable now (does not drop), this stabilization cannot be caused by~scheduler (as the~scheduler cause the~drop down later in the~graph). Thus this has to~be the~performance limit of~the~Intel Secure Key. 
 }
 
 \par{
-Because the~machine has 8 processing units, but the~speed of~ISK is reached on 4 threads, the~performance is constant from reaching the~peak to~8 threads. After that, the~operating system began to~interrupt the~threads to~allow all threads to~use the~CPU and~the~performance drops to~about 500~MiB/s. With more threads, the~PUs are better utilized and~the~performance again rise, but will not achieve the~previous value.
+Because the~machine has 8 processing units, but the~speed of~ISK is reached on 4 threads, the~performance is constant from reaching the~peak to~8 threads. After that, the~operating system began to~interrupt the~threads to~allow all threads to~use the~CPU and~the~performance drops to~about 500~MiB/s. With more threads, the~PUs are better utilized and~the~performance again rises, but will not achieve the~previous value.
 }
 
 \par{
@@ -322,7 +323,7 @@ Also the~difference between the~test application and~the~shipped generator is vi
 \end{figure}
 
 \par{
-For a~single thread, the~performance of~the~thread is above-average and~it seems to~be because the~system is giving more computing time to~the~thread in comparison when another thread is started.
+For a~single thread, the~performance of~the~thread is above average and~it seems to~be because the~system is giving more computing time to~the~thread in comparison when another thread is started.
 }
 
 \par{
@@ -347,7 +348,7 @@ The~maximum speed of~about 730~MiB/s is equal to~$\frac{730 \times 2^{10} \times
 \end{tabular}
 
 \par{
-Performance was measured on 32 and~64 bits version of~RHEL 5 and~6, but not 7 as RHEL 7 has just 64 bits version~\cite{RHEL7Just64bits}. To~make the~figure \figref{fig:testing:difference} more readable, just RHEL 5 is included to~demonstrate the~difference between 32 and~64 bits of~the~same system. The~32 bits version is exactly according the~expectation from the~\fullref{sec:ISK-physical} almost exactly half.
+Performance was measured on 32 and~64 bits version of~RHEL 5 and~6, but not 7 as RHEL 7 has just 64 bits version~\cite{RHEL7Just64bits}. To~make the~\figref{fig:testing:difference} more readable, just RHEL 5 is included to~demonstrate the~difference between 32 and~64 bits of~the~same system. The~32 bits version is exactly according the~expectation from the~\fullref{sec:ISK-physical} almost exactly half.
 }
 
 \par{
@@ -367,7 +368,7 @@ The~differences between 64-bit RHELs are much smaller, yet the~RHEL 7 has worse 
 }
 
 \par{
-Another interesting point is what happens with RHEL 6 after amount of~threads reaches the~limit of~PUs. At first is is still close to~other 64 bits systems, but after 10 threads, the~performance is decreasing to~almost half of~RHEL 5 and~7.
+Another interesting point is what happens with RHEL 6 after amount of~threads reaches the~limit of~PUs. At first is still close to~other 64 bits systems, but after 10 threads, the~performance is decreasing to~almost half of~RHEL 5 and~7.
 }
 
 \par{
@@ -401,7 +402,7 @@ Because changing of~the~GCC and~OpenMP library version did not change the~behavi
 }
 
 \par{
-This theory was verified by~running time measurement, using {\tt clock()} from {\tt time.h}. Results for 1--16 threads are in \fullref{attachment:times-of-threads-rhel6}. This test measured time for generating in a~single thread and~also total time. This found that up to~8 threads (the~breakpoint) is the~total time the~same as time of~each thread, continually growing. With 9 and~more thread, speed of~a~single thread fall down to~values similar to~4-5 threads, but the~total time goes up to~multiply times of~any of~the~thread. Besides, the~times of~the~threads become more fluctuating. This supports the~theory about sequential ordering of~threads by~kernel, when there is more threads than processing units.
+This theory was verified by~running time measurement, using {\tt clock()} from {\tt time.h}. Results for 1--16 threads are in \fullref{attachment:times-of-threads-rhel6}. This test measured time for generating in a~single thread and~also total time. This found that up to~8 threads (the~breakpoint) is the~total time the~same as time of~each thread, continually growing. With 9 and~more thread, speed of~a~single thread fall down to~values similar to~4-5 threads, but the~total time goes up to~multiply times of~any of~the~thread. Besides, the~times of~the~threads become more fluctuating. This supports the~theory about sequential ordering of~threads by~kernel, when there are more threads than processing units.
 }
 
 \par{
