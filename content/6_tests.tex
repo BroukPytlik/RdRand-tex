@@ -540,42 +540,47 @@ Also note, that while the~skipping speed on the~Brickland machine is about one t
 %\pagebreak
 \subsection{Half performance on some machines}\label{subsec:testing:halfPerf}
 
-\par{All tested machines with an Intel Xeon CPU (the~Brickland, for example) had just half performance of~expected values (and~in comparison with desktop/laptop processors).
+\par{All {\em tested} machines with an Intel Xeon CPU (the~Brickland, for example) had just half performance of~expected values (and~in comparison with desktop/laptop processors).
 }
 
 \par{
-We passed this to~Intel Premier program, yet the~only information we received is:
-\begin{quote}
+We passed this to~Intel Premier program, yet the~only information we received through private communication were:
+\begin{quote} % From mail forwarded by Rich.
 The~expectation need to~be set that RDRAND is slower on IVT-EX 
 because IVT is missing some optimizations that IVB has 
 and~the~measurements ran confirm that after 5 threads, 
 the~RdRand throughput maxes out at 375~MiB/s.
 \end{quote}
+And:
+\begin{quote} % From RedHat bugzilla (need login) https://bugzilla.redhat.com/show_bug.cgi?id=1026696
+This is not a bug in gcc or any other software.  It is a deliberate choice by the CPU designers.  Both Ivytown and Haswell have lower RDRAND bandwidth than Ivybridge.  Is there a customer case for having higher RDRAND bandwidth?  If so, it would be good to get that information in front of CPU architects so they can make the right tradeoffs for future CPUs.
+\end{quote}
 Unfortunately, this is not telling us anything useful and~just it raises more 
-questions about security of~this solution, whether the~optimizations can affect not just the~speed.
+questions about security of~this solution, whether the~optimizations can affect not just the~speed. The only thing we know for sure is that on newer CPUs the speed is deliberately slower.
 }
 
 %..............................................................................
 %\pagebreak
 \subsection{Underflow}
 \par{
-On \machine{dell-pr1700-02.lab.bos.redhat.com}, when acquiring values from RdRand in more than four threads (no matter whether this library was used, or some other program), the~RdRand wasn't able to~meets the~requirements and~calls of~the~instructions began to~fail. No such another case was found, so it seems to~be just a~flaw on the~specific silicon.
+On \machine{dell-pr1700-02.lab.bos.redhat.com}, when acquiring values from RdRand in more than four threads (no matter whether this library was used, or some other program), the~RdRand wasn't able to~meets the~requirements and~calls of~the~instructions began to~fail. No such another case was found, so it seems to~be just a~flaw on the~specific silicon. With regards to the fact that the CPU in this machine is a prototype, this flaw is understandable.
 }
 
 %------------------------------------------------------------------------------
 \section{Specifications of~Referenced Machines}
+Number of cores is sum of all CPUs on each machine.
 
-\machineDeclare{dell-pr1700-02.lab.bos.redhat.com}{Intel(R) Xeon(R) CPU E3-1285 v3 @ 3.60GHz}{4 GB}{Dell Precision T1700, 4 GB RAM. The~internal RNG was not able to~handle more than four parallel threads at November 2013.}
+\machineDeclare{dell-pr1700-02.lab.bos.redhat.com}{Prototype Intel(R) Xeon(R) CPU E3-1285 v3 @ 3.60GHz}{4 GB}{Dell Precision T1700, 4 GB RAM. The~internal RNG was not able to~handle more than four parallel threads at November 2013.}
 
 
-\machineDeclare{hp-aladdin-01.lab.bos.redhat.com}{Intel(R) Core (TM) i7-3920XM CPU @ 2.90GHz (1 NUMA node, 8 cores, HT\footnote{Hyper-Threading})}{4 GB}{HP elitebook 8770w, used for performance and~statistical tests.}
+\machineDeclare{hp-aladdin-01.lab.bos.redhat.com}{Intel(R) Core (TM) i7-3920XM CPU @ 2.90GHz (1 NUMA node, 4 cores, HT\footnote{Hyper-Threading})}{4 GB}{HP elitebook 8770w, used for performance and~statistical tests.}
 
-\machineDeclare{intel-brickland-01.lab.eng.rdu.redhat.com}{ Intel(R) Xeon(R) CPU E7-4890 v2 @ 2.80GHz (4 NUMA nodes, 60 cores, HT)}{128 GB}{Used for performance tests.}
+\machineDeclare{intel-brickland-01.lab.eng.rdu.redhat.com}{ 4x Intel(R) Xeon(R) CPU E7-4890 v2 @ 2.80GHz (4 NUMA nodes, 60 cores, HT)}{128 GB}{Used for performance tests.}
 
-\machineDeclare{intel-brickland-02.lab.eng.rdu.redhat.com}{ Intel(R) Xeon(R) CPU E7-4890 v2 @ 2.80GHz (4 NUMA nodes, 60 cores, HT)}{128 GB}{Used only for statistical tests.}
+\machineDeclare{intel-brickland-02.lab.eng.rdu.redhat.com}{ 4x Intel(R) Xeon(R) CPU E7-4890 v2 @ 2.80GHz (4 NUMA nodes, 60 cores, HT)}{128 GB}{Used only for statistical tests.}
 
-\machineDeclare{intel-canoepass-01.lab.eng.rdu.redhat.com}{ Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz (2 NUMA nodes, 24 cores, HT)}{32 GB}{Used only for statistical tests.}
+\machineDeclare{intel-canoepass-01.lab.eng.rdu.redhat.com}{ 2x Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz (2 NUMA nodes, 24 cores, HT)}{32 GB}{Used only for statistical tests.}
 
-\machineDeclare{intel-canoepass-02.lab.eng.rdu.redhat.com}{ Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz (2 NUMA nodes, 24 cores, HT)}{32 GB}{Used only for statistical tests.}
+\machineDeclare{intel-canoepass-02.lab.eng.rdu.redhat.com}{ 2x Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz (2 NUMA nodes, 24 cores, HT)}{32 GB}{Used only for statistical tests.}
 
 %=========================================================================

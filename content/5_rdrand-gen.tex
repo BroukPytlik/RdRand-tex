@@ -2,7 +2,7 @@
 
 \chapter{Rdrand-Gen} \label{chap:generator}
 \par{
-Because the~library is only for C~language, using it for example with shell scripts would be difficult. For this reason, a~simple executable application was also created, which is installed with the~library, and~which can be used for generating random values without the~need of~using C~language by~the~user.
+Because the~library is only for C~language, using it for example with shell scripts would be difficult. For this reason, a~simple application was also created, which is installed with the~library, and~which can be used for generating random values without the~need of~using C~language by~the~user.
 }
 
 \par{
@@ -19,7 +19,7 @@ The~{\tt --threads} can specify, how many threads the~generator will run in para
 
 \section{Underflow Recovery}
 \par{
-Although is stated in Intel's Software Developer Manual~\cite[chapter~7.3.17]{IntelSWManualVol1} that an exceeding of~the~speed of~the~internal generator is unlikely\footnote{In case of failure during self-tests, the RdRand call will always fail.}, and~although according to~{\em unverified} information (for example on StackOverflow~\cite{StackoverflowRDRANDCharacteristics}) it should not be possible in current generations (specifically on Ivy Bridge) of~Intel's CPU to~achieve it, we decided that the~application should be working with good performance even in case of~slower internal generator. The~importance of~this decision become even more obvious after finding that on \machine{dell-pr1700-02.lab.bos.redhat.com} the~CPU wasn't able to~handle more than four parallel threads reading from RdRand\footnote{Unfortunately, I cannot provide a~statistic probability of~such situation -- only one machine from all I have tried had this problem and~I wasn't able to~find that anyone other would experienced this too, which is, with regards of~the~currently low usage of~the~instruction, not surprising.}.
+Although is stated in Intel's Software Developer Manual~\cite[chapter~7.3.17]{IntelSWManualVol1} that an exceeding of~the~speed of~the~internal generator is unlikely, and~although according to~{\em unverified} information (for example on StackOverflow~\cite{StackoverflowRDRANDCharacteristics}) it should not be possible in current generations (specifically on Ivy Bridge) of~Intel's CPU to~achieve it, we decided that the~application should be working with good performance even in case of~slower internal generator. The~importance of~this decision become even more obvious after finding that on \machine{dell-pr1700-02.lab.bos.redhat.com} the~CPU wasn't able to~handle more than four parallel threads reading from RdRand\footnote{Unfortunately, I cannot provide a~statistic probability of~such situation -- only one machine from all I have tried had this problem and~I wasn't able to~find that anyone other would experienced this too, which is, with regards of~the~currently low usage of~the~instruction, not surprising.}.
 }
 
 \par{
