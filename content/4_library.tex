@@ -9,7 +9,7 @@ When drafting the~library interface, I have at first surveyed the~library exampl
 }
 
 \par{
-Also, I planned to~implement not only the~usual, fast method, but also some more secure, that would avoid of~relying on the~security of~the~CSPRNG (see \fullref{sec:ISK-physical} for more details), yet I wasn't sure about an interface for this functionality.
+Also, I planned to~implement not only the~usual, fast method, but also some more secure, that would avoid relying on the~security of~the~CSPRNG (see \fullref{sec:ISK-physical} for more details), yet I wasn't sure about an interface for this functionality.
 }
 
 \par{
@@ -17,7 +17,7 @@ This draft was discussed with Jiří Hladký. A~need for more functions for long
 }
 
 \par{
-Also, the~library could be used on machines with current hardware, but with legacy software where is not any support for RdRand in system libraries (for example RHEL 5). For this reason, dependency on system libraries of~specific versions was declined. This means that although Linux has a~{\tt X86\_FEATURE\_RDRAND} flag for testing whether the~RdRand is available and~function similar to~wrappers in \ref{subsec:api:simple-wrappers}, it wasn't used.
+Also, the~library could be used on machines with current hardware, but with legacy software with no support for RdRand in system libraries (for example RHEL 5). For this reason, dependency on system libraries of~specific versions was declined. This means that although Linux has a~{\tt X86\_FEATURE\_RDRAND} flag for testing whether the~RdRand is available and~function similar to~wrappers in \ref{subsec:api:simple-wrappers}, it wasn't used.
 }
 
 \par{
@@ -91,7 +91,7 @@ These functions also accept {\tt retry\_limit} as the~previous ones. Returns byt
 
 \subsubsection{Secure Generating}\label{subsec:api:secure}
 \par{
-As is documented in the~\fullref{chap:rdrand-instruction}, the~CPU is using an~pseudorandom generator in~connection with an~entropy source. If the~user want to~avoid of~the~risk of~taking two numbers from the~same pool, that were generated from the~same seed by~the~PRNG for some reason, it is possible to~use these functions, that~guarantee\footnote{Based on description of~Intel Secure Key in \fullref{subsec:DRBG}. Verification of~this claim is not possible due to~sealed implementation in the~CPU.} by~reseeding the~internal entropy pool, that each~64-bit generated value is independent on the~previous or the~next one. 
+As documented in the~\fullref{chap:rdrand-instruction}, the~CPU is using an~pseudorandom generator in~connection with an~entropy source. If the~user want to~avoid the~risk of~taking two numbers from the~same pool, that were generated from the~same seed by~the~PRNG for some reason, it is possible to~use these functions, that~guarantee\footnote{Based on description of~Intel Secure Key in \fullref{subsec:DRBG}. Verification of~this claim is not possible due to~sealed implementation in the~CPU.} by~reseeding the~internal entropy pool, that each~64-bit generated value is independent on the~previous or the~next one. 
 }
 
 \par{
@@ -128,7 +128,7 @@ The~RdRand instruction is called in three functions: \function{rdrand16_step}, \
 \end{lstlisting}
 
 \par{
-Byte code instead of~instruction in the~assembly language is used to~support compilers who do not know about RdRand instruction. A~specific example of~such can be {\em Red Hat Enterprise Linux 5}, whose {\tt gcc} compiler is from year 2008\footnote{According information provided by~{\tt gcc} itself on any machine with RHEL 5.}. 
+Byte code instead of~instruction in the~assembly language is used to~support compilers that do not know RdRand instruction. A~specific example of~such compiler can be {\em Red Hat Enterprise Linux 5}, whose {\tt gcc} compiler is from year 2008\footnote{According information provided by~{\tt gcc} itself on any machine with RHEL 5.}. 
 }
 
 \par{
@@ -136,7 +136,7 @@ If the~library is compiled for a~32-bit system, then the~\function{rdrand64_step
 }
 \section{Intelligent Generating}
 \par{
-Most of~the~functions of~the~library that generates an array fill the~array values one by~one, as it was passed to~the~function, just using larger data type if possible, having as little operations as possible. The~\function{rdrand_get_bytes_retry} is the~only one that is applying a~simple heuristic for achieving the~best possible speed even when passed memory area is not aligned to~64-bit blocks.
+Most functions of~the~library that generates an array fill the~array values one by~one, as it was passed to~the~function, just using larger data type if possible, having as little operations as possible. The~\function{rdrand_get_bytes_retry} is the~only one that is applying a~simple heuristic for achieving the~best possible speed even when passed memory area is not aligned to~64-bit blocks.
 }
 
 \par{
@@ -145,7 +145,7 @@ The~function computes offset of~the~first 64-bit aligned block within the~given 
 
 \section{Support Testing}
 \par{
-Because the~RdRand instruction is not on all machines, it is necessary to~provide an easy tool to~check it. This is done by~function \function{rdrand_testSupport}. This function gets information about a~CPU through {\tt cpuid} assembly language instruction and~tests a~vendor string of~the~CPU. If the~string is ``GenuineIntel'', the~CPU vendor is Intel\footnote{Currently the~only vendor providing this instruction. See \fullref{chap:rdrand-instruction}} and~it is possible to~test feature bits of~the~CPU for RdRand flag. Without the~vendor check, it would be possible that some other vendor has another feature flag on the~same bit as Intel has RdRand.
+Because the~RdRand instruction is not accessible on all machines, it is necessary to~provide an easy tool to~check it. This is done by~function \function{rdrand_testSupport}. This function gets information about a~CPU through {\tt cpuid} assembly language instruction and~tests a~vendor string of~the~CPU. If the~string is ``GenuineIntel'', the~CPU vendor is Intel\footnote{Currently the~only vendor providing this instruction. See \fullref{chap:rdrand-instruction}} and~it is possible to~test feature bits of~the~CPU for RdRand flag. Without the~vendor check, it would be possible that some other vendor has another feature flag on the~same bit as Intel has RdRand.
 }
 
 \section{Development and~Testing Options}

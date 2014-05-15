@@ -1,0 +1,8 @@
+sysctl -A  | grep "sched" | grep -v "domain"
+
+Differences between R6.5 and Fed20:
+kernel.sched_autogroup_enabled 0 -> 1
+kernel.sched_latency_ns 20000000 -> 18000000
+kernel.sched_min_granularity_ns 4000000 -> 2250000
+kernel.sched_wakeup_granularity_ns  4000000 -> 3000000
+

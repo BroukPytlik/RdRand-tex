@@ -60,6 +60,9 @@ Pairs of~generated bits were digitally processed, using Von Neumann Corrector to
     \label{fig:VonNeumannCorrector}
   \end{center}
 \end{table}
+
+\newpage
+
 % --------------------------------------------------------
 \section{Intel Secure Key}\label{sec:intel-secure-key}
 \par{
@@ -188,7 +191,7 @@ instruction is called, just zeros are returned and~carry flag is cleared~\cite{A
 % --------------------------------------------------------
 \section{Existing Usages} 
 \par{
-RdRand is already used in Linux kernel for the~both blocking and~non-blocking pools. For the~non-blocking pool({\tt /dev/urandom}), it is possible to~completely feed the~pool with RdRand~\cite{KernelRdRand}. For blocking pool ({\tt /dev/random}), the~RdRand is used as one from more entropy sources in {\tt drivers/char/random.c}.
+RdRand is already used in Linux kernel for both blocking and~non-blocking pools. For the~non-blocking pool({\tt /dev/urandom}), it is possible to~completely feed the~pool with RdRand~\cite{KernelRdRand}. For blocking pool ({\tt /dev/random}), the~RdRand is used as one of more entropy sources in {\tt drivers/char/random.c}.
 }
 
 \begin{lstlisting}[frame=none, basicstyle=\footnotesize\ttfamily, language=C, numbers=none, numberstyle=\tiny\color{black},caption= {Adding RdRand (and~any other platform-depending HW RNG) to~blocking pool with XOR, at line 1042 in {\tt drivers/char/random.c}~\cite{random.c}. }]
@@ -245,9 +248,9 @@ But recently, another possible attack vector was described by~international grou
 }
 
 \par{
-The~new category of~attack is not modifying the~circuits' layout 
+This~new category of~attack is not modifying the~circuits' layout 
 and~is undetectable by~the~optical inspections, because it affects the~functionality
- of~transistors instead changing the~layout. By~slight changes 
+ of~transistors instead of~changing the~layout. By~slight changes 
  in doping\footnote{Doping means adding specific impurities to~the~clear silicon 
  to~change its electric properties.}, the~modified gate can become static.
 }
@@ -256,8 +259,8 @@ and~is undetectable by~the~optical inspections, because it affects the~functiona
 While with a~correct RdRand an attacker has a~chance of~$ 1/2^{128}$ to~correctly guess 
 a~random number, the~described attack could increase the~chance to~
 $ 1/2^n$~\cite[Chap. 3.2, page 9]{DopantAttack}, but the~output of~such
- modified RdRand is still looking randomly. In the~work is achieved  
- $n = 32$, while it still pass NIST random number test suite.
+ modified RdRand is still looking randomly. In the~work $n = 32$ is achieved,
+while it still pass NIST random number test suite.
 }
 
 \par{

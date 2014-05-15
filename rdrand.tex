@@ -3,11 +3,11 @@
 % (c) 2008 Michal Bidlo
 % E-mail: bidlom AT fit vutbr cz
 %============================================================================
-% kodovaní: iso-8859-2 (zmena prikazem iconv, recode nebo cstocs)
+% kodovaní: utf8 (zmena prikazem iconv, recode nebo cstocs)
 %----------------------------------------------------------------------------
 % zpracování: make, make pdf, make desky, make clean
 % připomínky posílejte na e-mail: bidlom AT fit.vutbr.cz
-% vim: set syntax=tex encoding=latin2:
+% vim: set syntax=tex
 %============================================================================
 \documentclass[english]{jtulak} % odevzdani do wisu - odkazy, na ktere se da klikat
 %\documentclass[cover,print]{fitthesis} % pro tisk - na odkazy se neda klikat
@@ -85,23 +85,18 @@
   %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
   %===========================================================================
   %Klicova slova
-  keywords.cs={RdRand, Intel CPU, náhodná čísla}, %klicova slova v ceskem jazyce
-  keywords.en={RdRand, Intel CPU, random numbers}, %klicova slova v anglickem jazyce
+  keywords.cs={RdRand, Entropie, Ivy Bridge, IA-32, IA-64, náhodná čísla}, %klicova slova v ceskem jazyce
+  keywords.en={RdRand, Entropy, Ivy Bridge, IA-32, IA-64, random numbers}, %klicova slova v anglickem jazyce
   %Abstract
   % abstrakt v ceskem jazyce
   abstract.cs={Tato práce popisuje implementaci a testování Linuxové knihovny,
   vytvořené pro poskytnutí abstrakce mezi uživatelem a instrukcí RdRand 
-  od Intelu (Ivy Bridge RNG). Samotná instrukce je rovněž zběžně popsána, 
-  stejně jako základní problematika generování náhodných čísel.\\ \\
-  V první kapitole (Introduction) je stručné shrnutí historie a využití generování 
-  náhodných čísel a shrnutí důvodů, proč jsem si vybral toto téma. 
-  Druhá kapitola pojednává o možnostech generování náhodných čísel na deterministických strojích a popisuje princip generátoru náhodných čísel v Linuxovém jádře.
-  Kapitola tři rozebírá funkčnost samotné instrukce RdRand a zmiňuje i potenciální rizika. Čtvrtá a pátá kapitola je věnována popisu a vysvětlení kódu, který je praktickým výstupem této práce a který je otestován jak po statistické, tak pro výkonnostní stránce v kapitole 6.},
+  od Intelu (Ivy Bridge RNG). Samotná instrukce je rovněž zběžně popsána a jsou ověřeny některé její vlastnosti, jako kryptografická bezpečnost výstupních dat a reálná rychlost této instrukce.},
   % abstrakt v anglickem jazyce
   abstract.en={This thesis describes implementation and testing of a~Linux 
   library, created for providing an~abstraction layer between a~user and 
-  the~Intel's RdRand instruction (Ivy Bridge RNG). The~instruction itself is briefly described
-  here, as well as basics of random number generation.}, 
+  the~Intel's RdRand instruction (Ivy Bridge RNG). The~instruction itself is briefly described and some of its properties are tested
+  here, like cryptographic strength of its output and the real speed of the instruction.}, 
   %Prohlaseni
   declaration={Hereby I declare that I wrote this work on my own and all used sources are stated and correctly noted as citations.},
   %Podekovani (nepovinne)
@@ -130,7 +125,9 @@
 % my macro for function declaration
 \newcommand{\FunctionDeclareNE}[4]{%
   \noindent
-  \phantomsection
+  \ifdefined\hyperref
+    \phantomsection
+  \fi
   \label{fnt:#2}
   \textbf{{\em #1} {\tt #2} ( {\em #3} ) }-- {#4}
   \endgroup}
@@ -142,7 +139,11 @@
 
 % my macro for linking to a function declaration
 \newcommand{\functionNE}[1]{%
-  \hyperref[fnt:#1]{\tt #1}%
+  \ifdefined\hyperref
+    \hyperref[fnt:#1]{\tt #1}%
+  \else
+    {\tt #1}%
+  \fi
 \endgroup}
 % because underscore is a special character and has to be escaped
 % but escaped sequences must not be in \label
@@ -154,7 +155,9 @@
 % my macro for function declaration
 \newcommand{\MachineDeclareNE}[4]{%
   \noindent
-  \phantomsection
+  \ifdefined\hyperref
+    \phantomsection
+  \fi
   \label{machines:#1}
   \textbf{#1}\\
     CPU: {\it #2}\\
@@ -168,7 +171,11 @@
 \MachineDeclareNE}
 
 \newcommand{\machineNE}[1]{%
-  \hyperref[machines:#1]{\it #1}%
+  \ifdefined\hyperref
+    \hyperref[machines:#1]{\it #1}%
+  \else
+    {\it #1}%
+  \fi
 \endgroup}
 % because underscore is a special character and has to be escaped
 % but escaped sequences must not be in \label

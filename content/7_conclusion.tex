@@ -1,20 +1,20 @@
 %=========================================================================
 \chapter{Conclusion}
 \par{
-In this thesis I have described the~Intel Secure Key instruction RdRand and~the~library I made for its easier usage. Performed tests presented that the~real performance is not far from the~expected and~that the~produced values has a~good statistical properties and~can be considered at least as pseudorandom (\fullref{sec:testing:stat-testing}).
+In this thesis I have described the~Intel Secure Key instruction RdRand and~the~library I made for its easier usage. Performed tests presented that the~real performance is not far from the~expected one and~that the~produced values have a~good statistical properties and~can be considered at least as pseudorandom (\fullref{sec:testing:stat-testing}).
 }
 
 \par{
 Performance testing confirmed that the~maximum speed of~RdRand is close to~the~presented value 800~MiB/s, but it also found, that a~single thread can never achieve better speed than
-$800 / PUs$~MiB/s and on newer CPUs (Ivy Town, Haswell) the~production speed of~RdRand is just 400~MiB/s. Also, the~tests uncovered few performance issues on specific versions of~RHEL, namely performance drop on RHEL 6 when there is more reading threads in one application than PUs (\fullref{subsec:testing:differences}), and~a~very slow secure--generating method on RHEL 5 (\fullref{subsec:testing:fastVsSecure}).
+$800 / PUs$~MiB/s, because the current HW implementation is splitting the {\em maximum} performance, not the current load. On newer CPUs (Ivy Town, Haswell) the~production speed of~RdRand is just 400~MiB/s. Also, the~tests uncovered few performance issues on specific versions of~RHEL, namely performance drop on RHEL 6 when there is more reading threads in one application than PUs (\fullref{subsec:testing:differences}), and~a~very slow secure--generating method on RHEL 5 (\fullref{subsec:testing:fastVsSecure}).
 }
 
 \par{
-The~RdRand is a~good and~fast source of~entropy. Unfortunately, revelations about NSA and~other espionage agencies throw a~shadow over this technology. One of~the~possible ways to~eliminate a~possible compromising is encrypting the~generated values by~AES in counter mode. This option is going to~be implemented in future versions of~the~library, which is already under development.
+The~RdRand is a~good and~fast source of~entropy. Unfortunately, revelations about NSA and~other espionage agencies throw a~shadow over this technology. One of~possible ways to~eliminate a~possible compromising is encrypting the~generated values by~AES in counter mode. This option is going to~be implemented in future versions of~the~library, which is already under development.
 }
 
 \par{
-In current situation, there are some examples of~usage, when a~potential security risk is not harmful. The~speed allows use it for erasing hard drives with random values instead of~zeroes, when the~erasing is not slowed down by~the~RNG. Another example is ASLR or similar cases, when the~operating system has just a~little entropy collected from other sources soon after the~boot, like Windows~8 currently do~\cite{WindowsASLR}.
+In current situation, there are some examples of~usage, where a~potential security risk is not harmful: The~speed allows to use it for erasing hard drives with random values instead of~zeroes, when the~erasing is not slowed down by~the~RNG. Another example is ASLR or similar cases, when the~operating system has just a~little entropy collected from other sources soon after the~boot, like Windows~8 currently do~\cite{WindowsASLR}.
 }
 
 %========================================================================= 

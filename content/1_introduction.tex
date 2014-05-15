@@ -35,7 +35,7 @@ of~the~randomness.
 \par{
 The~problematic of~quality of~the~entropy for a~specific purpose is wide 
 and~this work is not intended to~cover it to~great length, but still this area 
-has to~be shortly mentioned. Clearly, different requests have a~developer 
+has to~be shortly mentioned. Clearly, different request have a~developer 
 of~a~video game, a~researcher performing a~simulation and~an~army 
 for encrypting their information. 
 The~researcher needs numbers that seem to~be random but aren't 
@@ -58,14 +58,14 @@ Each of~these cases has different requests for quality, speed and~price.
 \par{
 Due to~prices of~{\em Hardware Random Number Generators (HW RNG)} 
 and~because the~few cheap solutions never got widely used, 
-they were for long time domain of~just governments and~big corporations,
-leaving the~consumer electronic to~rely only on {\em Pseudo-Random Number 
+they were for long time domain of~governments and~big corporations only,
+leaving the~consumer electronic to~rely on {\em Pseudo-Random Number 
 Generators (PRNG)}. PRNG algorithms developed to~great success over time, 
-providing enough entropy for usual needs of~ordinary people and~also for most 
+providing enough entropy for what most people usually do and~also for most 
 of~cryptographic needs ({\em Cryptographically Secure Random Number 
 Generators - CSPRNG}), but still it needs to~be seeded by~data with at least 
 some entropy from the~beginning. And~as more and~more of~our daily life 
-depend on computers, the~importance of~keeping our data secured have 
+depend on computers, the~importance of~keeping our data secure have 
 raised up. 
 }
 
@@ -87,30 +87,30 @@ is about thousand times.
 }
 
 \par{
-This step brought HW RNGs to~general public, but the~limitation on only Intel 
-CPUs means that there is still big part of~the~information technology market 
+This step brought HW RNGs to~general public, but the~limitation on Intel 
+CPUs only means that there is still big part of~the~information technology market 
 without such solution - in x86 world there is another big player, 
-AMD, who did not yet implemented this instruction and~also many 
-of~different architectures, like ARM, in mobile devices. 
-So the~programmers cannot count on the~presence of~a~HW RNG 
+AMD, who did not implemented this instruction yet and~also many 
+different architectures, like ARM, in mobile devices. 
+So programmers cannot count on the~presence of~a~HW RNG 
 on casual computers yet. 
 }
 
 \par{
 Furthermore, the~Intel's RdRand instruction is still mostly unknown 
-and~there are also a~questions about reliability of~this generator, 
+and~there are also questions about reliability of~this generator, 
 which is sealed into the~chip and~unable to~be audited~\cite{TheodoreTsoNSA} 
 if it is really manufactured according of~published 
 scheme~\cite{AnalysisOfDRNG} or if there is a~backdoor. 
 }
 
 \par{
-There is important to~notice that if there could be a~backdoor in the~RNG, 
-there could be possibly backdoors also in any other part of~the~CPU, opening 
+It is important to~notice that if there could be a~backdoor in the~RNG, 
+there could be possibly backdoors also in any other parts of~the~CPU, opening 
 possibilities for many others attacks which could achieve {\em the~same} result. 
 But hiding a~backdoor to~RdRand could be done more easily than to, 
 for example, a~HW acceleration for AES encrypting, so I agree with Linus 
-Torvalds that RdRand alone is great if we do not need cryptographically secure 
+Torvalds~\cite{PetitionRdRand} that RdRand alone is great if we do not need cryptographically secure 
 numbers, but for cryptographic usage, it is better to~use it just as one of~more 
 sources of~entropy and~seed some CSPRNG by~it.
 }
@@ -125,11 +125,11 @@ During the~work, we have discovered unexpected issue with half performance
 on some CPU. This was handed to~Intel, yet without a~result. 
 }
 \par{
-Because now, in spring 2014, no other implementation of~RdRand than Intel's 
-one exists\footnote{Although AMD is working on their own implementation 
+In spring 2014, when this thesis was written, no other implementation of~RdRand than Intel's 
+one existed\footnote{Although AMD is working on their own implementation 
 for their future Excavator architecture~\cite{AMDRdRand}, probably named 
-RDRND.}
-the~term {\em RdRand} is used just as the~instruction implemented 
+RDRND.},
+so the~term {\em RdRand} is used just as the~instruction implemented 
 by~{\em Intel Secure Key} technology.
 }
 

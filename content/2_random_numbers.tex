@@ -10,7 +10,7 @@ are~\cite[p.~150]{CryptographyAndNetworkSecurity}:
 \begin{description}
  \item [Uniform distribution:] Probability of~each value should be the~same; 
  no values should be generated with higher frequency of~occurrence than others.
- \item [Independence:] No one value can be inferred from the~others.
+ \item [Independence:] No value can be inferred from the~others.
 \end{description}
 }
 
@@ -65,10 +65,10 @@ or network communication.
 We can say a~sequence generator is pseudorandom, if its output looks random, 
 even under statistical tests.
 }
-
+\newpage
 \subsection{Cryptographically Secure PRNG}
 \par{
-Encryption algorithms can be sometimes used as the~PRNG,
+Encryption algorithms can sometimes be used as the~PRNG,
  for example DES or AES. These provide a~very good 
  result~\cite[p.~153-156]{CryptographyAndNetworkSecurity}. 
  Using of~an encryption algorithm is planned as a~feature for the~future version 
@@ -76,7 +76,7 @@ Encryption algorithms can be sometimes used as the~PRNG,
 }
 
 \par{
-The~important property of~a~PRNG, that can be considered as cryptographically 
+The~important property of~a~PRNG, that can be considered cryptographically 
 secure, is {\em unpredictability}. That means that it is impossible under our 
 computational knowledge to~predict (forward or backward) any number, even if 
 we know the~used algorithm\footnote{This is the~reason, why LCRNGs are not 

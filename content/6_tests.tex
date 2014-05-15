@@ -1,10 +1,10 @@
 %=========================================================================
 \chapter{Testing} \label{chap:testing}
 \par{
-During the~development, we measured speed of~the~library and~after getting the~code on decent performance and~finishing the~main development work, we also used some statistical tests batteries. More information about them can be found in \fullref{sec:testing:stat-testing}.
+During the~development, we measured speed of~the~library and~after getting the~code on decent performance and~finishing the~main development work, we also used some statistical tests batteries. More information about these can be found in \fullref{sec:testing:stat-testing}.
 }
 \par{
-For these tests, multiple operating systems were used.
+For the~tests, multiple operating systems were used.
 \begin{table}[h!]
   \begin{center}
     \begin{tabular}{|l|c|c|c|}
@@ -109,12 +109,12 @@ The~statistical tests passed successfully with tens of~TB of~generated data. Thi
 %------------------------------------------------------------------------------
 \section{Performance Testing} \label{sec:testing:performance-testing}
 \par{
-Because the~performance of~the~RNG is important, we had to~measure it. There are generally two options of~how the~performance can be measured:
+Because the~performance of~the~RNG is important, we had to~measure it. There are generally two options how the~performance can be measured:
 \begin{itemize}
  \item Speed of~the~library itself, minimizing other influences
  \item Speed of~the~application using the library, including printing the generated values on stdout
 \end{itemize}
-Although during the~development was measured both, here the~first option is tested primary, because it provides better information about the~Intel Secure Key, not so biased by~output routines or by~speed of~a~memory medium. 
+Although during the~development both options were measured, here the~first option is tested primary, because it provides better information about the~Intel Secure Key, not so biased by~output routines or by~speed of~a~memory medium. 
 }
 
 \par{
@@ -125,12 +125,12 @@ A~Bash script named {\tt perftest.sh} in the~{\tt tests/} directory contains a~b
  \item {\tt --numbers, -n}: {\em printing of~generated values is not enabled}
  \item {\tt --thread, -t}: {\em 2 threads used for generation}
  \item {\tt --duration, -d}: {\em 3 seconds} -- empirically measured that 3 seconds are the~minimum duration when the~result is not influenced by~initialization overhead.
- \item {\tt --repetition, -r}: {\em 2 times repeat the~test, print the~average value} -- has reason only when testing all methods at once.
+ \item {\tt --repetition, -r}: {\em 2 times repeat the~test, print the~average value} -- important when testing all methods at once.
  \item {\tt --chunk-size, -c}: {\em size of~the~memory space filled in one call: 2048 of~64-bit values} -- empirically selected the~minimum size which is not slowing the~speed by~overhead, that means bigger value has no performance effect.
 \end{itemize}
 
 \par{
-But usually, the~duration was set to~5 seconds to~be surer that the~measured speed is not influenced by~startup overhead. Repetition was disabled (set to~1) as only one method is tested at a~time and~all the~tests are started repeatedly. Amount of~threads was depending on the~specific test as well as the~size of~the~chunk and~generated values weren't printed at all.
+But usually, the~duration was set to~5 seconds to~be sure that the~measured speed is not influenced by~startup overhead. Repetition was disabled (set to~1) as only one method is tested at a~time and~all the~tests are started repeatedly. Amount of~threads was depending on the~specific test as well as the~size of~the~chunk and~generated values weren't printed at all.
 }
 
 \par{
@@ -209,7 +209,7 @@ Each version of~RHEL has a~different histogram and~statistical properties, cause
 \end{table}
 
 \par{
-Results of~RHEL 5 has the~smallest standard deviation (about 1.7 \%), but also the~lowest median of~speed. As the~histogram shows, most of~runs had speed about 213~MiB/s or little less. Because the~speed differences are small, this operating system was selected as the~main, from which the~results are usually showed in other tests.
+Results of~RHEL 5 have the~smallest standard deviation (about 1.7 \%), but also the~lowest median of~speed. As the~histogram shows, most of~runs had speed about 213~MiB/s or little less. Because the~speed differences are small, this operating system was selected as the~main, from which the~results are usually showed in other tests.
 }
 
 % --------------------
@@ -348,7 +348,7 @@ The~maximum speed of~about 730~MiB/s is equal to~$\frac{730 \times 2^{10} \times
 \end{tabular}
 
 \par{
-Performance was measured on 32 and~64 bits version of~RHEL 5 and~6, but not 7 as RHEL 7 has just 64 bits version~\cite{RHEL7Just64bits}. To~make the~\figref{fig:testing:difference} more readable, just RHEL 5 is included to~demonstrate the~difference between 32 and~64 bits of~the~same system. The~32 bits version is exactly according the~expectation from the~\fullref{sec:ISK-physical} almost exactly half.
+Performance was measured on 32 and~64 bits version of~RHEL 5 and~6, but not 7 as RHEL 7 has just 64 bits version~\cite{RHEL7Just64bits}. To~make the~\figref{fig:testing:difference} more readable, just RHEL 5 is included to~demonstrate the~difference between 32 and~64 bits of~the~same system. The~32 bits version is according the~expectation from the~\fullref{sec:ISK-physical} almost exactly half.
 }
 
 \par{
@@ -488,7 +488,7 @@ In tables in this section is shown that the~delay method is the~slowest.The~comm
 }
 
 \par{
-Reason, why on RHEL 5 is the~delay method just 0.008~MiB/s, is unknown, but it seems probable, that it depends on how kernel sleeps and~wakes sleeping processes.
+The reason, why on RHEL 5 is the~delay method just 0.008~MiB/s, is unknown, but it seems probable, that it depends on how kernel sleeps and~wakes sleeping processes.
 }
 
 \begin{table}[h!]
