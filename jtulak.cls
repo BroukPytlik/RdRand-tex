@@ -253,10 +253,12 @@
 \def\@dep@CS{Ústav}
 \def\@dep@EN{Department of}
 \def\@abstract@CS{Abstrakt}
+\def\@abstractext@CS{Rozšířený abstrakt}
 \def\@abstract@EN{Abstract}
 \def\@keywords@CS{Klíčová slova}
 \def\@keywords@EN{Keywords}
-\def\@cite@CS{Citation}
+\def\@cite@CS{Citace}
+\def\@cite@EN{Citation}
 % \def\@copyright@CS{Tato práce vznikla jako školní dílo na Vysokém učení technickém v Brně, Fakultě informačních technologií. 
 % Práce je chráněna autorským zákonem a její užití bez udělení oprávnění autorem je nezákonné, s výjimkou zákonem definovaných případů.}
 \def\@copyright@CS{This thesis was created as a school publication on Brno University of Technology, Faculty of Information Technology.
@@ -339,6 +341,7 @@ This publication is protected by copyright and its usage without permission of i
 \define@key{projinfo}{keywords.cs}{\def\@tkeywords@CS{#1}}
 \define@key{projinfo}{keywords.en}{\def\@tkeywords@EN{#1}}
 \define@key{projinfo}{abstract.cs}{\def\@tabstract@CS{#1}}
+\define@key{projinfo}{abstractext.cs}{\def\@tabstractext@CS{#1}}
 \define@key{projinfo}{abstract.en}{\def\@tabstract@EN{#1}}
 \define@key{projinfo}{declaration}{\def\@declaration{#1}}
 \define@key{projinfo}{acknowledgment}{\def\@acknowledgment{#1}}
@@ -443,11 +446,32 @@ This publication is protected by copyright and its usage without permission of i
 
 \vfill
 
+\ifczech
+\mktxt@b{16}{\@cite@CS}
+\else
+\mktxt@b{16}{\@cite@EN}
+\fi
+\noindent\@author: \@title, \MakeLowercase{\@projecttype@CS}, Brno, FIT VUT v~Brně, \@year
+%===================================================
+\newpage
+}
+
+%-----------------------------------------------------------------------------
+%Rozšířený Abstrakt, \makeabstractext
+%-----------------------------------------------------------------------------
+\newcommand\makeabstractext{%
+\thispagestyle{empty}\null%
+
+\mktxt@b{16}{\@abstractext@CS}\noindent\@tabstractext@CS
+
+\vfill
+
 \mktxt@b{16}{\@cite@CS}
 \noindent\@author: \@title, \MakeLowercase{\@projecttype@CS}, Brno, FIT VUT v~Brně, \@year
 %===================================================
 \newpage
 }
+
 
 %-----------------------------------------------------------------------------
 %Prohlaseni, podekovani \makedeclaration
@@ -536,7 +560,11 @@ This publication is protected by copyright and its usage without permission of i
 
 \newpage\fontfamily{\familydefault}\selectfont%
 %=================================================================================
-\makeabstract\makedeclaration
+\makeabstract
+\ifczech\else
+\makeabstractext
+\fi % ifczech
+\makedeclaration
 \clearpage
 \setcounter{tocdepth}{2}\setcounter{page}{1}
 }
